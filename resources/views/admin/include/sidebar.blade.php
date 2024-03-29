@@ -5,14 +5,14 @@
 
                 <div class="text-wrapper">
                     <p class="profile-name">
-                        </< /p>
+</p>
 
                 </div>
             </a>
         </li>
         <li class="nav-item nav-category">Main Menu</li>
         <li class="nav-item">
-            <a class="nav-link" href="/dashboard">
+            <a class="nav-link" href="/admin-dashboard">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
@@ -40,6 +40,14 @@
                 <span class="menu-title">List Vehicles </span>
             </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.approvevehicle') }}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Approved Vehicles </span>
+            </a>
+        </li>
+
 
 
     </ul>

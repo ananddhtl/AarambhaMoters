@@ -13,16 +13,16 @@ class VehicleImagesController extends Controller
      * Display a listing of the resource.
      */
 
-    
-     public function index()
-     {
-         $list = VehicleImages::join('vehicles', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
-                              ->select('vehicle_images.*', 'vehicles.*')
-                              ->get();
-                              
-         return view('backend.uploadimage.list', compact('list'));
-     }
-     
+
+    public function index()
+    {
+        $list = VehicleImages::join('vehicles', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
+            ->select('vehicle_images.*', 'vehicles.*')
+            ->get();
+
+        return view('backend.uploadimage.list', compact('list'));
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -37,30 +37,20 @@ class VehicleImagesController extends Controller
      */
     public function store(Request $request)
     {
-    
-    
-    if ($request->hasFile('img')) {
-        $image = $request->file('img');
-        $imageName = time().'.'.$image->extension(); 
-        $image->move(public_path('vehicle/images'), $imageName); 
-        
 
-        $fullImagePath = 'vehicle/images/' . $imageName;
-    }
-    
-  
-    $vehicleImages = new VehicleImages();
-    $vehicleImages->vehicle_id = $request->vehicle_id;
-    
-
-    if (isset($fullImagePath)) {
-        $vehicleImages->vehicle_images = $fullImagePath; 
-    }
-    
-   
-    $vehicleImages->save();
-    
-    return redirect()->route('vehicleimages.list')->with('success', 'Images uploaded successfully');
+        if ($request->hasFile('img')) {
+            $image = $request->file('img');
+            $imageName = time() . '.' . $image->extension();
+            $image->move(public_path('vehicle/images'), $imageName);
+            $fullImagePath = 'vehicle/images/' . $imageName;
+        }
+        $vehicleImages = new VehicleImages();
+        $vehicleImages->vehicle_id = $request->vehicle_id;
+        if (isset($fullImagePath)) {
+            $vehicleImages->vehicle_images = $fullImagePath;
+        }
+        $vehicleImages->save();
+        return redirect()->route('vehicleimages.list')->with('success', 'Images uploaded successfully');
     }
     /**
      * Display the specified resource.
@@ -99,11 +89,11 @@ class VehicleImagesController extends Controller
         return redirect()->back()->with('message', 'Your data has been deleted successfully');
     }
 
-    public function uploadimage ()
+    public function uploadimage()
     {
         $user = Auth::user();
-        $vehicle =  Vehicle::select('id','name')->where('seller_id', $user->id)->get();
-        return view('backend.uploadimage.add',compact('vehicle'));
-       
+        $vehicle = Vehicle::select('id', 'name')->where('seller_id', $user->id)->get();
+        return view('backend.uploadimage.add', compact('vehicle'));
+
     }
 }

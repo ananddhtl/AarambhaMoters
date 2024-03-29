@@ -54,7 +54,7 @@
                             <a class="nav-link" href="{{ route('vehicle.imageadd') }}">Add </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('vehicle.list') }}">List </a>
+                            <a class="nav-link" href="{{ route('vehicleimages.list') }}">List </a>
                         </li>
                     </ul>
                 </div>

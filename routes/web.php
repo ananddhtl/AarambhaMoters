@@ -26,6 +26,8 @@ Route::get('/admin-login', function () {
 
 Route::get('/', [FrontendController::class, 'index'])->name('dashboard');
 
+Route::get('/vehicledetails/{id}', [FrontendController::class, 'vehicledetails'])->name('vehicledetails');
+
 Route::get('/admin-register', function () {
     return view('admin.register');
 });
@@ -43,6 +45,7 @@ Route::get('/editcatgeory/{id}', [VehicleCategoryController::class, 'edit'])->na
 Route::get('/deletecategory/{id}', [VehicleCategoryController::class, 'destroy'])->name('categories.destroy');
 
 Route::get('/admin-listvehicles', [AdminUserController::class, 'listvehicles'])->name('admin.listvehicles');
+Route::get('/admin-appprovevehicles', [AdminUserController::class, 'approvevehicle'])->name('admin.approvevehicle');
 
 Route::post('/store-userlogin', [PublicUserController::class, 'userlogin'])->name('userlogin');
 Route::post('/store-userregister', [PublicUserController::class, 'userregister'])->name('userregister');
@@ -57,6 +60,7 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/listvehicle', [VehicleController::class, 'index'])->name('vehicle.list');
     Route::get('/addvehicle', [VehicleController::class, 'addvehicle'])->name('vehicle.add');
+    Route::get('/updatevehicle/{id}', [VehicleController::class, 'acceptvehicle'])->name('vehicle.accept');
     
     Route::post('/storevehicle', [VehicleController::class, 'store'])->name('vehicle.store');
 

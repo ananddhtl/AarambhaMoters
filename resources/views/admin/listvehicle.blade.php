@@ -111,7 +111,8 @@
                                         @endif
                                         <td>
 
-
+                                             <button type="button" class="btn btn-success btn-sm"
+                                                onclick="confirmUpdate('{{ url('/updatevehicle/' . $item->id) }}')">Accept</button>
                                             <button type="button" class="btn btn-danger btn-sm"
                                                 onclick="confirmDelete('{{ url('/deletecategory/' . $item->id) }}')">Delete</button>
 

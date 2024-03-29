@@ -16,6 +16,12 @@
              window.location.href = url;
          }
      }
+
+     function confirmUpdate(url) {
+         if (confirm("Are you sure you want to accept this item?")) {
+             window.location.href = url;
+         }
+     }
  </script>
  </div>
  <!-- main-panel ends -->
