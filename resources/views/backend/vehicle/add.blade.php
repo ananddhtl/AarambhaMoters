@@ -11,7 +11,7 @@
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Add Category</h4>
+                        <h4 class="card-title">Add Vehicles</h4>
 
                         <form class="forms-sample" enctype="multipart/form-data">
 
@@ -23,9 +23,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Select Vechicle Brand</label>
-                                <select class="form-control form-control-lg" name="vehicle_brand" id="exampleFormControlSelect1">
+                                <select class="form-control form-control-lg" name="vehicle_brand" id="vehiclecategory">
                                     @foreach ($vehiclecategory as $item)
-                                        <option value="{{$item->id}}">{{ $item->brand_name }}</option>
+                                        <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -202,7 +202,7 @@
                     actionCell.innerHTML =
                         '<button type="button" class="btn btn-danger btn-sm" onclick="deleteRow(this)">Delete</button>';
 
-                    // Clear input fields after adding to table
+
                     infoInput.value = "";
                     valueInput.value = "";
                 } else {
@@ -306,6 +306,7 @@
                 // Collect form data
                 var formData = {
                     vehiclename: document.getElementById('vehicleName').value,
+                    vehiclecategory: document.getElementById('vehiclecategory').value,
                     vehicleprice: document.getElementById('vehiclePrice').value,
                     vehiclelocation: document.getElementById('vehicleLocation').value,
                     // Add other form fields here using their respective IDs

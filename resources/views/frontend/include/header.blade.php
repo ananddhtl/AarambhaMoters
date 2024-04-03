@@ -37,113 +37,6 @@
     <link rel="icon" href="{{ asset('html/assets/img/sm-logo.svg') }}" type="image/gif" sizes="20x20">
 </head>
 
-
-<style>
-.action {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-}
-
-.action .profile {
-    position: relative;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-}
-
-.action .profile img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.action .menu {
-    position: absolute;
-    top: 120px;
-    right: -10px;
-    padding: 10px 20px;
-    background: black;
-    width: 200px;
-    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
-    border-radius: 15px;
-    transition: 0.5s;
-    visibility: hidden;
-    opacity: 0;
-    z-index: -1;
-}
-
-.action .menu.active {
-    top: 80px;
-    visibility: visible;
-    opacity: 1;
-    z-index: +1000;
-}
-
-.action .menu::before {
-    content: "";
-    position: absolute;
-    top: -5px;
-    right: 28px;
-    width: 20px;
-    height: 20px;
-    background: #fff;
-    transform: rotate(45deg);
-}
-
-.action .menu h3 {
-    width: 100%;
-    text-align: center;
-    font-size: 18px;
-    padding: 20px 0;
-    font-weight: 500;
-    color: #555;
-    line-height: 1.5em;
-}
-
-.action .menu h3 span {
-    font-size: 14px;
-    color: #cecece;
-    font-weight: 300;
-}
-
-.action .menu ul li {
-    list-style: none;
-    padding: 16px 0;
-    border-top: 1px solid rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-}
-
-.action .menu ul li img {
-    max-width: 20px;
-    margin-right: 10px;
-    opacity: 0.5;
-    transition: 0.5s;
-}
-
-.action .menu ul li:hover img {
-    opacity: 1;
-}
-
-.action .menu ul li a {
-    display: inline-block;
-    text-decoration: none;
-    color: #555;
-    font-weight: 500;
-    transition: 0.5s;
-}
-
-.action .menu ul li:hover a {
-    color: #ff5d94;
-}
-</style>
-
 <body class="tt-magic-cursor">
     <div class="anchor-element"></div>
 
@@ -162,7 +55,7 @@
                             class="bi bi-x"></i></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('userregister')}}" method="POST">
+                    <form action="{{ route('userregister') }}" method="POST">
                         @csrf
                         <div class="row g-4">
                             <div class="col-md-6">
@@ -186,7 +79,7 @@
                             <div class="col-md-6">
                                 <div class="form-inner">
                                     <label>Password*</label>
-                                    <input id="password" name="password" type="password" placeholder="*** ***">
+                                    <input id="password"name="password" type="password" placeholder="*** ***">
                                     <i class="bi bi-eye-slash" id="togglePassword"></i>
                                 </div>
                             </div>
@@ -228,7 +121,7 @@
                             class="bi bi-x"></i></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{route('userlogin')}}" method="POST">
+                    <form action="{{ route('userlogin') }}" method="POST">
                         @csrf
                         <div class="row g-4">
                             <div class="col-md-12">
@@ -567,36 +460,17 @@
                     </button>
                 </li> -->
                 <li>
-               
-                @if (Auth::user())
+                    <a href="#">
+                        <svg width="16" height="16" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M7.00012 2.40453L6.37273 1.75966C4.90006 0.245917 2.19972 0.76829 1.22495 2.67141C0.767306 3.56653 0.664053 4.8589 1.4997 6.50827C2.30473 8.09639 3.97953 9.99864 7.00012 12.0706C10.0207 9.99864 11.6946 8.09639 12.5005 6.50827C13.3362 4.85803 13.2338 3.56653 12.7753 2.67141C11.8005 0.76829 9.10019 0.245042 7.62752 1.75879L7.00012 2.40453ZM7.00012 13.125C-6.41666 4.25953 2.86912 -2.65995 6.84612 1.00016C6.89862 1.04829 6.95024 1.09816 7.00012 1.14979C7.04949 1.09821 7.10087 1.04859 7.15413 1.00104C11.1302 -2.6617 20.4169 4.25865 7.00012 13.125Z" />
+                        </svg>
+                        SAVE
+                    </a>
+                </li>
                 <li>
-
-                <div class="action">
-                    <div class="profile" onclick="menuToggle();">
-                        <img src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}" />
-                    </div>
-                    <div class="menu">
-                        <h3>Someone Famous<br /><span>Website Designer</span></h3>
-                        <ul>
-                            <li>
-                                <a href="#">My profile</a>
-                            </li>
-                            <li>
-                                <a href="#">Logout</a>
-                            </li>
-                           
-                        </ul>
-                    </div>
-                </div>
-                <script>
-                function menuToggle() {
-                    const toggleMenu = document.querySelector(".menu");
-                    toggleMenu.classList.toggle("active");
-                }
-                </script></li>
-                @else
-                <li>
-                    <button type="button" class="primary-btn1" data-bs-toggle="modal" data-bs-target="#signUpModal01">
+                    <button type="button" class="primary-btn1" data-bs-toggle="modal"
+                        data-bs-target="#signUpModal01">
                         <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M14.4311 12.759C15.417 11.4291 16 9.78265 16 8C16 3.58169 12.4182 0 8 0C3.58169 0 0 3.58169 0 8C0 12.4182 3.58169 16 8 16C10.3181 16 12.4058 15.0141 13.867 13.4387C14.0673 13.2226 14.2556 12.9957 14.4311 12.759ZM13.9875 12C14.7533 10.8559 15.1999 9.48009 15.1999 8C15.1999 4.02355 11.9764 0.799983 7.99991 0.799983C4.02355 0.799983 0.799983 4.02355 0.799983 8C0.799983 9.48017 1.24658 10.8559 2.01245 12C2.97866 10.5566 4.45301 9.48194 6.17961 9.03214C5.34594 8.45444 4.79998 7.49102 4.79998 6.39995C4.79998 4.63266 6.23271 3.19993 8 3.19993C9.76729 3.19993 11.2 4.63266 11.2 6.39995C11.2 7.49093 10.654 8.45444 9.82039 9.03206C11.5469 9.48194 13.0213 10.5565 13.9875 12ZM13.4722 12.6793C12.3495 10.8331 10.3188 9.59997 8.00008 9.59997C5.68126 9.59997 3.65049 10.8331 2.52776 12.6794C3.84829 14.2222 5.80992 15.2 8 15.2C10.1901 15.2 12.1517 14.2222 13.4722 12.6793ZM8 8.79998C9.32551 8.79998 10.4 7.72554 10.4 6.39995C10.4 5.07444 9.32559 3.99992 8 3.99992C6.6744 3.99992 5.59997 5.07452 5.59997 6.40003C5.59997 7.72554 6.67449 8.79998 8 8.79998Z" />
@@ -604,7 +478,6 @@
                         SIGN UP
                     </button>
                 </li>
-                @endif
 
             </ul>
         </div>

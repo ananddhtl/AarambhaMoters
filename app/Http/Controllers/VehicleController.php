@@ -32,6 +32,7 @@ class VehicleController extends Controller
      */
     public function store(Request $request)
     {
+       
         $user = Auth::user();
         
         $carInfo = json_encode($request['carInfo']);
@@ -41,7 +42,7 @@ class VehicleController extends Controller
         $vehicle = new Vehicle();
         $vehicle->seller_id = $user->id;
         $vehicle->name = $request['vehiclename'];
-        $vehicle->category_id = $request['vehiclename'];
+        $vehicle->category_id = $request['vehiclecategory'];
         $vehicle->price = $request['vehicleprice'];
         $vehicle->location = $request['vehiclelocation'];
         $vehicle->car_info = $carInfo;
@@ -94,7 +95,7 @@ class VehicleController extends Controller
         $sellerEmail = User::join('vehicles', 'users.id', '=', 'vehicles.seller_id')
                             ->where('vehicles.id', $id)
                             ->value('users.email');
-    
+   
         $data = [
             'email' => $sellerEmail, 
             'message' => "This is the text message"

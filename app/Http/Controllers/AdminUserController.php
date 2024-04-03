@@ -163,7 +163,7 @@ class AdminUserController extends Controller
                        ->join('users', 'vehicles.seller_id', '=', 'users.id')
                        ->select('vehicle_images.*', 'vehicles.*', 'users.name as fullname')->where('vehicles.status',0)
                        ->get();
-        
+
        
         return view('admin.listvehicle', compact('list'));
     }
