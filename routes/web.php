@@ -51,7 +51,7 @@ Route::get('/admin-appprovevehicles', [AdminUserController::class, 'approvevehic
 Route::post('/store-userlogin', [PublicUserController::class, 'userlogin'])->name('userlogin');
 Route::post('/store-userregister', [PublicUserController::class, 'userregister'])->name('userregister');
 
-
+Route::get('/bookedvehicleslist', [BookedVehiclesController::class, 'bookedvehiclesadmin'])->name('admin.bookedvehicles');
 
 
 Route::middleware(['auth'])->group(function () {
@@ -77,7 +77,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pendingbooked', [BookedVehiclesController::class, 'bookedpending'])->name('vehicle.bookedpending');
     Route::get('/approvalbooked', [BookedVehiclesController::class, 'bookedapproval'])->name('vehicle.bookedapproval');
 
-    Route::get('/bookedvehicleslist', [BookedVehiclesController::class, 'bookedvehiclesadmin'])->name('admin.bookedvehicles');
+    
     Route::get('/confirmbooking/{id}', [BookedVehiclesController::class, 'confirmbooking'])->name('booking.confirm');
 
     Route::post('/khalti/payment/verify',[BookedVehiclesController::class,'verifyPayment'])->name('khalti.verifyPayment');

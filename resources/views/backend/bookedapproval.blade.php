@@ -53,7 +53,7 @@
                 }
             }
         </script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+       
 
         <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"
