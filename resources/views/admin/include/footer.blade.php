@@ -22,6 +22,18 @@
              window.location.href = url;
          }
      }
+
+     function confirmBooking(url) {
+         if (confirm("Are you sure you want to confirm this booking?")) {
+             window.location.href = url;
+         }
+     }
+
+     function notifyseller(url) {
+         if (confirm("Are you sure you want to notify seller?")) {
+             window.location.href = url;
+         }
+     }
  </script>
  </div>
  <!-- main-panel ends -->

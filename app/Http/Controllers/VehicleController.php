@@ -80,10 +80,7 @@ class VehicleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Vehicle $vehicle)
-    {
-        //
-    }
+ 
 
     public function acceptVehicle(Request $request, Vehicle $vehicle, $id)
     {
@@ -107,6 +104,16 @@ class VehicleController extends Controller
             $message->from('amritkadel10@gmail.com');
         });
         return redirect()->back()->with('success', 'Vehicle Approved Successfully');
+    }
+
+    public function destroy(Vehicle $vehicle, $id)
+    {
+        $vehicle = Vehicle::find($id);
+        if (!$vehicle) {
+            return response()->json(['error' => 'Vehicle  not found'], 404);
+        }
+        $vehicle->delete();
+        return redirect()->back()->with('message', 'Your data has been deleted successfully');
     }
     
 }

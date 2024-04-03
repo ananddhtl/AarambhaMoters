@@ -1,45 +1,40 @@
-@include('admin.include.header')
+@include('backend.include.header')
 <!-- partial -->
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_sidebar.html -->
 
-    @include('admin.include.sidebar')
+    @include('backend.include.sidebar')
     <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">List Category</h4>
+                        <h4 class="card-title"> Booking List</h4>
 
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th> Category Name </th>
-                                    <th> Description </th>
-                                    <th> Image </th>
+                                    <th> Vehicle Name </th>
+                                    <th> Vehicle Price </th>
+                                    <th> Vehicle Location </th>
+                                   
                                     <th> Action </th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($list as $category)
+                                @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $category->brand_name }}</td>
-                                        <td>{{ $category->description }}</td>
+                                        <td>{{ $item->name }}</td>
+                                        <td>{{ $item->price }}</td>
+                                        <td>{{ $item->location }}</td>
+
                                         <td>
-                                            @if ($category->brand_image)
-                                                <img src="{{ asset($category->brand_image) }}" alt="Category Image"
-                                                    style="max-width: 100px;">
-                                            @else
-                                                No Image
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('categories.edit', ['id' => $category->id]) }}"
-                                                class="btn btn-primary btn-sm">Edit</a>
+                                            <a href="{{ route('vehicledetails', ['id' => $item->id]) }}"
+                                                class="btn btn-primary btn-sm">Vehicle Details</a>
                                                 <button type="button" class="btn btn-danger btn-sm"
-                                                   onclick="confirmDelete('{{ url('/deletecategory/' . $category->id) }}')">Delete</button>
+                                                   onclick="confirmDelete('{{ url('/deletebooking/' . $item->id) }}')">Delete</button>
                                           
                                         </td>
 

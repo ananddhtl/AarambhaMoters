@@ -234,22 +234,29 @@
                             <h4>To More inquiry </h4>
                             <p>If choose this car to contact easily with us.</p>
                         </div>
-                        <form>
+                        <form action="{{ route('enquiry.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="vehicle_id" value={{ $vehicle->id }}>
+                            <input type="hidden" name="user_id" value={{ @Auth::user()->id }}>
                             <div class="form-inner mb-20">
                                 <label>Name*</label>
-                                <input type="text" placeholder="Ex- Jhon Numan">
+                                <input type="text" name="name" placeholder="Ex- Jhon Numan">
                             </div>
                             <div class="form-inner mb-20">
                                 <label>Email*</label>
-                                <input type="email" placeholder="Ex- info@gmail.com">
+                                <input type="email" name="email" placeholder="Ex- info@gmail.com">
                             </div>
                             <div class="form-inner mb-20">
                                 <label>Phone</label>
-                                <input id="phone" type="tel" name="phone" />
+                                <input id="phone" name="phone" type="tel" name="phone" />
+                            </div>
+                            <div class="form-inner mb-20">
+                                <label>Visiting Date</label>
+                                <input id="phone" type="date" name="date" placeholder="Date to visit the showroom" />
                             </div>
                             <div class="form-inner mb-20">
                                 <label>Message*</label>
-                                <textarea placeholder="Write your message..."></textarea>
+                                <textarea name="message" placeholder="Write your message..."></textarea>
                             </div>
                             <div class="form-inner">
                                 <button class="primary-btn3" type="submit">

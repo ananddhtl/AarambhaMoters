@@ -48,6 +48,14 @@
             </a>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.bookedvehicles') }}">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Booked Vehicles List </span>
+            </a>
+        </li>
+
+
 
 
     </ul>

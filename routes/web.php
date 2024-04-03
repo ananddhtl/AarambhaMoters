@@ -7,6 +7,7 @@ use App\Http\Controllers\VehicleController;
 use App\Http\Controllers\PublicUserController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\BookedVehiclesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,7 +62,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/listvehicle', [VehicleController::class, 'index'])->name('vehicle.list');
     Route::get('/addvehicle', [VehicleController::class, 'addvehicle'])->name('vehicle.add');
     Route::get('/updatevehicle/{id}', [VehicleController::class, 'acceptvehicle'])->name('vehicle.accept');
-    
+    Route::get('/deletevehicle/{id}', [VehicleController::class, 'destroy'])->name('vehicle.delete');
     Route::post('/storevehicle', [VehicleController::class, 'store'])->name('vehicle.store');
 
     Route::get('/user-information', [PublicUserController::class, 'userinformation'])->name('userinformation.list');
@@ -71,6 +72,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/user-logout', [PublicUserController::class, 'userlogout'])->name('userinformation.logout');
 
     Route::post('/updateuser', [PublicUserController::class, 'updatestatus'])->name('userinformation.update');
+
+    Route::post('/vehicleinquiry', [BookedVehiclesController::class, 'store'])->name('enquiry.store');
+    Route::get('/pendingbooked', [BookedVehiclesController::class, 'bookedpending'])->name('vehicle.bookedpending');
+    Route::get('/approvalbooked', [BookedVehiclesController::class, 'bookedapproval'])->name('vehicle.bookedapproval');
+
+    Route::get('/bookedvehicleslist', [BookedVehiclesController::class, 'bookedvehiclesadmin'])->name('admin.bookedvehicles');
+    Route::get('/confirmbooking/{id}', [BookedVehiclesController::class, 'confirmbooking'])->name('booking.confirm');
+
+    Route::post('/khalti/payment/verify',[BookedVehiclesController::class,'verifyPayment'])->name('khalti.verifyPayment');
+
+    Route::post('/khalti/payment/store',[BookedVehiclesController::class,'storePayment'])->name('khalti.storePayment');
 
 
     Route::get('/vehicleimage', [VehicleImagesController::class, 'uploadimage'])->name('vehicle.imageadd');

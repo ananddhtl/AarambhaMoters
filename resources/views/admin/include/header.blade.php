@@ -21,7 +21,7 @@
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('admin/assets/css/demo_1/style.css') }}">
     <!-- End Layout styles -->
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <style>
     .item-purchase-banner {

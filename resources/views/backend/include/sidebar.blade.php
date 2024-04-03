@@ -59,8 +59,28 @@
                     </ul>
                 </div>
             </li>
-        @endif
 
+            
+        @elseif(Auth::user()->status == 0)
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic-3" aria-expanded="false"
+                aria-controls="ui-basic">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Booked  Vehicles</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic-3">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('vehicle.bookedpending') }}">Pending Booked </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('vehicle.bookedapproval') }}">Pending Approval </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+@endif
         
     </ul>
 </nav>

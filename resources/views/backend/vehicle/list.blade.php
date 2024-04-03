@@ -111,7 +111,7 @@
                                            
                                             
                                             <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="confirmDelete('{{ url('/deletecategory/' . $item->id) }}')">Delete</button>
+                                                onclick="confirmDelete('{{ url('/deletevehicle/' . $item->id) }}')">Delete</button>
 
                                         </td>
                                     </tr>
