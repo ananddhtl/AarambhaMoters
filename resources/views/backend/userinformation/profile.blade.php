@@ -4,7 +4,15 @@
     <!-- partial:partials/_sidebar.html -->
 
     @include('backend.include.sidebar')
-    <!-- partial -->
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Update Successfully',
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
     <div class="main-panel">
         <div class="content-wrapper">
 
@@ -18,8 +26,8 @@
                             @csrf <!-- Add CSRF token for security -->
                             <div class="form-group">
                                 <label for="exampleInputName1">Name</label>
-                                <input type="text" class="form-control" id="exampleInputName1" value="{{$userInformation->name}}" name="name"
-                                    placeholder="Name" required>
+                                <input type="text" class="form-control" id="exampleInputName1"
+                                    value="{{ $userInformation->name }}" name="name" placeholder="Name" required>
                                 <!-- Add 'required' attribute for client-side validation -->
                             </div>
 
@@ -31,14 +39,14 @@
 
                             <div class="form-group">
                                 <label for="exampleInputName1">Email</label>
-                                <input type="email" class="form-control" id="exampleInputName1" value="{{$userInformation->email}}" name="email"
-                                    placeholder="Email" required>
+                                <input type="email" class="form-control" id="exampleInputName1"
+                                    value="{{ $userInformation->email }}" name="email" placeholder="Email" required>
                                 <!-- Add 'required' attribute for client-side validation -->
                             </div>
-                           
+
 
                             <button type="submit" class="btn btn-success mr-2">Update</button>
-                           
+
                         </form>
 
                     </div>

@@ -4,7 +4,15 @@
     <!-- partial:partials/_sidebar.html -->
 
     @include('backend.include.sidebar')
-    <!-- partial -->
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Update Successfully',
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
     <div class="main-panel">
         <div class="content-wrapper">
 

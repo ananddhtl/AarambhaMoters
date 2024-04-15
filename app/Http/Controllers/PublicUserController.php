@@ -34,22 +34,22 @@ class PublicUserController extends Controller
             return redirect('/');
         }
 
-        return view('admin.register');
+        return view('admin.register')->with('register', 'You have  been registered successfuly');
     }
     public function userlogin(Request $request)
-{
+    {
     if ($request->isMethod('post')) {
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('user.dashboard');
+            return redirect()->route('dashboard')->with('success', 'You have  been registered successfuly');
         }
 
         return back()->withErrors(['email' => 'Invalid login credentials.']);
     }
 
-    return view('admin.login');
-}
+    return view('admin.login')->with('login', 'You have  been registered successfuly');
+    }
 
 
 

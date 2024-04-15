@@ -36,25 +36,28 @@ class VehicleImagesController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-
-        if ($request->hasFile('img')) {
-            $image = $request->file('img');
-            $imageName = time() . '.' . $image->extension();
-            $image->move(public_path('vehicle/images'), $imageName);
-            $fullImagePath = 'vehicle/images/' . $imageName;
-        }
-        $vehicleImages = new VehicleImages();
-        $vehicleImages->vehicle_id = $request->vehicle_id;
-        if (isset($fullImagePath)) {
-            $vehicleImages->vehicle_images = $fullImagePath;
-        }
-        $vehicleImages->save();
-        return redirect()->route('vehicleimages.list')->with('success', 'Images uploaded successfully');
+{
+   
+    if ($request->hasFile('img')) {
+        $image = $request->file('img');
+        $imageName = time() . '.' . $image->extension();
+        $image->move(public_path('vehicle/images'), $imageName);
+        $fullImagePath = 'vehicle/images/' . $imageName;
     }
-    /**
-     * Display the specified resource.
-     */
+
+  
+    $vehicleImages = new VehicleImages();
+    $vehicleImages->vehicle_id = $request->vehicle_id;
+   
+        $vehicleImages->vehicle_images = $fullImagePath;
+   
+    $vehicleImages->save();
+
+    // Flash success message
+    return redirect()->route('vehicleimages.list')->with('success', 'Images uploaded successfully');
+}
+
+   
     public function show(VehicleImages $vehicleImages)
     {
         //

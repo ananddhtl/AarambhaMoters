@@ -1,7 +1,15 @@
 @include('backend.include.header')
 <!-- partial -->
 <div class="container-fluid page-body-wrapper">
-    <!-- partial:partials/_sidebar.html -->
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Login Successfully',
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
 
     @include('backend.include.sidebar')
     <!-- partial -->

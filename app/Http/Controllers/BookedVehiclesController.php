@@ -6,6 +6,7 @@ use App\Models\BookedVehicles;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Auth;
 
 class BookedVehiclesController extends Controller
 {
@@ -89,10 +90,11 @@ class BookedVehiclesController extends Controller
 
     public function bookedpending()
     {
+    $user = Auth::user();
     $data = DB::table('booked_vehicles')
             
             ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
-            ->select('booked_vehicles.*', 'vehicles.*')->where('booked_vehicles.status',0)
+            ->select('booked_vehicles.*', 'vehicles.*')->where('booked_vehicles.status',0)->where('user_id', $user->id)
             ->get();
 
     return view('backend.bookedpending', compact('data'));
@@ -100,10 +102,11 @@ class BookedVehiclesController extends Controller
 
     public function bookedapproval()
     {
+        $user = Auth::user();
         $data = DB::table('booked_vehicles')
             
         ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
-        ->select('booked_vehicles.*', 'vehicles.*')->where('booked_vehicles.status',1)
+        ->select('booked_vehicles.*', 'vehicles.*')->where('booked_vehicles.status',1)->where('user_id', $user->id)
         ->get();
         return view('backend.bookedapproval', compact('data'));
     }

@@ -7,6 +7,8 @@
                  href="https://www.bootstrapdash.com/bootstrap-admin-template/" target="_blank">Bootstrap admin
                  templates</a> from Bootstrapdash.com</span>
      </div>
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
  </footer>
  <!-- partial -->
 
@@ -19,6 +21,7 @@
 
      function confirmUpdate(url) {
          if (confirm("Are you sure you want to accept this item?")) {
+          
              window.location.href = url;
          }
      }

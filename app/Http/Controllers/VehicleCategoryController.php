@@ -22,7 +22,9 @@ class VehicleCategoryController extends Controller
     }
 
     public function store(Request $request)
+   
 {
+   
     $request->validate([
         'categoryname' => 'required|string|max:255', 
         'img' => 'required', 
@@ -100,11 +102,12 @@ class VehicleCategoryController extends Controller
      */
     public function destroy(VehicleCategory $vehicleCategory, $id)
     {
+       
         $category = VehicleCategory::find($id);
         if (!$category) {
             return response()->json(['error' => 'Category  not found'], 404);
         }
         $category->delete();
-        return redirect()->back()->with('message', 'Your data has been deleted successfully');
+        return redirect()->back()->with('success', 'Your data has been deleted successfully');
     }
 }

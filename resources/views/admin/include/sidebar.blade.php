@@ -55,7 +55,23 @@
             </a>
         </li>
 
-
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic1" aria-expanded="false" aria-controls="ui-basic">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">Blog</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic1">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blog.add') }}">Add Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('blog.list') }}">List Blog</a>
+                    </li>
+                </ul>
+            </div>
+        </li>
 
 
     </ul>

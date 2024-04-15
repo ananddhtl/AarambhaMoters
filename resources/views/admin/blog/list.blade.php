@@ -1,30 +1,30 @@
-@include('backend.include.header')
+@include('admin.include.header')
 <!-- partial -->
 <div class="container-fluid page-body-wrapper">
+    <!-- partial:partials/_sidebar.html -->
+
+    @include('admin.include.sidebar')
     @if (session('success'))
         <script>
             Swal.fire({
                 icon: 'success',
-                title: 'Added Successfully',
+                title: ' Successfully Done',
                 text: '{{ session('success') }}',
             });
         </script>
     @endif
-
-    @include('backend.include.sidebar')
-    <!-- partial -->
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Images of Vehicles</h4>
+                        <h4 class="card-title">List Blog</h4>
 
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th> Vehicle Name </th>
-
+                                    <th> Blog Title </th>
+                                    <th> Description </th>
                                     <th> Image </th>
                                     <th> Action </th>
 
@@ -33,20 +33,21 @@
                             <tbody>
                                 @foreach ($list as $category)
                                     <tr>
-                                        <td>{{ $category->name }}</td>
-
+                                        <td>{{ $category->title }}</td>
+                                        <td>{{ $category->description }}</td>
                                         <td>
-                                            @if ($category->vehicle_images)
-                                                <img src="{{ asset($category->vehicle_images) }}" alt="Category Image"
+                                            @if ($category->thumbnail)
+                                                <img src="{{ asset($category->brand_image) }}" alt="Category Image"
                                                     style="max-width: 100px;">
                                             @else
                                                 No Image
                                             @endif
                                         </td>
                                         <td>
-
+                                            <a href="{{ route('categories.edit', ['id' => $category->id]) }}"
+                                                class="btn btn-primary btn-sm">Edit</a>
                                             <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="confirmDelete('{{ url('/deletevehicleimages/' . $category->id) }}')">Delete</button>
+                                                onclick="confirmDelete('{{ url('/deletecategory/' . $category->id) }}')">Delete</button>
 
                                         </td>
 

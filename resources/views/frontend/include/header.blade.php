@@ -32,6 +32,7 @@
     <link href="{{ asset('html/assets/css/nice-select.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="{{ asset('html/assets/css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Aarambha Moters</title>
     <link rel="icon" href="{{ asset('html/assets/img/sm-logo.svg') }}" type="image/gif" sizes="20x20">

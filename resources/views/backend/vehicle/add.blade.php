@@ -369,8 +369,12 @@
                         'X-CSRF-TOKEN': '{{ csrf_token() }}'
                     },
                     success: function(response) {
-                        // Handle success response
-                        console.log("Data saved successfully!");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Vehicle Added',
+                            text: 'Your vehicle has been added successfully!',
+                        });
+                        // window.location.reload();
                     },
                     error: function(xhr, status, error) {
                         // Handle error response

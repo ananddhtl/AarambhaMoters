@@ -8,6 +8,8 @@ use App\Http\Controllers\PublicUserController;
 use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\BookedVehiclesController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CompareController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +50,18 @@ Route::get('/deletecategory/{id}', [VehicleCategoryController::class, 'destroy']
 Route::get('/admin-listvehicles', [AdminUserController::class, 'listvehicles'])->name('admin.listvehicles');
 Route::get('/admin-appprovevehicles', [AdminUserController::class, 'approvevehicle'])->name('admin.approvevehicle');
 
+Route::get('/compare', [CompareController::class, 'viewpage'])->name('compare.viewpage');
+
 Route::post('/store-userlogin', [PublicUserController::class, 'userlogin'])->name('userlogin');
 Route::post('/store-userregister', [PublicUserController::class, 'userregister'])->name('userregister');
 
 Route::get('/bookedvehicleslist', [BookedVehiclesController::class, 'bookedvehiclesadmin'])->name('admin.bookedvehicles');
 
+
+Route::get('/listblog', [BlogController::class, 'index'])->name('blog.list');
+Route::get('/addblog', [BlogController::class, 'addblog'])->name('blog.add');
+Route::get('/blogdescription/{id}', [BlogController::class, 'blogdescription'])->name('blog.description');
+Route::post('/storeblog', [BlogController::class, 'store'])->name('blog.store');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -89,6 +98,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/storevehicleimage', [VehicleImagesController::class, 'store'])->name('vehicleimage.store');
     Route::get('/listvehicleimages', [VehicleImagesController::class, 'index'])->name('vehicleimages.list');
     Route::get('/deletevehicleimages/{id}', [VehicleImagesController::class, 'destroy'])->name('vehicleimages.destroy');
+
+    
    
 
 });

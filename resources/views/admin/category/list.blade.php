@@ -4,7 +4,15 @@
     <!-- partial:partials/_sidebar.html -->
 
     @include('admin.include.sidebar')
-    <!-- partial -->
+    @if (session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: ' Successfully Done',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
     <div class="main-panel">
         <div class="content-wrapper">
             <div class="col-lg-12 grid-margin stretch-card">

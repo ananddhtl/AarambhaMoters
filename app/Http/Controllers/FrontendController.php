@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\VehicleCategory;
 use App\Models\Vehicle;
 use App\Models\VehicleImages;
+use App\Models\Blog;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -23,7 +24,9 @@ class FrontendController extends Controller
             return $grouped[0];
         });
     
-        return view('frontend.index', compact('category', 'vehicles'));
+        $blog = Blog::orderBy('id', 'DESC')->get();
+      
+        return view('frontend.index', compact('category', 'vehicles','blog'));
     }
 
     public function vehicledetails($id)
