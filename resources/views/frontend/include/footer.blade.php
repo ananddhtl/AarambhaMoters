@@ -332,36 +332,36 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-<script src="{{asset('html/assets/js/jquery-3.6.0.min.js')}}"></script>
-<script src="{{asset('html/assets/js/jquery-ui.js')}}"></script>
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery-ui.js')}}"></script>
 
-<script src="{{asset('html/assets/js/bootstrap.min.js')}}"></script>
-<script src="{{asset('html/assets/js/popper.min.js')}}"></script>
+<script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+<script src="{{asset('assets/js/popper.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/swiper-bundle.min.js')}}"></script>
-<script src="{{asset('html/assets/js/slick.js')}}"></script>
+<script src="{{asset('assets/js/swiper-bundle.min.js')}}"></script>
+<script src="{{asset('assets/js/slick.js')}}"></script>
 
-<script src="{{asset('html/assets/js/waypoints.min.js')}}"></script>
+<script src="{{asset('assets/js/waypoints.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/wow.min.js')}}"></script>
+<script src="{{asset('assets/js/wow.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/jquery.counterup.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.counterup.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/isotope.pkgd.min.js')}}"></script>
+<script src="{{asset('assets/js/isotope.pkgd.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.magnific-popup.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/gsap.min.js')}}"></script>
-<script src="{{asset('html/assets/js/simpleParallax.min.js')}}"></script>
-<script src="{{asset('html/assets/js/TweenMax.min.js')}}"></script>
+<script src="{{asset('assets/js/gsap.min.js')}}"></script>
+<script src="{{asset('assets/js/simpleParallax.min.js')}}"></script>
+<script src="{{asset('assets/js/TweenMax.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/jquery.marquee.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.marquee.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/jquery.nice-select.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.nice-select.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/jquery.fancybox.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery.fancybox.min.js')}}"></script>
 
-<script src="{{asset('html/assets/js/custom.js')}}"></script>
+<script src="{{asset('assets/js/custom.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>

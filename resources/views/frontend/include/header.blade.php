@@ -6,36 +6,36 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link href="{{ asset('html/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('html/assets/css/jquery-ui.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/jquery-ui.css') }}" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css"
         integrity="sha384-4LISF5TTJX/fLmGSxO53rV4miRxdg84mZsxmO8Rx5jGtp/LbrixFETvWa5a6sESd" crossorigin="anonymous">
 
-    <link href="{{ asset('html/assets/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('html/assets/css/animate.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/animate.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('html/assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/jquery.fancybox.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('html/assets/css/fontawesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/fontawesome.min.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('html/assets/css/swiper-bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/swiper-bundle.min.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('html/assets/css/slick.css') }}">
-    <link rel="stylesheet" href="{{ asset('html/assets/css/slick-theme.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/slick-theme.css') }}">
 
-    <link rel="stylesheet" href="{{ asset('html/assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
 
-    <link href="{{ asset('html/assets/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/boxicons.min.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('html/assets/css/nice-select.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/nice-select.css') }}" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('html/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <title>Aarambha Moters</title>
-    <link rel="icon" href="{{ asset('html/assets/img/sm-logo.svg') }}" type="image/gif" sizes="20x20">
+    <link rel="icon" href="{{ asset('assets/img/sm-logo.svg') }}" type="image/gif" sizes="20x20">
 </head>
 <style>
     .dropdown-menu {
