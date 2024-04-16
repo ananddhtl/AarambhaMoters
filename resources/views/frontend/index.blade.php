@@ -1,5 +1,14 @@
 @extends('welcome')
 @section('content')
+    @if (session('error'))
+        <script>
+            Swal.fire({
+                icon: 'danger',
+                title: 'Invalid Credentials',
+                text: ' You have enter invalid  credentials',
+            });
+        </script>
+    @endif
     @if (session('login'))
         <script>
             Swal.fire({
@@ -373,71 +382,71 @@
                     </div>
                 </div>
                 <!-- <div class="col-lg-12">
-                                <div class="our-activetis">
-                                    <div class="row justify-content-center g-lg-4 gy-5">
-                                        <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-lg-start justify-content-sm-center wow fadeInUp"
-                                            data-wow-delay="200ms">
-                                            <div class="single-activiti">
-                                                <div class="icon">
-                                                    <img src="assets/img/home1/icon/av-car.svg" alt>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="number">
-                                                        <h5 class="counter">600</h5>
-                                                        <span>K+</span>
+                                    <div class="our-activetis">
+                                        <div class="row justify-content-center g-lg-4 gy-5">
+                                            <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-lg-start justify-content-sm-center wow fadeInUp"
+                                                data-wow-delay="200ms">
+                                                <div class="single-activiti">
+                                                    <div class="icon">
+                                                        <img src="assets/img/home1/icon/av-car.svg" alt>
                                                     </div>
-                                                    <p>Car Available</p>
+                                                    <div class="content">
+                                                        <div class="number">
+                                                            <h5 class="counter">600</h5>
+                                                            <span>K+</span>
+                                                        </div>
+                                                        <p>Car Available</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
-                                            data-wow-delay="300ms">
-                                            <div class="single-activiti">
-                                                <div class="icon">
-                                                    <img src="assets/img/home1/icon/sold-car.svg" alt>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="number">
-                                                        <h5 class="counter">400</h5>
-                                                        <span>K+</span>
+                                            <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
+                                                data-wow-delay="300ms">
+                                                <div class="single-activiti">
+                                                    <div class="icon">
+                                                        <img src="assets/img/home1/icon/sold-car.svg" alt>
                                                     </div>
-                                                    <p>Car Sold</p>
+                                                    <div class="content">
+                                                        <div class="number">
+                                                            <h5 class="counter">400</h5>
+                                                            <span>K+</span>
+                                                        </div>
+                                                        <p>Car Sold</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
-                                            data-wow-delay="400ms">
-                                            <div class="single-activiti">
-                                                <div class="icon">
-                                                    <img src="assets/img/home1/icon/use-car.svg" alt>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="number">
-                                                        <h5 class="counter">200</h5>
-                                                        <span>K+</span>
+                                            <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
+                                                data-wow-delay="400ms">
+                                                <div class="single-activiti">
+                                                    <div class="icon">
+                                                        <img src="assets/img/home1/icon/use-car.svg" alt>
                                                     </div>
-                                                    <p>Used Cars</p>
+                                                    <div class="content">
+                                                        <div class="number">
+                                                            <h5 class="counter">200</h5>
+                                                            <span>K+</span>
+                                                        </div>
+                                                        <p>Used Cars</p>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-lg-3 col-sm-4 col-sm-6 d-flex justify-content-lg-end justify-content-sm-center wow fadeInUp"
-                                            data-wow-delay="500ms">
-                                            <div class="single-activiti">
-                                                <div class="icon">
-                                                    <img src="assets/img/home1/icon/happy-customar.svg" alt>
-                                                </div>
-                                                <div class="content">
-                                                    <div class="number">
-                                                        <h5 class="counter">98.50</h5>
-                                                        <span>%</span>
+                                            <div class="col-lg-3 col-sm-4 col-sm-6 d-flex justify-content-lg-end justify-content-sm-center wow fadeInUp"
+                                                data-wow-delay="500ms">
+                                                <div class="single-activiti">
+                                                    <div class="icon">
+                                                        <img src="assets/img/home1/icon/happy-customar.svg" alt>
                                                     </div>
-                                                    <p>Customer Satisfaction</p>
+                                                    <div class="content">
+                                                        <div class="number">
+                                                            <h5 class="counter">98.50</h5>
+                                                            <span>%</span>
+                                                        </div>
+                                                        <p>Customer Satisfaction</p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div> -->
+                                </div> -->
             </div>
         </div>
     </div>
@@ -1206,38 +1215,49 @@
                 </div>
             </div>
             <div class="row g-4 justify-content-center">
-                @foreach($blog as $item)
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms"
-                    style="visibility: visible; animation-delay: 200ms;">
-                    <div class="news-card style-2 dark">
-                        <div class="news-img">
-                            <a href="{{ route('blog.description', ['id' => $item->id]) }}"><img src="{{$item->thumbnail}}" alt=""></a>
-                            <div class="date">
-                                <a href="{{ route('blog.description', ['id' => $item->id]) }}">{{$item->title}}</a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h6><a href="">{{$item->description}}</a>
-                            </h6>
-                            <div class="news-btm d-flex align-items-center justify-content-between">
-                                <div class="author-area">
-                                   
-                                    <div class="author-content">
-                                        <h6>Admin</h6>
-                                        <a href="#">{{$item->created_at}}</a>
-                                    </div>
+                @foreach ($blog as $item)
+                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="200ms"
+                        style="visibility: visible; animation-delay: 200ms;">
+                        <div class="news-card style-2 dark">
+                            <div class="news-img">
+                                <a href="{{ route('blog.description', ['id' => $item->id]) }}"><img
+                                        src="{{ $item->thumbnail }}" alt=""></a>
+                                <div class="date">
+                                    <a
+                                        href="{{ route('blog.description', ['id' => $item->id]) }}">{{ $item->title }}</a>
                                 </div>
-                                <div class="social-area">
-                                   
-                                    
+                            </div>
+                            <div class="content">
+                                <h6><a href="">{{ $item->description }}</a>
+                                </h6>
+                                <div class="news-btm d-flex align-items-center justify-content-between">
+                                    <div class="author-area">
+
+                                        <div class="author-content">
+                                            <h6>Admin</h6>
+                                            <a href="#">{{ $item->created_at }}</a>
+                                        </div>
+                                    </div>
+                                    <div class="social-area">
+
+
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 @endforeach
-               
+
             </div>
         </div>
     </div>
+   
+    <script>
+        var botmanWidget = {
+            aboutText: 'ssdsd',
+            introMessage: "✋ Hi! I'm form ItSolutionStuff.com"
+        };
+    </script>
+
+    <script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
 @endsection

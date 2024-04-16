@@ -44,7 +44,20 @@ class FrontendController extends Controller
     return view('frontend.vehicledetails', compact('vehicle', 'images','car_info','car_overview','features','engine_performance'));
 }
     
+public function searchpage(Request $request){
+    $query = $request->input('query');
     
+    $vehicles = Vehicle::leftJoin('vehicle_images', 'vehicles.id', '=', 'vehicle_images.vehicle_id')
+        ->where('vehicles.status', 1)
+        ->where(function ($queryBuilder) use ($query) {
+            $queryBuilder->where('vehicles.name', 'like', '%' . $query . '%')
+                         ->orWhere('vehicles.location', 'like', '%' . $query . '%');
+        })
+        ->select('vehicles.*', 'vehicle_images.vehicle_images as image_path')
+        ->get();
+
+    return view('frontend.search', compact('vehicles'));
+}
     
 
 }

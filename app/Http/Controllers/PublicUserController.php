@@ -42,10 +42,10 @@ class PublicUserController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth::attempt($credentials)) {
-            return redirect()->route('dashboard')->with('success', 'You have  been registered successfuly');
+            return redirect()->route('dashboard')->with('login', 'You have  been login successfuly');
         }
 
-        return back()->withErrors(['email' => 'Invalid login credentials.']);
+        return redirect()->route('dashboard')->with('error', 'You have  enter invalid credentials');
     }
 
     return view('admin.login')->with('login', 'You have  been registered successfuly');
@@ -94,16 +94,27 @@ class PublicUserController extends Controller
 
     public function updatePassword(Request $request)
     {
- 
+        $user = Auth::user();
+        
+       
+        $request->validate([
+            'oldpassword' => 'required',
+            'newpassword' => 'required|min:8',
+            'confirmpassword' => 'required|same:newpassword',
+        ]);
     
-    $user = Auth::user();
-    if (!Hash::check($request->old_password, $user->password)) {
-        return redirect()->back()->withErrors(['old_password' => 'The provided old password does not match our records.']);
+       
+        if (!Hash::check($request->oldpassword, $user->password)) {
+            return redirect()->back()->withErrors(['oldpassword' => 'The provided old password does not match our records.']);
+        }
+    
+      
+        $user->password = Hash::make($request->newpassword);
+        $user->save();
+    
+        return redirect()->back()->with('success', 'Password updated successfully.');
     }
-    $user->password = Hash::make($request->new_password);
-    $user->save();
-    return redirect()->back()->with('success', 'Password updated successfully.');
-    }
+    
 
     public function userlogout()
     {

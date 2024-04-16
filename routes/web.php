@@ -10,6 +10,7 @@ use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\BookedVehiclesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CompareController;
+use App\Http\Controllers\ChatBotController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,7 @@ Route::post('/userLogin', [AdminUserController::class, 'login']);
 
 Route::get('/admin-dashboard', [AdminUserController::class, 'dashboard']);
 
+Route::get('/searchitem', [FrontendController::class, 'searchpage'])->name('search');
 
 Route::get('/listcategory', [VehicleCategoryController::class, 'index'])->name('categories.list');
 Route::get('/addcategory', [VehicleCategoryController::class, 'addcategory'])->name('categories.add');
@@ -57,6 +59,10 @@ Route::post('/store-userregister', [PublicUserController::class, 'userregister']
 
 Route::get('/bookedvehicleslist', [BookedVehiclesController::class, 'bookedvehiclesadmin'])->name('admin.bookedvehicles');
 
+
+Route::post('/storecompare', [CompareController::class, 'store'])->name('user.compare');
+
+Route::match(['get', 'post'], '/botman', [ChatBotController::class, 'handle']);
 
 Route::get('/listblog', [BlogController::class, 'index'])->name('blog.list');
 Route::get('/addblog', [BlogController::class, 'addblog'])->name('blog.add');

@@ -115,9 +115,9 @@ class BookedVehiclesController extends Controller
     {
         $data = DB::table('booked_vehicles')
                 ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
-                ->join('users', 'vehicles.seller_id', '=', 'users.id')
+                ->join('users', 'vehicles.seller_id', '=', 'users.id')->get();
+                dd($data)
                 ->select('booked_vehicles.*', 'vehicles.name as vehicle_name', 'users.name as seller_name')
-                
                 ->get();
           
         return view('admin.bookedvehicles', compact('data'));
@@ -145,33 +145,44 @@ class BookedVehiclesController extends Controller
     }
 
     public function verifyPayment(Request $request)
-    {
-        $token = $request->token;
+{
+    // Get token and itemId from the request
+    $token = $request->token;
+    $itemId = $request->itemId;
 
-        $args = http_build_query(array(
-            'token' => $token,
-            'amount'  => 1000
-        ));
+    // Construct the request parameters
+    $args = http_build_query([
+        'token' => $token,
+        'amount' => 1000
 
-        $url = "https://khalti.com/api/v2/payment/verify/";
+    ]);
+    dd($args);
 
-       
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS,$args);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $secret_key = config('app.khalti_secret_key');
+    // Khalti API endpoint
+    $url = "https://khalti.com/api/v2/payment/verify/";
 
-        $headers = ["Authorization: Key $secret_key"];
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    // Initialize cURL session
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, $args);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
-       
-        $response = curl_exec($ch);
-        $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        return $response;
-    }
+    // Set authorization header
+    $secret_key = config('app.khalti_secret_key');
+    $headers = ["Authorization: Key $secret_key"];
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+    // Execute cURL request
+    $response = curl_exec($ch);
+    $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    // You can use $itemId here for further processing or logging
+
+    // Return the Khalti response
+    return $response;
+}
 
     public function storePayment(Request $request)
     {

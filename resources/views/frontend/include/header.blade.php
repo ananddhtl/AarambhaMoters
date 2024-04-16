@@ -166,6 +166,8 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+                <a href=""><img src="assets/img/logo.png" alt height="190px" width="200px" style="margin-bottom: 30px; margin-left: 200px;"></a>
+                
                 <div class="modal-header">
                     <h4 class="modal-title" id="signUpModal01Label">Sign Up</h4>
                     <p>Already have an account? <button type="button" data-bs-toggle="modal"
@@ -176,11 +178,10 @@
                 <div class="modal-body">
                     <form action="{{ route('userregister') }}" method="POST">
                         @csrf
-                        <div class="row g-4">
                             <div class="col-md-6">
                                 <div class="form-inner">
                                     <label>First Name*</label>
-                                    <input type="text" name="fname" placeholder="Daniel">
+                                    <input type="text" name="fname" placeholder="First Name">
                                 </div>
                             </div>
                             <div class="col-md-6">
@@ -218,11 +219,11 @@
                         <div class="terms-conditon">
                             <p>By sign up,you agree to the <a href="#">‘terms & conditons’</a></p>
                         </div>
-                        <ul class="social-icon">
+                        {{-- <ul class="social-icon">
                             <li><a href="#"><img src="assets/img/home1/icon/google.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/facebook.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/twiter.svg" alt></a></li>
-                        </ul>
+                        </ul> --}}
                     </form>
                 </div>
             </div>
@@ -232,6 +233,7 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
+                <a href="index.html"><img src="assets/img/logo.png" alt height="190px" width="200px" style="margin-bottom: 30px; margin-left: 200px;"></a>
                 <div class="modal-header">
                     <h4 class="modal-title" id="logInModal01Label">Log In</h4>
                     <p>Don’t have any account? <button type="button" data-bs-toggle="modal"
@@ -274,11 +276,11 @@
                         <div class="terms-conditon">
                             <p>By sign up,you agree to the <a href="#">‘terms & conditons’</a></p>
                         </div>
-                        <ul class="social-icon">
+                        {{-- <ul class="social-icon">
                             <li><a href="#"><img src="assets/img/home1/icon/google.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/facebook.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/twiter.svg" alt></a></li>
-                        </ul>
+                        </ul> --}}
                     </form>
                 </div>
             </div>
@@ -558,12 +560,13 @@
     </div>
     <div class="top-bar">
         <div class="company-logo">
-            <a href="index.html"><img src="assets/img/logo.svg" alt></a>
+            <a href="index.html"><img src="assets/img/logo.png" alt height="190px" width="200px"></a>
         </div>
         <div class="search-area">
-            <form>
+            <form action="{{ route('search') }}" method="GET">
+                @csrf
                 <div class="form-inner">
-                    <input type="text" placeholder="Search car names or brands">
+                    <input type="text" name="query" placeholder="Search car names or location">
                     <button type="submit"><i class="bi bi-search"></i></button>
                 </div>
             </form>

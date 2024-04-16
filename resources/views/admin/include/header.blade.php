@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin Dashboard</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.addons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/css/vendor.bundle.addons.css') }}">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/shared/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/shared/style.css') }}">
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/demo_1/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/demo_1/style.css') }}">
     <!-- End Layout styles -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -39,7 +39,7 @@
             <div class="navbar-menu-wrapper d-flex align-items-center">
 
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="messageDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
                             <i class="mdi mdi-bell-outline"></i>
@@ -63,7 +63,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{ asset('admin/assets/images/faces/face12.jpg') }}" alt="image"
+                                    <img src="{{ asset('assets1/images/faces/face12.jpg') }}" alt="image"
                                         class="img-sm profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow py-2">
@@ -73,7 +73,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{ asset('admin/assets/images/faces/face1.jpg') }}" alt="image"
+                                    <img src="{{ asset('assets1/images/faces/face1.jpg') }}" alt="image"
                                         class="img-sm profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow py-2">
@@ -82,8 +82,8 @@
                                 </div>
                             </a>
                         </div>
-                    </li>
-                    <li class="nav-item dropdown">
+                    </li> --}}
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link count-indicator" id="notificationDropdown" href="#"
                             data-toggle="dropdown">
                             <i class="mdi mdi-email-outline"></i>
@@ -124,7 +124,7 @@
                                 </div>
                             </a>
                         </div>
-                    </li>
+                    </li> --}}
                     <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
                         <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown"
                             aria-expanded="false">
@@ -134,7 +134,7 @@
                                 <img class="img-md rounded-circle" src="" alt="Profile image">
                                 <p class="mb-1 mt-3 font-weight-semibold"></p>
                                 <p class="font-weight-light text-muted mb-0">
-                                    </< /p>
+                                </p>
                             </div>
                             <a href="" class="dropdown-item">My Profile <i
                                     class="dropdown-item-icon ti-dashboard"></i></a>

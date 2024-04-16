@@ -331,6 +331,15 @@
     </div>
 </footer>
 
+<script>
+    var botmanWidget = {
+        aboutText: '',
+        introMessage: "✋ Hi! We are from the Aarambha Moters"
+    };
+</script>
+
+<script src='https://cdn.jsdelivr.net/npm/botman-web-widget@0/build/js/widget.js'></script>
+
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 <script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 <script src="{{asset('assets/js/jquery-ui.js')}}"></script>
@@ -362,6 +371,24 @@
 <script src="{{asset('assets/js/jquery.fancybox.min.js')}}"></script>
 
 <script src="{{asset('assets/js/custom.js')}}"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"
 integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>

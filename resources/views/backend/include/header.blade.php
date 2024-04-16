@@ -9,19 +9,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Seller Dashboard</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.addons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/css/vendor.bundle.addons.css') }}">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/shared/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/shared/style.css') }}">
     <!-- endinject -->
     <!-- Layout styles -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/demo_1/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/demo_1/style.css') }}">
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- End Layout styles -->
@@ -40,9 +40,9 @@
             <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
                 <a class="navbar-brand brand-logo" href="index.html">
                     <h2>Welcome Seller</h2>
-                    {{-- <img src="{{ asset('admin/assets/images/logo.svg') }}" alt="logo" /> </a> --}}
+                    {{-- <img src="{{ asset('assets1/images/logo.svg') }}" alt="logo" /> </a> --}}
                     <a class="navbar-brand brand-logo-mini" href="index.html">
-                        <img src="asset('admin/assets/images/logo-mini.svg')}}" alt="logo" /> </a>
+                        <img src="asset('assets1/images/logo-mini.svg')}}" alt="logo" /> </a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center">
 
@@ -62,7 +62,7 @@
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{ asset('admin/assets/images/faces/face10.jpg') }}" alt="image"
+                                    <img src="{{ asset('assets1/images/faces/face10.jpg') }}" alt="image"
                                         class="img-sm profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow py-2">
@@ -72,7 +72,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{ asset('admin/assets/images/faces/face12.jpg') }}" alt="image"
+                                    <img src="{{ asset('assets1/images/faces/face12.jpg') }}" alt="image"
                                         class="img-sm profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow py-2">
@@ -82,7 +82,7 @@
                             </a>
                             <a class="dropdown-item preview-item">
                                 <div class="preview-thumbnail">
-                                    <img src="{{ asset('admin/assets/images/faces/face1.jpg') }}" alt="image"
+                                    <img src="{{ asset('assets1/images/faces/face1.jpg') }}" alt="image"
                                         class="img-sm profile-pic">
                                 </div>
                                 <div class="preview-item-content flex-grow py-2">

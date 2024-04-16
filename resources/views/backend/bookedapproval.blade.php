@@ -30,9 +30,8 @@
                                         <td>{{ $item->price }}</td>
                                         <td>{{ $item->location }}</td>
                                         <td>
-
                                             <button class="btn btn-danger btn-sm payment-button"
-                                                data-amount="{{ $item->price }}">Pay Via Khalti</button>
+                                                data-amount="{{ $item->price }}"  data-id="{{ $item->id }}">Pay Via Khalti</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -53,72 +52,79 @@
                 }
             }
         </script>
-       
+        <script src="https://khalti.s3.ap-south-1.amazonaws.com/KPG/dist/2020.12.17.0.0.0/khalti-checkout.iffe.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var config = {
-                    "publicKey": "test_public_key_28af381cd221410baf31b558b8e51d89",
-                    "productIdentity": "1234567890",
-                    "productName": "Dragon",
-                    "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
-                    "paymentPreference": [
-                        "KHALTI",
-                        "EBANKING",
-                        "MOBILE_BANKING",
-                        "CONNECT_IPS",
-                        "SCT",
-                    ],
-                    "eventHandler": {
-                        onSuccess(payload) {
-                            $.ajax({
-                                type: 'POST',
-                                url: "{{ route('khalti.verifyPayment') }}",
-                                data: {
-                                    token: payload.token,
-                                    amount: payload.amount,
-                                    "_token": "{{ csrf_token() }}"
-                                },
-                                success: function(res) {
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "{{ route('khalti.storePayment') }}",
-                                        data: {
-                                            response: res,
-                                            "_token": "{{ csrf_token() }}"
-                                        },
-                                        success: function(res) {
-                                            console.log('transaction successful');
-                                            Swal.fire({
-                                                icon: 'success',
-                                                title: 'Transaction Successful',
-                                                text: 'Your payment has been processed successfully!',
-                                            });
-                                        }
-                                    });
-                                    console.log(res);
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var paymentButtons = document.querySelectorAll(".payment-button");
+            
+                    paymentButtons.forEach(function(button) {
+                        button.addEventListener("click", function() {
+                            var amount = parseFloat(button.getAttribute("data-amount"));
+                            var itemId = button.getAttribute("data-id");
+            
+                            var config = {
+                                "publicKey": "test_public_key_28af381cd221410baf31b558b8e51d89",
+                                "productIdentity": itemId, 
+                                "productName": "Dragon",
+                                "productUrl": "http://gameofthrones.wikia.com/wiki/Dragons",
+                                "paymentPreference": [
+                                    "KHALTI",
+                                    "EBANKING",
+                                    "MOBILE_BANKING",
+                                    "CONNECT_IPS",
+                                    "SCT",
+                                ],
+                                "eventHandler": {
+                                    onSuccess(payload) {
+                                        $.ajax({
+                                            type: 'POST',
+                                            url: "{{ route('khalti.verifyPayment') }}",
+                                            data: {
+                                                token: payload.token,
+                                                amount: payload.amount,
+                                                itemId: payload.itemId,
+                                                "_token": "{{ csrf_token() }}"
+                                            },
+                                            success: function(res) {
+                                                $.ajax({
+                                                    type: "POST",
+                                                    url: "{{ route('khalti.storePayment') }}",
+                                                    data: {
+                                                        response: res,
+                                                        "_token": "{{ csrf_token() }}"
+                                                    },
+                                                    success: function(res) {
+                                                        console.log('transaction successful');
+                                                        Swal.fire({
+                                                            icon: 'success',
+                                                            title: 'Transaction Successful',
+                                                            text: 'Your payment has been processed successfully!',
+                                                        });
+                                                    }
+                                                });
+                                                console.log(res);
+                                            }
+                                        });
+                                        console.log(payload);
+                                    },
+                                    onError(error) {
+                                        console.log(error);
+                                    },
+                                    onClose() {
+                                        console.log('widget is closing');
+                                    }
                                 }
+                            };
+            
+                            var checkout = new KhaltiCheckout(config);
+                            checkout.show({
+                                amount: amount * 100
                             });
-                            console.log(payload);
-                        },
-                        onError(error) {
-                            console.log(error);
-                        },
-                        onClose() {
-                            console.log('widget is closing');
-                        }
-                    }
-                };
-
-                var checkout = new KhaltiCheckout(config);
-                var paymentButtons = document.querySelectorAll(".payment-button");
-                paymentButtons.forEach(function(button) {
-                    button.addEventListener("click", function() {
-                        var amount = parseFloat(button.getAttribute("data-amount"));
-                        checkout.show({
-                            amount: amount * 100
                         });
                     });
                 });
-            });
-        </script>
+            </script>
+            

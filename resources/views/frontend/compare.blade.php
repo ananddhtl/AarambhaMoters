@@ -1,5 +1,15 @@
 @extends('welcome')
+
 @section('content')
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+
+                text: '{{ session('success') }}',
+            });
+        </script>
+    @endif
     <div class="inner-page-banner">
         <div class="banner-wrapper">
             <div class="container-fluid">
@@ -81,301 +91,112 @@
                         </div>
                         <div class="comparea-content">
                             <h6>Add to Compare</h6>
-                            <div class="change-model">
-                                <select style="display: none;">
-                                    <option value="1">Select Car </option>
-                                    <option value="2">C-Class-2020</option>
-                                    <option value="3">C-Class-2021</option>
-                                    <option value="4">C-Class-2022</option>
-                                    <option value="5">C-Class-2023</option>
-                                </select>
-                                <div class="nice-select" tabindex="0"><span class="current">Select Car</span>
-                                    <ul class="list">
-                                        <li data-value="1" class="option selected">Select Car </li>
-                                        <li data-value="2" class="option">C-Class-2020</li>
-                                        <li data-value="3" class="option">C-Class-2021</li>
-                                        <li data-value="4" class="option">C-Class-2022</li>
-                                        <li data-value="5" class="option">C-Class-2023</li>
-                                    </ul>
+                            <form action="{{ route('user.compare') }}" method="POST">
+                                @csrf
+                                <div class="change-model">
+                                    <select name="vehicle_id">
+                                        <option value="1">Select Car </option>
+                                        @foreach ($list as $item)
+                                            <option value="{{ $item->id }}"> {{ $item->name }}</option>
+                                        @endforeach
+
+                                    </select>
+
+                                </div><br>
+                                <div style="margin-top:20px;" class="button-and-price ">
+                                    <button type="submit" class="primary-btn7">Submit
+                                        Details</button>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-8">
                     <div class="uploded-product-group">
                         <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="product-card style-2 compare">
-                                    <div class="close-btn">
-                                        <i class="bi bi-x"></i>
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="assets/img/home1/product-img-12.png" alt="image">
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="content-top">
-                                            <div class="price-and-title">
-                                                <h5 class="price">$896564.00</h5>
-                                                <h5><a href="car-deatils.html">Tesla Model S-2023</a></h5>
-                                            </div>
-                                            <div class="company-logo">
-                                                <img src="assets/img/home1/icon/tesla-01.svg" alt="">
-                                            </div>
+                            @foreach ($vehiclesData as $vehicleData)
+                                <div class="col-md-6">
+                                    <div class="product-card style-2 compare">
+                                        <div class="close-btn">
+                                            <i class="bi bi-x"></i>
                                         </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="product-card style-2 compare">
-                                    <div class="close-btn">
-                                        <i class="bi bi-x"></i>
-                                    </div>
-                                    <div class="product-img">
-                                        <img src="assets/img/home1/product-img-13.png" alt="image">
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="content-top">
-                                            <div class="price-and-title">
-                                                <h5 class="price">$896564.00</h5>
-                                                <h5><a href="#">Benz AMG GT C-Class-2023</a></h5>
-                                            </div>
-                                            <div class="company-logo">
-                                                <img src="assets/img/home1/icon/mercedes-01.svg" alt="">
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-50">
-                <div class="col-lg-12 position-relative">
-                    <div class="car-details-menu">
-                        <nav id="navbar-example2" class="navbar">
-                            <ul class="nav nav-pills">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#car-info">Car Info</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#engine">Overview</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#performance">Key Feature</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#comfort">Engine Performance</a>
-                                </li>
-                               
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0"
-                        class="scrollspy-example" tabindex="0">
-                        <div class="single-compare mb-50" id="car-info">
-                            <div class="section-title mb-20">
-                                <h5>Summary</h5>
-                            </div>
-                            <div class="table-wrapper">
-                                <table class="eg-table compare-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Basic Info</th>
-                                            <th>Tesla Model S</th>
-                                            <th>Benz AMG GT</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Brand Name</td>
-                                            <td>Tesla Model </td>
-                                            <td>Mercedes-Benz </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Price</td>
-                                            <td>$60,321.00</td>
-                                            <td>$54,321.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Engine Speed</td>
-                                            <td>35,533 cc</td>
-                                            <td>34,563 cc</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Body Type</td>
-                                            <td>Hatchback</td>
-                                            <td>Convertible</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Max. Power</td>
-                                            <td>142 kw 7000 rpm</td>
-                                            <td>140 kw 7000 rpm</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mileage</td>
-                                            <td>6,378 miles</td>
-                                            <td>6,7053 miles</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Steering</td>
-                                            <td>Left</td>
-                                            <td>Right</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="single-compare mb-50" id="engine">
-                            <div class="section-title mb-20">
-                                <h5>Engine</h5>
-                            </div>
-                            <div class="table-wrapper">
-                                <table class="eg-table compare-table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Engine Type</td>
-                                            <td>1.55 L Petrol Engine</td>
-                                            <td>1.5 L Gas Engine</td>
-                                        </tr>
-                                        <tr>
-                                            <td>No Of Cylinders</td>
-                                            <td>04</td>
-                                            <td>04</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Engine Speed</td>
-                                            <td>35,533 cc</td>
-                                            <td>34,563 cc</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Transmission</td>
-                                            <td>Manual</td>
-                                            <td>Automatic</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Max. Power</td>
-                                            <td>142 kw 7000 rpm</td>
-                                            <td>140 kw 7000 rpm</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Gear Box</td>
-                                            <td>8 Speed</td>
-                                            <td>8 Speed</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="single-compare mb-50" id="performance">
-                            <div class="section-title mb-20">
-                                <h5>Performance</h5>
-                            </div>
-                            <div class="table-wrapper">
-                                <table class="eg-table compare-table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Braking (80-0 kmph)</td>
-                                            <td>00</td>
-                                            <td>40 Meters</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fuel Type</td>
-                                            <td>Petrol</td>
-                                            <td>Gasoline</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Fuel Capacity</td>
-                                            <td>40 Liters</td>
-                                            <td>40 Liters</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Mileage</td>
-                                            <td>140 kw 7000 rpm</td>
-                                            <td>142 kw 7000 rpm</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="single-compare mb-50" id="comfort">
-                            <div class="section-title mb-20">
-                                <h5>Comfort</h5>
-                            </div>
-                            <div class="table-wrapper">
-                                <table class="eg-table compare-table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Connectivity</td>
-                                            <td>Apple CarPlay</td>
-                                            <td>Apple CarPlay</td>
-                                        </tr>
-                                        <tr>
-                                            <td>USB Charger</td>
-                                            <td>Rear</td>
-                                            <td>Rear</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Air Conditioner</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Parking Sensor</td>
-                                            <td>Yes</td>
-                                            <td>No</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Automatic Climate Control</td>
-                                            <td>No</td>
-                                            <td>Rear</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="single-compare mb-50" id="safety">
-                            <div class="section-title mb-20">
-                                <h5>Safety</h5>
-                            </div>
-                            <div class="table-wrapper">
-                                <table class="eg-table compare-table">
-                                    <tbody>
-                                        <tr>
-                                            <td>Seat Belts</td>
-                                            <td><i class="bi bi-check2"></i></td>
-                                            <td><i class="bi bi-check2"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td>360 Degree Camera</td>
-                                            <td><i class="bi bi-check2"></i></td>
-                                            <td><i class="bi bi-check2"></i></td>
-                                        </tr>
-                                        <tr>
-                                            <td>No.of Airbags</td>
-                                            <td>05</td>
-                                            <td>05</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Head-up Display</td>
-                                            <td><i class="bi bi-check2"></i></td>
-                                            <td><i class="bi bi-check2"></i></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                        <div class="product-img">
+                                            @foreach ($vehicleData['images'] as $image)
+                                                <img src="{{ asset($image->vehicle_images) }}" alt="image">
+                                                {{-- Assuming 'image_path' is the column name where image path is stored --}}
+                                            @break
 
+                                            {{-- Break after showing the first image --}}
+                                        @endforeach
+                                    </div>
+                                    <div class="product-content">
+                                        <div class="content-top">
+                                            <div class="price-and-title">
+                                                <h5 class="price">${{ $vehicleData['vehicle']->price }}</h5>
+                                                <h5><a href="">{{ $vehicleData['vehicle']->name }}</a></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
+
                 </div>
             </div>
         </div>
+       
+        <div class="row">
+            <div class="col-lg-12">
+                <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
+                    tabindex="0">
+                    <div class="single-compare mb-50" id="car-info">
+                        <div class="section-title mb-20">
+                            <h5>Summary</h5>
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="eg-table compare-table">
+                                <thead>
+                                    <tr>
+                                        <th>Basic Info</th>
+                                        @foreach ($vehiclesData as $vehicleData)
+                                            <th>{{ $vehicleData['vehicle']->name }}</th>
+                                        @endforeach
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (['car_info', 'key_features', 'overviews', 'engine_performance'] as $field)
+                                        <tr>
+                                            <td>{{ ucfirst(str_replace('_', ' ', $field)) }}</td>
+                                            @foreach ($vehiclesData as $vehicleData)
+                                                <td>
+                                                    @php
+                                                        $decodedData = json_decode($vehicleData['vehicle']->$field);
+                                                        if (
+                                                            $decodedData &&
+                                                            is_array($decodedData) &&
+                                                            isset($decodedData[0]->value)
+                                                        ) {
+                                                            echo $decodedData[0]->value;
+                                                        } else {
+                                                            echo 'N/A'; // Or any default value you want to display
+                                                        }
+                                                    @endphp
+                                                </td>
+                                            @endforeach
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <!-- Add more comparison sections like 'engine', 'performance', 'comfort', etc., using similar structure -->
+                </div>
+
+
+
+            </div>
+        </div>
     </div>
+</div>
 @endsection

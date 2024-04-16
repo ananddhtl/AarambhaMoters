@@ -17,7 +17,7 @@ class VehicleImagesController extends Controller
     public function index()
     {
         $list = VehicleImages::join('vehicles', 'vehicle_images.vehicle_id', '=', 'vehicles.id')
-            ->select('vehicle_images.*', 'vehicles.*')
+            ->select('vehicle_images.*', 'vehicles.name as vehicle_name')
             ->get();
 
         return view('backend.uploadimage.list', compact('list'));
@@ -89,7 +89,7 @@ class VehicleImagesController extends Controller
             return response()->json(['error' => 'Image  not found'], 404);
         }
         $category->delete();
-        return redirect()->back()->with('message', 'Your data has been deleted successfully');
+        return redirect()->back()->with('delete', 'Your data has been deleted successfully');
     }
 
     public function uploadimage()

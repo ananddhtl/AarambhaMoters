@@ -7,16 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Admin | Login</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.base.css') }}">
-    <link rel="stylesheet" href="{{ asset('admin/assets/vendors/css/vendor.bundle.addons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/ionicons/dist/css/ionicons.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/iconfonts/flag-icon-css/css/flag-icon.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/css/vendor.bundle.base.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/vendors/css/vendor.bundle.addons.css') }}">
     <!-- endinject -->
     <!-- plugin css for this page -->
     <!-- End plugin css for this page -->
     <!-- inject:css -->
-    <link rel="stylesheet" href="{{ asset('admin/assets/css/shared/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets1/css/shared/style.css') }}">
 
 </head>
 
@@ -69,14 +69,14 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-    <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.addons.js') }}"></script>
+    <script src="{{ asset('assets1/vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('assets1/vendors/js/vendor.bundle.addons.js') }}"></script>
     <!-- endinject -->
     <!-- inject:js -->
-    <script src="{{ asset('admin/assets/js/shared/off-canvas.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/shared/misc.js') }}"></script>
+    <script src="{{ asset('assets1/js/shared/off-canvas.js') }}"></script>
+    <script src="{{ asset('assets1/js/shared/misc.js') }}"></script>
     <!-- endinject -->
-    <script src="{{ asset('admin/assets/js/shared/jquery.cookie.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('assets1/js/shared/jquery.cookie.js') }}" type="text/javascript"></script>
 </body>
 
 </html>

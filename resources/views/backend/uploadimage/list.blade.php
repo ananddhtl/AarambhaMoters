@@ -10,6 +10,15 @@
             });
         </script>
     @endif
+    @if (session('delete'))
+    <script>
+        Swal.fire({
+            icon: 'danger',
+            title: 'Delete Successfully',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
 
     @include('backend.include.sidebar')
     <!-- partial -->
@@ -33,7 +42,7 @@
                             <tbody>
                                 @foreach ($list as $category)
                                     <tr>
-                                        <td>{{ $category->name }}</td>
+                                        <td>{{ $category->vehicle_name }}</td>
 
                                         <td>
                                             @if ($category->vehicle_images)
@@ -59,12 +68,6 @@
             </div>
 
         </div>
-        <script>
-            function confirmDelete(categoryId) {
-                if (confirm('Are you sure you want to delete this category?')) {
-                    document.getElementById('deleteForm' + categoryId).submit();
-                }
-            }
-        </script>
+       
         <!-- content-wrapper ends -->
-        @include('admin.include.footer')
+        @include('backend.include.footer')

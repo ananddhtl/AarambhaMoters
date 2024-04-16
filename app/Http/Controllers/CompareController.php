@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Compare;
 use Illuminate\Http\Request;
+use App\Models\Vehicle;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CompareController extends Controller
 {
@@ -15,10 +18,40 @@ class CompareController extends Controller
         //
     }
 
+
+
     public function viewpage()
     {
-        return view('frontend.compare');
+       
+        $list = Vehicle::get();
+      
+       
+        $comparedVehicles = Compare::all();
+    
+       
+        $vehiclesData = [];
+    
+       
+        foreach ($comparedVehicles as $comparison) {
+           
+            $vehicle = Vehicle::find($comparison->vehicle_id);
+            
+         
+            $images = DB::table('vehicle_images')
+                        ->where('vehicle_id', $vehicle->id)
+                        ->get();
+    
+          
+            $vehiclesData[] = [
+                'vehicle' => $vehicle,
+                'images' => $images
+            ];
+        }
+    
+     
+        return view('frontend.compare', compact('list', 'vehiclesData'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -33,7 +66,18 @@ class CompareController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $request->validate([
+        'vehicle_id' => 'required', 
+       
+    ]);
+    $user = Auth::user();
+    $compare = new Compare();
+    $compare->vehicle_id = $request->vehicle_id;
+    $compare->user_id = $user->id;
+    $compare->save();
+    return redirect()->route('compare.viewpage')->with('success', 'Vehicle Successfully Added for the compare');
+
+
     }
 
     /**
