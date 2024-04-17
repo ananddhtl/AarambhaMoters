@@ -166,8 +166,9 @@
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <a href=""><img src="assets/img/logo.png" alt height="190px" width="200px" style="margin-bottom: 30px; margin-left: 200px;"></a>
-                
+                <a href=""><img src="assets/img/logo.png" alt height="190px" width="200px"
+                        style="margin-bottom: 10px; margin-left: 200px;"></a>
+
                 <div class="modal-header">
                     <h4 class="modal-title" id="signUpModal01Label">Sign Up</h4>
                     <p>Already have an account? <button type="button" data-bs-toggle="modal"
@@ -178,62 +179,63 @@
                 <div class="modal-body">
                     <form action="{{ route('userregister') }}" method="POST">
                         @csrf
-                            <div class="col-md-6">
-                                <div class="form-inner">
-                                    <label>First Name*</label>
-                                    <input type="text" name="fname" placeholder="First Name">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-inner">
-                                    <label>Last Name*</label>
-                                    <input type="text" name="lname" placeholder="Last name">
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-inner">
-                                    <label>Enter your email address*</label>
-                                    <input type="email" name="email" placeholder="Type email">
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-inner">
-                                    <label>Password*</label>
-                                    <input id="password"name="password" type="password" placeholder="*** ***">
-                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="form-inner">
-                                    <label>Confirm Password*</label>
-                                    <input id="password2" type="password" placeholder="*** ***">
-                                    <i class="bi bi-eye-slash" id="togglePassword2"></i>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="form-inner">
-                                    <button type="submit" class="primary-btn2" type="submit">Sign Up Now</button>
-                                </div>
+                        <div class="col-md-6">
+                            <div class="form-inner">
+                                <label>First Name*</label>
+                                <input type="text" name="fname" placeholder="First Name">
                             </div>
                         </div>
-                        <div class="terms-conditon">
-                            <p>By sign up,you agree to the <a href="#">‘terms & conditons’</a></p>
+                        <div class="col-md-6">
+                            <div class="form-inner">
+                                <label>Last Name*</label>
+                                <input type="text" name="lname" placeholder="Last name">
+                            </div>
                         </div>
-                        {{-- <ul class="social-icon">
+                        <div class="col-md-12">
+                            <div class="form-inner">
+                                <label>Enter your email address*</label>
+                                <input type="email" name="email" placeholder="Type email">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-inner">
+                                <label>Password*</label>
+                                <input id="password"name="password" type="password" placeholder="*** ***">
+                                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-inner">
+                                <label>Confirm Password*</label>
+                                <input id="password2" type="password" placeholder="*** ***">
+                                <i class="bi bi-eye-slash" id="togglePassword2"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-inner">
+                                <button type="submit" class="primary-btn2" type="submit">Sign Up Now</button>
+                            </div>
+                        </div>
+                </div>
+                <div class="terms-conditon">
+                    <p>By sign up,you agree to the <a href="#">‘terms & conditons’</a></p>
+                </div>
+                {{-- <ul class="social-icon">
                             <li><a href="#"><img src="assets/img/home1/icon/google.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/facebook.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/twiter.svg" alt></a></li>
                         </ul> --}}
-                    </form>
-                </div>
+                </form>
             </div>
         </div>
+    </div>
     </div>
     <div class="modal signUp-modal fade" id="logInModal01" tabindex="-1" aria-labelledby="logInModal01Label"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <a href="index.html"><img src="assets/img/logo.png" alt height="190px" width="200px" style="margin-bottom: 30px; margin-left: 200px;"></a>
+                <a href="index.html"><img src="assets/img/logo.png" alt height="190px" width="200px"
+                        style="margin-bottom: 10px; margin-left: 200px;"></a>
                 <div class="modal-header">
                     <h4 class="modal-title" id="logInModal01Label">Log In</h4>
                     <p>Don’t have any account? <button type="button" data-bs-toggle="modal"
@@ -384,180 +386,6 @@
         </div>
     </div>
 
-    <div class="modal adSearch-modal fade" id="adSearchModal01" tabindex="-1" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-            <div class="modal-content">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                        class="bi bi-x"></i></button>
-                <div class="modal-body">
-                    <form>
-                        <h5 class="main-title">Advanced Option</h5>
-                        <div class="row">
-                            <div class="col-md-12 mb-30">
-                                <div class="form-inner">
-                                    <select>
-                                        <option value="1">Sydne City, Australia</option>
-                                        <option value="2">Dhaka, Bangladesh</option>
-                                        <option value="3">Tokyo, Japan</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <h5>More Filter</h5>
-                            <div class="row mb-10">
-                                <div class="col-md-6 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Brand </label>
-                                        <select>
-                                            <option value="1"> Mercedes Benz</option>
-                                            <option value="2">Volkswagen</option>
-                                            <option value="3">Mitsubishi</option>
-                                            <option value="4 ">Tesla</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Body Type</label>
-                                        <select>
-                                            <option value="1">Hatchback</option>
-                                            <option value="2">Covertible</option>
-                                            <option value="3">Coupe </option>
-                                            <option value="4 ">Truck</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Fuel Type </label>
-                                        <select>
-                                            <option value="1"> Petrol + Gas</option>
-                                            <option value="2">Petrol</option>
-                                            <option value="3">Gas</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-20">
-                                    <div class="form-inner">
-                                        <label>Steering Side</label>
-                                        <select>
-                                            <option value="1">Left</option>
-                                            <option value="2">Right</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Color</label>
-                                        <select>
-                                            <option value="1">Yellow</option>
-                                            <option value="2">Brown</option>
-                                            <option value="3">Red</option>
-                                            <option value="4">Silver</option>
-                                            <option value="5">Orange</option>
-                                            <option value="6">Blue</option>
-                                            <option value="7">Gray</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Doors</label>
-                                        <select>
-                                            <option value="1">03 doors</option>
-                                            <option value="2">04 doors</option>
-                                            <option value="3">06 doors</option>
-                                            <option value="4 ">08 doors</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5>Year & Mileage</h5>
-                            <div class="row">
-                                <div class="col-md-6 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Year </label>
-                                        <select>
-                                            <option value="1">2021</option>
-                                            <option value="2">2020</option>
-                                            <option value="3">2019</option>
-                                            <option value="4 ">2018</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Min (miles)</label>
-                                        <select>
-                                            <option value="1">800 miles</option>
-                                            <option value="2">1500 miles</option>
-                                            <option value="3">2000 miles</option>
-                                            <option value="4 ">2500 miles</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-20">
-                                    <div class="form-inner">
-                                        <label>Select Max (miles)</label>
-                                        <select>
-                                            <option value="1">1200 miles</option>
-                                            <option value="2">3000 miles</option>
-                                            <option value="3">3500 miles</option>
-                                            <option value="4 ">4000 miles</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <h5 class="mb-20">Price Range</h5>
-                            <div class="row">
-                                <div class="col-lg-6 mb-20">
-                                    <div class="range-wrapper2">
-                                        <div class="slider-wrapper">
-                                            <div id="eg-range-slider"></div>
-                                        </div>
-                                        <div class="valus">
-                                            <div class="min-value">
-                                                <span>$</span>
-                                                <input type="text" class="from" value="200" />
-                                            </div>
-                                            <div class="min-value">
-                                                <span>$</span>
-                                                <input type="text" class="to" value="2000" />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-20">
-                                    <div class="form-inner">
-                                        <label>Min (Price)</label>
-                                        <select>
-                                            <option value="1">$2,234</option>
-                                            <option value="2">$3,234</option>
-                                            <option value="3">$4,234</option>
-                                            <option value="4 ">$5,234</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 mb-20">
-                                    <div class="form-inner">
-                                        <label>Max (Price)</label>
-                                        <select>
-                                            <option value="1">$12,234</option>
-                                            <option value="2">$13,234</option>
-                                            <option value="3">$14,234</option>
-                                            <option value="4 ">$15,234</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="apply-btn pt-30">
-                            <button class="primary-btn2" type="submit">Apply Filter</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="top-bar">
         <div class="company-logo">
             <a href="index.html"><img src="assets/img/logo.png" alt height="190px" width="200px"></a>
@@ -594,7 +422,8 @@
                                         <a class="rounded-circle" href="#" role="button" id="dropdownUser"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                <img alt="avatar" src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
+                                                <img alt="avatar"
+                                                    src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
                                                     class="rounded-circle">
                                             </div>
                                         </a>
@@ -603,7 +432,8 @@
                                             <div class="dropdown-item">
                                                 <div class="d-flex py-2">
                                                     <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                        <img alt="avatar" src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
+                                                        <img alt="avatar"
+                                                            src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
                                                             class="rounded-circle">
                                                     </div>
                                                     <div class="ml-3 lh-1">
@@ -616,7 +446,8 @@
                                             <div class="">
                                                 <ul class="list-unstyled">
                                                     <li>
-                                                        <a class="dropdown-item" href="{{ route('user.dashboard') }}">
+                                                        <a class="dropdown-item"
+                                                            href="{{ route('user.dashboard') }}">
                                                             <span class="mr-1">
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="12"
                                                                     height="12" viewBox="0 0 24 24" fill="none"
@@ -636,7 +467,8 @@
                                             <div class="dropdown-divider"></div>
                                             <ul class="list-unstyled">
                                                 <li>
-                                                    <a class="dropdown-item" href="{{ route('userinformation.logout') }}">
+                                                    <a class="dropdown-item"
+                                                        href="{{ route('userinformation.logout') }}">
                                                         <span class="mr-2">
                                                             <svg xmlns="http://www.w3.org/2000/svg" width="14"
                                                                 height="14" viewBox="0 0 24 24" fill="none"
@@ -691,39 +523,22 @@
             </div>
             <ul class="menu-list">
                 <li class="menu-item-has-children active">
-                    <a href="#" class="drop-down">Home</a>
+                    <a href="">HOME</a>
 
                 </li>
                 <li class="position-inherit">
-                    <a href="#" class="drop-down">NEW Bikes</a>
+                    <a href="#" class="drop-down">SELL YOUR VEHICLE</a>
                     <i class="bi bi-plus dropdown-icon d-lg-none d-block"></i>
                     <div class="mega-menu">
                         <ul class="menu-row">
                             <li class="menu-single-item">
                                 <h6>Browse by Brand</h6>
                                 <ul>
-                                    <li><a href="single-brand-category.html">Honda <img
-                                                src="assets/img/menu-icon/merchedes.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">TVS<img
-                                                src="assets/img/menu-icon/volkswagen.svg" alt></a></li>
-                                    <!-- <li><a href="single-brand-category.html">Ferrari (10) <img
-                                                src="assets/img/menu-icon/ferrari.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Mazda (10) <img
-                                                src="assets/img/menu-icon/mazda.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Mitsubishi (10) <img
-                                                src="assets/img/menu-icon/mitsubishi.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Lamborghini (10) <img
-                                                src="assets/img/menu-icon/lamborghini.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Tesla (10) <img
-                                                src="assets/img/menu-icon/tesla.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Toyota (10) <img
-                                                src="assets/img/menu-icon/toyota.svg" alt></a></li>
-                                    <li class="explore-more-btn"> -->
-                                    <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>
+
                             </li>
                         </ul>
                 </li>
-                <li class="menu-single-item">
+                {{-- <li class="menu-single-item">
                     <h6>Popular Models</h6>
                     <ul>
                         <li><a href="single-brand-category.html">Brand 1</a></li>
@@ -739,7 +554,7 @@
                                                 class="bi bi-arrow-right"></i></a>
                                     </li> -->
                     </ul>
-                </li>
+                </li> --}}
 
             </ul>
         </div>
@@ -909,8 +724,8 @@
                 </svg>
             </div>
             <div class="content">
-                <span>To More Inquiry</span>
-                <h6><a href="tel:+990737621432">+990-737 621 432</a></h6>
+                <span>For More Inquiry</span>
+                <h6><a href="">+9779842006942</a></h6>
             </div>
         </div>
         </div>

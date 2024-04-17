@@ -33,20 +33,19 @@ class CompareController extends Controller
     
        
         foreach ($comparedVehicles as $comparison) {
-           
             $vehicle = Vehicle::find($comparison->vehicle_id);
-            
-         
-            $images = DB::table('vehicle_images')
-                        ->where('vehicle_id', $vehicle->id)
-                        ->get();
-    
-          
-            $vehiclesData[] = [
-                'vehicle' => $vehicle,
-                'images' => $images
-            ];
+            if ($vehicle) {
+                $images = DB::table('vehicle_images')
+                            ->where('vehicle_id', $vehicle->id)
+                            ->get();
+        
+                $vehiclesData[] = [
+                    'vehicle' => $vehicle,
+                    'images' => $images
+                ];
+            }
         }
+        
     
      
         return view('frontend.compare', compact('list', 'vehiclesData'));
