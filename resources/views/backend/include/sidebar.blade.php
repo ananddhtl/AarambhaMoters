@@ -21,12 +21,11 @@
             </a>
         </li>
         @if (Auth::user()->status == 1)
-            
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic-1" aria-expanded="false"
                     aria-controls="ui-basic">
                     <i class="menu-icon typcn typcn-coffee"></i>
-                    <span class="menu-title">Vehicle Basic  Information</span>
+                    <span class="menu-title">Vehicle Basic Information</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse" id="ui-basic-1">
@@ -41,7 +40,7 @@
                 </div>
             </li>
 
-             <li class="nav-item">
+            <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#ui-basic-2" aria-expanded="false"
                     aria-controls="ui-basic">
                     <i class="menu-icon typcn typcn-coffee"></i>
@@ -59,28 +58,33 @@
                     </ul>
                 </div>
             </li>
-
-            
         @elseif(Auth::user()->status == 0)
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#ui-basic-3" aria-expanded="false"
-                aria-controls="ui-basic">
-                <i class="menu-icon typcn typcn-coffee"></i>
-                <span class="menu-title">Booked  Vehicles</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="ui-basic-3">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vehicle.bookedpending') }}">Pending Booked </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vehicle.bookedapproval') }}">Pending Approval </a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-@endif
-        
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="collapse" href="#ui-basic-3" aria-expanded="false"
+                    aria-controls="ui-basic">
+                    <i class="menu-icon typcn typcn-coffee"></i>
+                    <span class="menu-title">Booked Vehicles</span>
+                    <i class="menu-arrow"></i>
+                </a>
+                <div class="collapse" id="ui-basic-3">
+                    <ul class="nav flex-column sub-menu">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('vehicle.bookedpending') }}">Pending Booked </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('vehicle.bookedapproval') }}">Pending Approval </a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/orderhistory">
+                    <i class="menu-icon typcn typcn-document-text"></i>
+                    <span class="menu-title">Order History</span>
+                </a>
+            </li>
+        @endif
+
     </ul>
 </nav>

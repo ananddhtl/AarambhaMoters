@@ -35,7 +35,10 @@ Route::get('/vehicledetails/{id}', [FrontendController::class, 'vehicledetails']
 Route::get('/admin-register', function () {
     return view('admin.register');
 });
-
+Route::get('/logout-admin', function () {
+    session()->forget('sessionUserId');
+    return redirect('/');
+}); 
 Route::post('/addUserData', [AdminUserController::class, 'store']);
 Route::post('/userLogin', [AdminUserController::class, 'login']);
 
@@ -54,6 +57,14 @@ Route::get('/admin-appprovevehicles', [AdminUserController::class, 'approvevehic
 
 Route::get('/compare', [CompareController::class, 'viewpage'])->name('compare.viewpage');
 
+Route::get('/forgetpassword', [PublicUserController::class, 'forgetpasswordpage'])->name('publicuser.forgetpassword');
+
+Route::get('/changepassword', [PublicUserController::class, 'changepasswordpage'])->name('publicuser.changepassword');
+
+Route::post('/storeforgetpassword', [PublicUserController::class, 'forgetpassword'])->name('publicuser.storeforgetpassword');
+
+Route::post('/storechangepassword', [PublicUserController::class, 'updatePasswordForget'])->name('publicuser.storechangepassword');
+
 Route::post('/store-userlogin', [PublicUserController::class, 'userlogin'])->name('userlogin');
 Route::post('/store-userregister', [PublicUserController::class, 'userregister'])->name('userregister');
 
@@ -68,6 +79,8 @@ Route::get('/listblog', [BlogController::class, 'index'])->name('blog.list');
 Route::get('/addblog', [BlogController::class, 'addblog'])->name('blog.add');
 Route::get('/blogdescription/{id}', [BlogController::class, 'blogdescription'])->name('blog.description');
 Route::post('/storeblog', [BlogController::class, 'store'])->name('blog.store');
+
+Route::get('/becomeaseller', [PublicUserController::class, 'becomeaseller']);
 
 Route::middleware(['auth'])->group(function () {
 
@@ -92,7 +105,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/pendingbooked', [BookedVehiclesController::class, 'bookedpending'])->name('vehicle.bookedpending');
     Route::get('/approvalbooked', [BookedVehiclesController::class, 'bookedapproval'])->name('vehicle.bookedapproval');
 
-    
+    Route::get('/orderhistory', [BookedVehiclesController::class, 'orderhistory'])->name('vehicle.orderhistory');
+
     Route::get('/confirmbooking/{id}', [BookedVehiclesController::class, 'confirmbooking'])->name('booking.confirm');
 
     Route::post('/khalti/payment/verify',[BookedVehiclesController::class,'verifyPayment'])->name('khalti.verifyPayment');

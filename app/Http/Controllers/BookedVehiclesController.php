@@ -103,20 +103,38 @@ class BookedVehiclesController extends Controller
     public function bookedapproval()
     {
         $user = Auth::user();
+        
         $data = DB::table('booked_vehicles')
-            
-        ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
-        ->select('booked_vehicles.*', 'vehicles.*')->where('booked_vehicles.status',1)->where('user_id', $user->id)
-        ->get();
+            ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
+            ->select('booked_vehicles.id as booked_vehicleid', 'booked_vehicles.*', 'vehicles.*')
+            ->where('booked_vehicles.status', 1)
+            ->where('booked_vehicles.user_id', $user->id)
+            ->get();
+    
         return view('backend.bookedapproval', compact('data'));
     }
+
+    public function orderhistory()
+    {
+        $user = Auth::user();
+        
+        $data = DB::table('booked_vehicles')
+            ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
+            ->select('booked_vehicles.id as booked_vehicleid', 'booked_vehicles.*', 'vehicles.*')
+            ->where('booked_vehicles.status', 2)
+            ->where('booked_vehicles.user_id', $user->id)
+            ->get();
+    
+        return view('backend.orderhistory', compact('data'));
+    }
+    
 
     public function bookedvehiclesadmin()
     {
         $data = DB::table('booked_vehicles')
                 ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
-                ->join('users', 'vehicles.seller_id', '=', 'users.id')->get();
-                dd($data)
+                ->join('users', 'vehicles.seller_id', '=', 'users.id')
+               
                 ->select('booked_vehicles.*', 'vehicles.name as vehicle_name', 'users.name as seller_name')
                 ->get();
           
@@ -156,7 +174,7 @@ class BookedVehiclesController extends Controller
         'amount' => 1000
 
     ]);
-    dd($args);
+ 
 
     // Khalti API endpoint
     $url = "https://khalti.com/api/v2/payment/verify/";
@@ -178,15 +196,23 @@ class BookedVehiclesController extends Controller
     $status_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
 
-    // You can use $itemId here for further processing or logging
-
-    // Return the Khalti response
+   
     return $response;
 }
 
-    public function storePayment(Request $request)
-    {
-       
-        return response()->noContent();
+public function storePayment(Request $request)
+{
+    $bookedVehicle = BookedVehicles::where('id', $request->itemId)->first();
+    
+    if (!$bookedVehicle) {
+        return response()->json(['message' => 'Booked vehicle not found'], 404);
     }
+
+    $bookedVehicle->status = 2;
+    $bookedVehicle->save();
+   
+    return response()->noContent();
+}
+
+
 }

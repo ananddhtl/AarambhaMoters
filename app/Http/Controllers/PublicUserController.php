@@ -5,7 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Mail;
 
 class PublicUserController extends Controller
 {
@@ -136,6 +136,69 @@ class PublicUserController extends Controller
 
     return redirect()->back()->with('success', 'Congratulations! Your status has been updated.');
     }
+
+    public function forgetpasswordpage()
+    {
+    return view('frontend.forgetpassword');
+    }
+
+    public function becomeaseller()
+    {
+        $user = Auth::user();
+        if (!$user) {
+            return redirect('/')->with('message', 'Please login first ');
+        }
+    return view('frontend.dashboard');
+    }
+
+    public function changepasswordpage()
+    {
+    return view('frontend.changepassword');
+    }
+    public function forgetPassword(Request $request)
+    {
+       
+        $email = $request->input('email');
+        $user = User::where('email', $email)->first();
+
+        if (!$user) {
+            return redirect('/forgetpassword')->with('message', 'This email is not registered yet!');
+        }
+
+        $request->session()->put('sessionUserEmail', $user->email);
+        $request->session()->save();
+
+        $data = [
+            'url' => url('/changepassword'),
+            'email' => $email,
+        ];
+
+        Mail::send('email.forgetpassword', $data, function ($message) use ($data) {
+            $message->to($data['email']);
+            $message->from(env('MAIL_USERNAME'));
+            $message->subject('Password Reset Link form Allied Publication');
+        });
+
+        return redirect('/forgetpassword')->with('message', 'Please check your email for password reset instructions.');
+    }
+
+    public function updatePasswordForget(Request $request)
+{
+    $request->validate([
+        'password' => 'required|min:6',
+    ]);
+    $user = User::where('email', session()->get('sessionUserEmail'))->first();
+    if (!$user) {
+        return redirect()->back()->with('error', 'User not found');
+    }
+    if (Hash::check($request->password, $user->password)) {
+        return redirect()->back()->with('error', 'Old password cannot be your new password');
+    }
+    $user->password = Hash::make($request->password);
+    $user->save();
+    return redirect('/')->with('success', 'Your password has been changed successfully');
+}
+
 
 
 }

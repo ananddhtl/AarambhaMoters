@@ -31,7 +31,7 @@
                                         <td>{{ $item->location }}</td>
                                         <td>
                                             <button class="btn btn-danger btn-sm payment-button"
-                                                data-amount="{{ $item->price }}"  data-id="{{ $item->id }}">Pay Via Khalti</button>
+                                                data-amount="{{ $item->price }}"  data-id="{{ $item->booked_vehicleid }}">Pay Via Khalti</button>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -85,7 +85,7 @@
                                             data: {
                                                 token: payload.token,
                                                 amount: payload.amount,
-                                                itemId: payload.itemId,
+                                               
                                                 "_token": "{{ csrf_token() }}"
                                             },
                                             success: function(res) {
@@ -94,6 +94,7 @@
                                                     url: "{{ route('khalti.storePayment') }}",
                                                     data: {
                                                         response: res,
+                                                        itemId:itemId,
                                                         "_token": "{{ csrf_token() }}"
                                                     },
                                                     success: function(res) {
@@ -103,6 +104,7 @@
                                                             title: 'Transaction Successful',
                                                             text: 'Your payment has been processed successfully!',
                                                         });
+                                                        window.reload();
                                                     }
                                                 });
                                                 console.log(res);

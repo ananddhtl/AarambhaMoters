@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\DB;
 
 use Redirect;
 use App\Models\Vehicle;
+use App\Models\User;
 
 class AdminUserController extends Controller
 {
@@ -97,29 +98,29 @@ class AdminUserController extends Controller
     public function login(Request $request)
     {
         try {
-            // Validate the email and password from the request.
+           
             $request->validate([
                 'email' => ['required', 'string', 'email', 'max:255'],
                 'password' => ['required', 'string', 'min:6'],
             ]);
 
-            // Get the email and password from the request.
+          
             $email = $request->email;
             $password = $request->password;
 
-            // Query the admin_users table to find a user with the provided email.
+           
             $user = DB::table('admin_users')->where('email', $email)->get();
 
-            // Check if a user with the provided email exists.
+         
             if (!empty($user[0])) {
-                // If the email exists, check if the provided password matches the stored hashed password.
+               
                 if (Hash::check($password, $user[0]->password)) {
-                    // If the passwords match, set a session variable and redirect to the admin dashboard.
+                    
                     $request->session()->put('sessionUserId', $user[0]->password);
                     $request->session()->save();
                     return redirect('/admin-dashboard')->with('message', 'You have successfully logged in!');
                 } else {
-                    // If the passwords don't match, redirect back with an error message for incorrect password.
+                   
                     return Redirect::back()
                         ->withErrors([
                             'password' => 'Incorrect Password',
@@ -127,7 +128,7 @@ class AdminUserController extends Controller
                         ->withInput(['password' => $password]);
                 }
             } else {
-                // If the email doesn't exist, redirect back with an error message for incorrect email or email not found.
+               
                 return Redirect::back()
                     ->withErrors([
                         'email_address' => 'Incorrect email or email not found',
@@ -149,8 +150,10 @@ class AdminUserController extends Controller
      */
     public function dashboard()
     {
-        // Display the admin dashboard view.
-        return view('admin.index');
+      $vehicles = Vehicle::count();
+      $seller = User::where('status',0)->count();
+      $buyer = User::where('status',1)->count();
+        return view('admin.index',compact('vehicles','seller','buyer'));
     }
 
     /**

@@ -20,6 +20,9 @@
     <!-- endinject -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{ asset('assets1/css/demo_1/style.css') }}">
+
+
+    <!-- End Layout styles -->
     <!-- End Layout styles -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
@@ -136,12 +139,9 @@
                                 <p class="font-weight-light text-muted mb-0">
                                 </p>
                             </div>
-                            <a href="" class="dropdown-item">My Profile <i
-                                    class="dropdown-item-icon ti-dashboard"></i></a>
-                            <a href="" class="dropdown-item">Change Password <i
-                                    class="dropdown-item-icon ti-dashboard"></i></a>
+                           
 
-                            <a href=""class="dropdown-item">Sign Out<i
+                            <a href="/logout-admin"class="dropdown-item">Sign Out<i
                                     class="dropdown-item-icon ti-power-off"></i></a>
                         </div>
                     </li>

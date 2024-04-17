@@ -182,32 +182,32 @@
                         <div class="col-md-6">
                             <div class="form-inner">
                                 <label>First Name*</label>
-                                <input type="text" name="fname" placeholder="First Name">
+                                <input type="text" name="fname" placeholder="First Name" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-inner">
                                 <label>Last Name*</label>
-                                <input type="text" name="lname" placeholder="Last name">
+                                <input type="text" name="lname" placeholder="Last name" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Enter your email address*</label>
-                                <input type="email" name="email" placeholder="Type email">
+                                <input type="email" name="email" placeholder="Type email" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-inner">
                                 <label>Password*</label>
-                                <input id="password"name="password" type="password" placeholder="*** ***">
+                                <input id="password"name="password" type="password" placeholder="*** ***" required>
                                 <i class="bi bi-eye-slash" id="togglePassword"></i>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-inner">
                                 <label>Confirm Password*</label>
-                                <input id="password2" type="password" placeholder="*** ***">
+                                <input id="password2" type="password" placeholder="*** ***" required >
                                 <i class="bi bi-eye-slash" id="togglePassword2"></i>
                             </div>
                         </div>
@@ -217,9 +217,7 @@
                             </div>
                         </div>
                 </div>
-                <div class="terms-conditon">
-                    <p>By sign up,you agree to the <a href="#">‘terms & conditons’</a></p>
-                </div>
+                
                 {{-- <ul class="social-icon">
                             <li><a href="#"><img src="assets/img/home1/icon/google.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/facebook.svg" alt></a></li>
@@ -250,23 +248,20 @@
                             <div class="col-md-12">
                                 <div class="form-inner">
                                     <label>Enter your email address*</label>
-                                    <input type="email" name="email" placeholder="Type email">
+                                    <input type="email" name="email" placeholder="Type email" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="form-inner">
                                     <label>Password*</label>
-                                    <input id="password3" type="password" name="password" placeholder="*** ***">
+                                    <input id="password3" type="password" name="password" placeholder="*** ***" required>
                                     <i class="bi bi-eye-slash" id="togglePassword3"></i>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-agreement form-inner d-flex justify-content-between flex-wrap">
-                                    <div class="form-group">
-                                        <input type="checkbox" id="html">
-                                        <label for="html">Remember Me</label>
-                                    </div>
-                                    <a href="#" class="forgot-pass">Forget Password?</a>
+                                    
+                                    <a href="{{ route('publicuser.forgetpassword') }}" class="forgot-pass">Forget Password?</a>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -522,9 +517,12 @@
                 </div>
             </div>
             <ul class="menu-list">
-                <li class="menu-item-has-children active">
+                <li class=" active">
                     <a href="">HOME</a>
 
+                </li>
+                <li>
+                    <a href="/becomeaseller" class="drop-down">BECOME A SELLER</a>
                 </li>
                 <li class="position-inherit">
                     <a href="#" class="drop-down">SELL YOUR VEHICLE</a>
@@ -538,146 +536,12 @@
                             </li>
                         </ul>
                 </li>
-                {{-- <li class="menu-single-item">
-                    <h6>Popular Models</h6>
-                    <ul>
-                        <li><a href="single-brand-category.html">Brand 1</a></li>
-                        <li><a href="single-brand-category.html">Brand 2</a></li>
-                        <li><a href="single-brand-category.html">Volkswagen Golf</a></li>
-                        <!-- <li><a href="single-brand-category.html">Mercedes C-Class</a></li>
-                                    <li><a href="single-brand-category.html">Audi A4</a></li>
-                                    <li><a href="single-brand-category.html">Jeep Wrangler</a></li>
-                                    <li><a href="single-brand-category.html">Mazda CX-5</a></li>
-                                    <li><a href="single-brand-category.html">Chevrolet Corvette</a></li>
-                                    <li class="explore-more-btn">
-                                        <a href="brand-category.html">Explore More <i
-                                                class="bi bi-arrow-right"></i></a>
-                                    </li> -->
-                    </ul>
-                </li> --}}
+                
 
             </ul>
         </div>
         </li>
-        <li class="position-inherit">
-            <a href="#" class="drop-down">USED Bikes</a>
-            <i class="bi bi-plus dropdown-icon d-lg-none d-block"></i>
-            <div class="mega-menu">
-                <ul class="menu-row">
-                    <li class="menu-single-item">
-                        <h6>Browse by Brand</h6>
-                        <ul>
-                            <li><a href="single-brand-category.html">Brand 1 <img
-                                        src="assets/img/menu-icon/merchedes.svg" alt></a></li>
-                            <!-- <li><a href="single-brand-category.html">brand 2<img
-                                                src="assets/img/menu-icon/volkswagen.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Ferrari (10) <img
-                                                src="assets/img/menu-icon/ferrari.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Mazda (10) <img
-                                                src="assets/img/menu-icon/mazda.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Mitsubishi (10) <img
-                                                src="assets/img/menu-icon/mitsubishi.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Lamborghini (10) <img
-                                                src="assets/img/menu-icon/lamborghini.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Tesla (10) <img
-                                                src="assets/img/menu-icon/tesla.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Toyota (10) <img
-                                                src="assets/img/menu-icon/toyota.svg" alt></a></li> -->
-                            <li class="explore-more-btn">
-                                <a href="brand-category.html">Explore More <i class="bi bi-arrow-right"></i></a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- <li class="menu-single-item">
-                                <h6>Popular Models</h6>
-                                <ul>
-                                    <li><a href="single-brand-category.html">Toyota Camry</a></li>
-                                    <li><a href="single-brand-category.html">Ford Mustang</a></li>
-                                    <li><a href="single-brand-category.html">Volkswagen Golf</a></li>
-                                    <li><a href="single-brand-category.html">Mercedes C-Class</a></li>
-                                    <li><a href="single-brand-category.html">Audi A4</a></li>
-                                    <li><a href="single-brand-category.html">Jeep Wrangler</a></li>
-                                    <li><a href="single-brand-category.html">Mazda CX-5</a></li>
-                                    <li><a href="single-brand-category.html">Chevrolet Corvette</a></li>
-                                    <li class="explore-more-btn">
-                                        <a href="brand-category.html">Explore More <i
-                                                class="bi bi-arrow-right"></i></a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="menu-single-item">
-                                <h6>Popular Cities </h6>
-                                <ul>
-                                    <li><a href="single-brand-category.html">Panama City (10)<img
-                                                src="assets/img/menu-icon/panama.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Sydne City (10)<img
-                                                src="assets/img/menu-icon/sydne.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Melbourne City (10)<img
-                                                src="assets/img/menu-icon/melbourne.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">New Delhi (10)<img
-                                                src="assets/img/menu-icon/delhi.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">New York (10)<img
-                                                src="assets/img/menu-icon/newYork.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">Menchester City (10)<img
-                                                src="assets/img/menu-icon/menchester.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">City of Greece (10)<img
-                                                src="assets/img/menu-icon/greece.svg" alt></a></li>
-                                    <li><a href="single-brand-category.html">City of Abu-dabi (10)<img
-                                                src="assets/img/menu-icon/abudabi.svg" alt></a></li>
-                                    <li class="explore-more-btn">
-                                        <a href="brand-category.html">Explore More <i
-                                                class="bi bi-arrow-right"></i></a>
-                                    </li>
-                                </ul>
-                            </li> -->
-                </ul>
-            </div>
-        </li>
-        <!-- <li class="menu-item-has-children">
-                    <a href="#" class="drop-down">Pages</a><i class="bi bi-plus dropdown-icon"></i>
-                    <ul class="sub-menu">
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="brand-category.html">Brand Category</a></li>
-                        <li><a href="single-brand-category.html">Single Brand Category</a></li>
-                        <li>
-                            <a href="#">Car Listing System</a>
-                            <i class="d-lg-flex d-none bi bi-chevron-right dropdown-icon"></i>
-                            <i class="d-lg-none d-flex bi bi-plus dropdown-icon"></i>
-                            <ul class="sub-menu">
-                                <li><a href="car-listing-left-sidebar.html">Car Listing Left Sidebar</a></li>
-                                <li><a href="car-listing-right-sidebar.html">Car Listing Right Sidebar</a></li>
-                                <li><a href="car-listing-no-sidebar.html">Car Listing No Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="special-offer.html">Special Offer</a></li>
-                        <li><a href="car-deatils.html">Car Details </a></li>
-                        <li><a href="car-auction-details.html">Car Auction Details</a></li>
-                        <li><a href="compare.html"> Compare Car</a></li>
-                        <li>
-                            <a href="#">Shop</a>
-                            <i class="d-lg-flex d-none bi bi-chevron-right dropdown-icon"></i>
-                            <i class="d-lg-none d-flex bi bi-plus dropdown-icon"></i>
-                            <ul class="sub-menu">
-                                <li><a href="shop.html">Shop</a></li>
-                                <li><a href="product-details.html">Product Details</a></li>
-                                <li><a href="checkout.html">Checkout</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Blog</a>
-                            <i class="d-lg-flex d-none bi bi-chevron-right dropdown-icon"></i>
-                            <i class="d-lg-none d-flex bi bi-plus dropdown-icon"></i>
-                            <ul class="sub-menu">
-                                <li><a href="blog-standard.html">Blog Standard</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="faq.html">FAQ's</a></li>
-                        <li><a href="error.html">Error</a></li>
-                        <li><a href="customer-review.html">Customer Review </a></li>
-                        <li><a href="return-enchange.html">Return & Exchange</a></li>
-                    </ul>
-                </li> -->
+        
         <li>
             <a href="contact.html" class="drop-down">CONTACT US</a>
         </li>
