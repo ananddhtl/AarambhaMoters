@@ -179,13 +179,13 @@
                 <div class="modal-body">
                     <form action="{{ route('userregister') }}" method="POST">
                         @csrf
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-inner">
                                 <label>First Name*</label>
                                 <input type="text" name="fname" placeholder="First Name" required>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Last Name*</label>
                                 <input type="text" name="lname" placeholder="Last name" required>
@@ -197,14 +197,14 @@
                                 <input type="email" name="email" placeholder="Type email" required>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Password*</label>
                                 <input id="password"name="password" type="password" placeholder="*** ***" required>
                                 <i class="bi bi-eye-slash" id="togglePassword"></i>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Confirm Password*</label>
                                 <input id="password2" type="password" placeholder="*** ***" required >

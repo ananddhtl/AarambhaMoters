@@ -73,8 +73,8 @@
 
 
 
-
-    <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
+{{-- 
+    <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet"> --}}
 
 
 

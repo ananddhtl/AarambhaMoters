@@ -5,7 +5,7 @@
 
                 <div class="text-wrapper">
                     <p class="profile-name">
-</p>
+                    </p>
 
                 </div>
             </a>
@@ -34,7 +34,7 @@
                 </ul>
             </div>
         </li>
-         <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.listvehicles') }}">
                 <i class="menu-icon typcn typcn-document-text"></i>
                 <span class="menu-title">List Vehicles </span>

@@ -19,7 +19,8 @@ class ChatBotController extends Controller
         $botman->hears('{message}', function($botman, $message) {
   
             if ($message == 'hi') {
-                $botman->reply("Hello");}
+                $botman->reply("Hello");
+            }
             elseif ($message == 'What is your name?') {
                 $botman->reply("We are Aarambha Moters");
             }else{

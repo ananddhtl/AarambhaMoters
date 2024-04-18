@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->text('transactioncode');
             $table->string('paymenttype');
+            $table->string('booking_id');
             $table->timestamps();
         });
     }

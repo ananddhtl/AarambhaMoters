@@ -15,14 +15,14 @@
             <div class="container-fluid">
                 <ul class="breadcrumb-list">
                     <li><a href="index.html">Home</a></li>
-                    <li>Compare Vehicle</li>
+                    <li>Compare Cars</li>
                 </ul>
                 <div class="banner-main-content-wrap">
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 d-flex align-items-center">
                             <div class="banner-content">
-                                <span class="sub-title">Compare Vehicles</span>
-                                <h1>Find The Best vehicle</h1>
+                                <span class="sub-title">Compare Cars</span>
+                                <h1>Find The Best Car</h1>
                                 <div class="customar-review">
                                     <ul>
                                         <li>
@@ -34,6 +34,36 @@
                                                     <div class="star">
                                                         <img src="assets/img/home1/icon/trustpilot-star.svg" alt="">
                                                     </div>
+                                                </div>
+                                                <div class="content">
+                                                    <ul>
+                                                        <li>Trust Rating <span>5.0</span></li>
+                                                        <li><span>2348</span> Reviews</li>
+                                                    </ul>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="review-top">
+                                                    <div class="logo">
+                                                        <img src="assets/img/home1/icon/google-logo.svg" alt="">
+                                                    </div>
+                                                    <div class="star">
+                                                        <ul>
+                                                            <li><i class="bi bi-star-fill"></i></li>
+                                                            <li><i class="bi bi-star-fill"></i></li>
+                                                            <li><i class="bi bi-star-fill"></i></li>
+                                                            <li><i class="bi bi-star-fill"></i></li>
+                                                            <li><i class="bi bi-star-half"></i></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="content">
+                                                    <ul>
+                                                        <li>Trust Rating <span>5.0</span></li>
+                                                        <li><span>2348</span> Reviews</li>
+                                                    </ul>
                                                 </div>
                                             </a>
                                         </li>
@@ -93,10 +123,10 @@
                                         <div class="product-img">
                                             @foreach ($vehicleData['images'] as $image)
                                                 <img src="{{ asset($image->vehicle_images) }}" alt="image">
-                                                {{-- Assuming 'image_path' is the column name where image path is stored --}}
+                                               
                                             @break
 
-                                            {{-- Break after showing the first image --}}
+                                           
                                         @endforeach
                                     </div>
                                     <div class="product-content">
@@ -115,7 +145,7 @@
                 </div>
             </div>
         </div>
-
+       
         <div class="row">
             <div class="col-lg-12">
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
