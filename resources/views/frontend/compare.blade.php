@@ -118,7 +118,9 @@
                                 <div class="col-md-6">
                                     <div class="product-card style-2 compare">
                                         <div class="close-btn">
-                                            <i class="bi bi-x"></i>
+                                            <a href="{{ route('compare.remove', $vehicleData['vehicle']->id) }}">
+                                                <i class="bi bi-x"></i>
+                                            </a>
                                         </div>
                                         <div class="product-img">
                                             @foreach ($vehicleData['images'] as $image)
@@ -179,7 +181,7 @@
                                                         ) {
                                                             echo $decodedData[0]->value;
                                                         } else {
-                                                            echo 'N/A'; // Or any default value you want to display
+                                                            echo 'N/A'; 
                                                         }
                                                     @endphp
                                                 </td>

@@ -66,6 +66,8 @@ Route::get('/admin-appprovevehicles', [AdminUserController::class, 'approvevehic
 
 Route::get('/compare', [CompareController::class, 'viewpage'])->name('compare.viewpage');
 
+Route::get('/removecompare/{id}', [CompareController::class, 'destroy'])->name('compare.remove');
+
 Route::get('/forgetpassword', [PublicUserController::class, 'forgetpasswordpage'])->name('publicuser.forgetpassword');
 
 Route::get('/changepassword', [PublicUserController::class, 'changepasswordpage'])->name('publicuser.changepassword');

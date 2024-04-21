@@ -120,7 +120,7 @@
                                 <div class="col-md-6">
                                     <div class="form-inner mb-30">
                                         <label>Phone*</label>
-                                        <input type="text" name="phone" placeholder="Ex- +880-13* ** ***" required>
+                                        <input type="number" name="phone" placeholder="Ex- +880-13* ** ***" required>
                                     </div>
                                 </div>
                                 <div class="col-md-6">

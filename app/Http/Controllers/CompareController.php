@@ -106,8 +106,9 @@ class CompareController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Compare $compare)
-    {
-        //
-    }
+    public function destroy(Request $request, $id)
+{
+    dd($id);
+    // Perform deletion logic here based on the $id
+}
 }

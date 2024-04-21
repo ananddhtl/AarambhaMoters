@@ -18,438 +18,74 @@
 
             </div>
             <!-- Page Title Header Ends-->
+
             <div class="row">
-                <div class="col-md-12 grid-margin stretch-card">
+                <div class="col-md-12 grid-margin">
                     <div class="card">
                         <div class="card-body">
-                           
-                            <div class="app-main__outer">
-                                <div class="app-main__inner">
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6">
+                                    <div class="d-flex">
+                                        <div class="wrapper">
+                                            <h3 class="mb-0 font-weight-semibold">{{ $vehicles }}</h3>
+                                            <h5 class="mb-0 font-weight-medium text-primary">Total Vehicles</h5>
 
-                                    <div class="row">
-                                        <div class="col-md-6 col-xl-4">
-                                            <div class="card mb-3 widget-content bg-midnight-bloom">
-                                                <div class="widget-content-wrapper text-white">
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Total Vehicles</div>
-                                                      
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="widget-numbers text-white"><span>{{$vehicles}}</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <div class="card mb-3 widget-content bg-arielle-smile">
-                                                <div class="widget-content-wrapper text-white">
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Total Buyer</div>
-                                                       
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="widget-numbers text-white"><span>{{$buyer}}</span></div>
-                                                    </div>
+                                        <div class="wrapper my-auto ms-auto ms-lg-4">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="col-md-6 col-xl-4">
-                                            <div class="card mb-3 widget-content bg-grow-early">
-                                                <div class="widget-content-wrapper text-white">
-                                                    <div class="widget-content-left">
-                                                        <div class="widget-heading">Total Seller</div>
-                                                        
-                                                    </div>
-                                                    <div class="widget-content-right">
-                                                        <div class="widget-numbers text-white"><span>{{$seller}}</span></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12 col-lg-6">
-                                            <div class="mb-3 card">
-                                                <div class="card-header-tab card-header-tab-animation card-header">
-                                                    <div class="card-header-title">
-                                                        <i class="header-icon lnr-apartment icon-gradient bg-love-kiss">
-                                                        </i>
-                                                        Sales Report
-                                                    </div>
-                                                    <ul class="nav">
-                                                        <li class="nav-item"><a href="javascript:void(0);"
-                                                                class="active nav-link">Last</a>
-                                                        </li>
-                                                        <li class="nav-item"><a href="javascript:void(0);"
-                                                                class="nav-link second-tab-toggle">Current</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="card-body">
-                                                    <div class="tab-content">
-                                                        <div class="tab-pane fade show active" id="tabs-eg-77">
-                                                            <div
-                                                                class="card mb-3 widget-chart widget-chart2 text-left w-100">
-                                                                <div class="widget-chat-wrapper-outer">
-                                                                    <div
-                                                                        class="widget-chart-wrapper widget-chart-wrapper-lg opacity-10 m-0">
-                                                                        <canvas id="canvas"></canvas>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <h6
-                                                                class="text-muted text-uppercase font-size-md opacity-5 font-weight-normal">
-                                                                Top Authors</h6>
-                                                            <div class="scroll-area-sm">
-                                                                <div class="scrollbar-container">
-                                                                    <ul
-                                                                        class="rm-list-borders rm-list-borders-scroll list-group list-group-flush">
-                                                                        <li class="list-group-item">
-                                                                            <div class="widget-content p-0">
-                                                                                <div class="widget-content-wrapper">
-                                                                                    <div
-                                                                                        class="widget-content-left mr-3">
-                                                                                        <img width="42"
-                                                                                            class="rounded-circle"
-                                                                                            src="assets/images/avatars/9.jpg"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                    <div class="widget-content-left">
-                                                                                        <div class="widget-heading">
-                                                                                            Ella-Rose Henry
-                                                                                        </div>
-                                                                                        <div class="widget-subheading">
-                                                                                            Web
-                                                                                            Developer</div>
-                                                                                    </div>
-                                                                                    <div class="widget-content-right">
-                                                                                        <div
-                                                                                            class="font-size-xlg text-muted">
-                                                                                            <small
-                                                                                                class="opacity-5 pr-1">$</small>
-                                                                                            <span>129</span>
-                                                                                            <small
-                                                                                                class="text-danger pl-2">
-                                                                                                <i
-                                                                                                    class="fa fa-angle-down"></i>
-                                                                                            </small>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item">
-                                                                            <div class="widget-content p-0">
-                                                                                <div class="widget-content-wrapper">
-                                                                                    <div
-                                                                                        class="widget-content-left mr-3">
-                                                                                        <img width="42"
-                                                                                            class="rounded-circle"
-                                                                                            src="assets/images/avatars/5.jpg"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                    <div class="widget-content-left">
-                                                                                        <div class="widget-heading">
-                                                                                            Ruben
-                                                                                            Tillman
-                                                                                        </div>
-                                                                                        <div class="widget-subheading">
-                                                                                            UI
-                                                                                            Designer
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="widget-content-right">
-                                                                                        <div
-                                                                                            class="font-size-xlg text-muted">
-                                                                                            <small
-                                                                                                class="opacity-5 pr-1">$</small>
-                                                                                            <span>54</span>
-                                                                                            <small
-                                                                                                class="text-success pl-2">
-                                                                                                <i
-                                                                                                    class="fa fa-angle-up"></i>
-                                                                                            </small>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item">
-                                                                            <div class="widget-content p-0">
-                                                                                <div class="widget-content-wrapper">
-                                                                                    <div
-                                                                                        class="widget-content-left mr-3">
-                                                                                        <img width="42"
-                                                                                            class="rounded-circle"
-                                                                                            src="assets/images/avatars/4.jpg"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                    <div class="widget-content-left">
-                                                                                        <div class="widget-heading">
-                                                                                            Vinnie
-                                                                                            Wagstaff
-                                                                                        </div>
-                                                                                        <div class="widget-subheading">
-                                                                                            Java
-                                                                                            Programmer</div>
-                                                                                    </div>
-                                                                                    <div class="widget-content-right">
-                                                                                        <div
-                                                                                            class="font-size-xlg text-muted">
-                                                                                            <small
-                                                                                                class="opacity-5 pr-1">$</small>
-                                                                                            <span>429</span>
-                                                                                            <small
-                                                                                                class="text-warning pl-2">
-                                                                                                <i
-                                                                                                    class="fa fa-dot-circle"></i>
-                                                                                            </small>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item">
-                                                                            <div class="widget-content p-0">
-                                                                                <div class="widget-content-wrapper">
-                                                                                    <div
-                                                                                        class="widget-content-left mr-3">
-                                                                                        <img width="42"
-                                                                                            class="rounded-circle"
-                                                                                            src="assets/images/avatars/3.jpg"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                    <div class="widget-content-left">
-                                                                                        <div class="widget-heading">
-                                                                                            Ella-Rose Henry
-                                                                                        </div>
-                                                                                        <div class="widget-subheading">
-                                                                                            Web
-                                                                                            Developer</div>
-                                                                                    </div>
-                                                                                    <div class="widget-content-right">
-                                                                                        <div
-                                                                                            class="font-size-xlg text-muted">
-                                                                                            <small
-                                                                                                class="opacity-5 pr-1">$</small>
-                                                                                            <span>129</span>
-                                                                                            <small
-                                                                                                class="text-danger pl-2">
-                                                                                                <i
-                                                                                                    class="fa fa-angle-down"></i>
-                                                                                            </small>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                        <li class="list-group-item">
-                                                                            <div class="widget-content p-0">
-                                                                                <div class="widget-content-wrapper">
-                                                                                    <div
-                                                                                        class="widget-content-left mr-3">
-                                                                                        <img width="42"
-                                                                                            class="rounded-circle"
-                                                                                            src="assets/images/avatars/2.jpg"
-                                                                                            alt="">
-                                                                                    </div>
-                                                                                    <div class="widget-content-left">
-                                                                                        <div class="widget-heading">
-                                                                                            Ruben
-                                                                                            Tillman
-                                                                                        </div>
-                                                                                        <div class="widget-subheading">
-                                                                                            UI
-                                                                                            Designer
-                                                                                        </div>
-                                                                                    </div>
-                                                                                    <div class="widget-content-right">
-                                                                                        <div
-                                                                                            class="font-size-xlg text-muted">
-                                                                                            <small
-                                                                                                class="opacity-5 pr-1">$</small>
-                                                                                            <span>54</span>
-                                                                                            <small
-                                                                                                class="text-success pl-2">
-                                                                                                <i
-                                                                                                    class="fa fa-angle-up"></i>
-                                                                                            </small>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </li>
-                                                                    </ul>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 col-lg-6">
-                                            <div class="mb-3 card">
-                                                <div class="card-header-tab card-header">
-                                                    <div class="card-header-title">
-                                                        <i
-                                                            class="header-icon lnr-rocket icon-gradient bg-tempting-azure">
-                                                        </i>
-                                                        Bandwidth Reports
-                                                    </div>
-                                                    <div class="btn-actions-pane-right">
-                                                        <div class="nav">
-                                                            <a href="javascript:void(0);"
-                                                                class="border-0 btn-pill btn-wide btn-transition active btn btn-outline-alternate">Tab
-                                                                1</a>
-                                                            <a href="javascript:void(0);"
-                                                                class="ml-1 btn-pill btn-wide border-0 btn-transition  btn btn-outline-alternate second-tab-toggle-alt">Tab
-                                                                2</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="tab-content">
-                                                    <div class="tab-pane fade active show" id="tab-eg-55">
-                                                        <div class="widget-chart p-3">
-                                                            <div style="height: 350px">
-                                                                <canvas id="line-chart"></canvas>
-                                                            </div>
-                                                            <div class="widget-chart-content text-center mt-5">
-                                                                <div class="widget-description mt-0 text-warning">
-                                                                    <i class="fa fa-arrow-left"></i>
-                                                                    <span class="pl-1">175.5%</span>
-                                                                    <span class="text-muted opacity-8 pl-1">increased
-                                                                        server
-                                                                        resources</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="pt-2 card-body">
-                                                            <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="widget-content">
-                                                                        <div class="widget-content-outer">
-                                                                            <div class="widget-content-wrapper">
-                                                                                <div class="widget-content-left">
-                                                                                    <div
-                                                                                        class="widget-numbers fsize-3 text-muted">
-                                                                                        63%</div>
-                                                                                </div>
-                                                                                <div class="widget-content-right">
-                                                                                    <div class="text-muted opacity-6">
-                                                                                        Generated
-                                                                                        Leads</div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="widget-progress-wrapper mt-1">
-                                                                                <div
-                                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                                    <div class="progress-bar bg-danger"
-                                                                                        role="progressbar"
-                                                                                        aria-valuenow="63"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"
-                                                                                        style="width: 63%;"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="widget-content">
-                                                                        <div class="widget-content-outer">
-                                                                            <div class="widget-content-wrapper">
-                                                                                <div class="widget-content-left">
-                                                                                    <div
-                                                                                        class="widget-numbers fsize-3 text-muted">
-                                                                                        32%</div>
-                                                                                </div>
-                                                                                <div class="widget-content-right">
-                                                                                    <div class="text-muted opacity-6">
-                                                                                        Submitted
-                                                                                        Tickers</div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="widget-progress-wrapper mt-1">
-                                                                                <div
-                                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                                    <div class="progress-bar bg-success"
-                                                                                        role="progressbar"
-                                                                                        aria-valuenow="32"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"
-                                                                                        style="width: 32%;"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="widget-content">
-                                                                        <div class="widget-content-outer">
-                                                                            <div class="widget-content-wrapper">
-                                                                                <div class="widget-content-left">
-                                                                                    <div
-                                                                                        class="widget-numbers fsize-3 text-muted">
-                                                                                        71%</div>
-                                                                                </div>
-                                                                                <div class="widget-content-right">
-                                                                                    <div class="text-muted opacity-6">
-                                                                                        Server
-                                                                                        Allocation</div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="widget-progress-wrapper mt-1">
-                                                                                <div
-                                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                                    <div class="progress-bar bg-primary"
-                                                                                        role="progressbar"
-                                                                                        aria-valuenow="71"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"
-                                                                                        style="width: 71%;"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
-                                                                    <div class="widget-content">
-                                                                        <div class="widget-content-outer">
-                                                                            <div class="widget-content-wrapper">
-                                                                                <div class="widget-content-left">
-                                                                                    <div
-                                                                                        class="widget-numbers fsize-3 text-muted">
-                                                                                        41%</div>
-                                                                                </div>
-                                                                                <div class="widget-content-right">
-                                                                                    <div class="text-muted opacity-6">
-                                                                                        Generated
-                                                                                        Leads</div>
-                                                                                </div>
-                                                                            </div>
-                                                                            <div class="widget-progress-wrapper mt-1">
-                                                                                <div
-                                                                                    class="progress-bar-sm progress-bar-animated-alt progress">
-                                                                                    <div class="progress-bar bg-warning"
-                                                                                        role="progressbar"
-                                                                                        aria-valuenow="41"
-                                                                                        aria-valuemin="0"
-                                                                                        aria-valuemax="100"
-                                                                                        style="width: 41%;"></div>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <canvas height="50" width="100" id="stats-line-graph-1"
+                                                class="chartjs-render-monitor" style="display: block;"></canvas>
                                         </div>
                                     </div>
-                                    
+                                </div>
+                                <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+                                    <div class="d-flex">
+                                        <div class="wrapper">
+                                            <h3 class="mb-0 font-weight-semibold">{{ $buyer }}</h3>
+                                            <h5 class="mb-0 font-weight-medium text-primary">Total Buyer</h5>
 
+                                        </div>
+                                        <div class="wrapper my-auto ms-auto ms-lg-4">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas height="50" width="100" id="stats-line-graph-2"
+                                                class="chartjs-render-monitor" style="display: block;"></canvas>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3 col-md-6 mt-md-0 mt-4">
+                                    <div class="d-flex">
+                                        <div class="wrapper">
+                                            <h3 class="mb-0 font-weight-semibold">{{ $seller }}</h3>
+                                            <h5 class="mb-0 font-weight-medium text-primary">Total Seller</h5>
+
+                                        </div>
+                                        <div class="wrapper my-auto ms-auto ms-lg-4">
+                                            <div class="chartjs-size-monitor">
+                                                <div class="chartjs-size-monitor-expand">
+                                                    <div class=""></div>
+                                                </div>
+                                                <div class="chartjs-size-monitor-shrink">
+                                                    <div class=""></div>
+                                                </div>
+                                            </div>
+                                            <canvas height="50" width="100" id="stats-line-graph-3"
+                                                class="chartjs-render-monitor" style="display: block;"></canvas>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>
@@ -457,16 +93,107 @@
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-8 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <h4 class="card-title mb-0">Sales Statistics Overview</h4>
+                            <div class="d-flex flex-column flex-lg-row">
+                                <p>Lorem ipsum is placeholder text commonly used</p>
+                                <ul class="nav nav-tabs sales-mini-tabs ms-lg-auto mb-4 mb-md-0" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" id="sales-statistics_switch_1" data-bs-toggle="tab"
+                                            role="tab" aria-selected="true">1D</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sales-statistics_switch_2" data-bs-toggle="tab"
+                                            role="tab" aria-selected="false">5D</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sales-statistics_switch_3" data-bs-toggle="tab"
+                                            role="tab" aria-selected="false">1M</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" id="sales-statistics_switch_4" data-bs-toggle="tab"
+                                            role="tab" aria-selected="false">1Y</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="d-flex flex-column flex-lg-row">
+                                <div class="data-wrapper d-flex mt-2 mt-lg-0">
+                                    <div class="wrapper pe-5">
+                                        <h5 class="mb-0">Total Cost</h5>
+                                        <div class="d-flex align-items-center">
+                                            <h4 class="font-weight-semibold mb-0">15,263</h4>
+                                            <small class="ms-2 text-gray d-none d-lg-block"><b>89.5%</b> of 20,000
+                                                Total</small>
+                                        </div>
+                                    </div>
+                                    <div class="wrapper">
+                                        <h5 class="mb-0">Total Revenue</h5>
+                                        <div class="d-flex align-items-center">
+                                            <h4 class="font-weight-semibold mb-0">$753,098</h4>
+                                            <small class="ms-2 text-gray d-none d-lg-block"><b>10.5%</b> of 20,000
+                                                Total</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ms-lg-auto" id="sales-statistics-legend">
+                                    <div class="chartjs-legend">
+                                        <ul>
+                                            <li><span style="background-color:#8862e0"></span>Revenue</li>
+                                            <li><span style="background-color:#19d895"></span>Sales</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <canvas class="mt-5 chartjs-render-monitor" height="338" id="sales-statistics-overview"
+                                style="display: block; width: 424px; height: 169px;" width="848"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body d-flex flex-column">
+                            <div class="chartjs-size-monitor">
+                                <div class="chartjs-size-monitor-expand">
+                                    <div class=""></div>
+                                </div>
+                                <div class="chartjs-size-monitor-shrink">
+                                    <div class=""></div>
+                                </div>
+                            </div>
+                            <div class="wrapper">
+                                <h4 class="card-title mb-0">Net Profit Margin</h4>
+                                <p>Started collecting data from February 2019</p>
+                                <div class="mb-4" id="net-profit-legend">
+                                    <div class="chartjs-legend">
+                                        <ul>
+                                            <li><span style="background-color:rgba(88, 208, 222,0.8)"></span>Sales</li>
+                                            <li><span style="background-color:rgba(150, 77, 247,1)"></span>Orders</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <canvas class="my-auto mx-auto chartjs-render-monitor" height="284" id="net-profit"
+                                width="342" style="display: block; width: 171px; height: 142px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <!-- content-wrapper ends -->
-        <link href="https://demo.dashboardpack.com/architectui-html-free/main.css" rel="stylesheet">
 
-
-
-
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
     </div>
 </div>
-<script type="text/javascript" src="https://demo.dashboardpack.com/architectui-html-free/assets/scripts/main.js">
+
 </script>
 @include('admin.include.footer')

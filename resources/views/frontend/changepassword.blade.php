@@ -12,17 +12,22 @@
                         <form action="{{route('publicuser.storechangepassword')}}" method="POST">
                             @csrf
                             <div class="row">
-                                
                                 <div class="col-md-6">
                                     <div class="form-inner mb-30">
-                                        <label>New Password </label>
-                                        <input type="password" name="password" placeholder="************">
+                                        <label>New Password</label>
+                                        <div class="input-group">
+                                            <input type="password" id="password" name="password" class="form-control" placeholder="************">
+                                           
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-inner mb-30">
-                                        <label>Confirm Password </label>
-                                        <input type="password"  placeholder="************">
+                                        <label>Confirm Password</label>
+                                        <div class="input-group">
+                                            <input type="password" id="confirmPassword" class="form-control" placeholder="************">
+                                           
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
@@ -33,6 +38,7 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
