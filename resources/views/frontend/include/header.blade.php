@@ -435,30 +435,22 @@
                 <li>
                     <a href="/becomeaseller" class="drop-down">BECOME A SELLER</a>
                 </li>
-                <li class="position-inherit">
-                    <a href="#" class="drop-down">SELL YOUR VEHICLE</a>
-                    <i class="bi bi-plus dropdown-icon d-lg-none d-block"></i>
-                    <div class="mega-menu">
-                        <ul class="menu-row">
-                            <li class="menu-single-item">
-                                <h6>Browse by Brand</h6>
-                                <ul>
-
-                            </li>
-                        </ul>
+                <li >
+                    <a href="/aboutus" class="drop-down">ABOUT US</a>
+                   
                 </li>
 
-
+                <li>
+                    <a href="/contactus" class="drop-down">CONTACT US</a>
+                </li>
+                <li>
+                    <a href="/faq" class="drop-down">FAQ</a>
+                </li>
             </ul>
         </div>
         </li>
 
-        <li>
-            <a href="/contactus" class="drop-down">CONTACT US</a>
-        </li>
-        <li>
-            <a href="/faq" class="drop-down">FAQ</a>
-        </li>
+       
         </ul>
         <div class="topbar-right d-lg-none d-block">
             <a href="#">

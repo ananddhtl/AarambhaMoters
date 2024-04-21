@@ -51,6 +51,8 @@ Route::get('/faq', [FrontendController::class, 'faqpage'])->name('faq');
 
 Route::get('/contactus', [FrontendController::class, 'contactus'])->name('contactus');
 
+Route::get('/aboutus', [FrontendController::class, 'aboutus'])->name('aboutus');
+
 Route::post('/contactusdata', [FrontendController::class, 'contactusdata'])->name('contactusdata');
 
 Route::get('/listcategory', [VehicleCategoryController::class, 'index'])->name('categories.list');

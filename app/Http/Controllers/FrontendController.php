@@ -71,6 +71,11 @@ public function contactus(Request $request){
    
     return view('frontend.contactus');
 }
+public function aboutus(Request $request){
+
+   
+    return view('frontend.aboutus');
+}
     
  public function contactusdata(Request $request)
  {
