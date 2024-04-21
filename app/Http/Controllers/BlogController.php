@@ -86,24 +86,58 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(Blog $blog, $id)
     {
-        //
+        $editblog =  Blog::find($id);
+        return view('admin.blog.edit',compact('editblog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request, Blog $blog, $id)
     {
-        //
+        {
+       
+           
+            $blog =  Blog::findOrFail($id);
+           
+            if ($request->hasFile('img')) {
+                $image = $request->file('img');
+                $imageName = time().'.'.$image->extension(); 
+                $image->move(public_path('blog/thumbnail'), $imageName); 
+                
+              
+                $fullImagePath = 'blog/thumbnail/' . $imageName;
+            }
+            
+         
+       
+            $blog->title = $request->categoryname;
+            
+           
+            if (isset($fullImagePath)) {
+                $blog->thumbnail = $fullImagePath; 
+            }
+            
+            $blog->description = $request->categorydescription;
+            $blog->save();
+            
+            return redirect()->route('blog.list')->with('success', 'Blog updated successfully');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(Blog $blog, $id)
     {
-        //
+       
+        $blog = Blog::find($id);
+        if (!$blog) {
+            return response()->json(['error' => 'Blog  not found'], 404);
+        }
+        $blog->delete();
+        return redirect()->back()->with('success', 'Your data has been deleted successfully');
     }
 }

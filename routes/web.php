@@ -11,6 +11,7 @@ use App\Http\Controllers\BookedVehiclesController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\CompareController;
 use App\Http\Controllers\ChatBotController;
+use App\Http\Controllers\FAQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,12 @@ Route::get('/admin-dashboard', [AdminUserController::class, 'dashboard']);
 
 Route::get('/searchitem', [FrontendController::class, 'searchpage'])->name('search');
 
+Route::get('/faq', [FrontendController::class, 'faqpage'])->name('faq');
+
+Route::get('/contactus', [FrontendController::class, 'contactus'])->name('contactus');
+
+Route::post('/contactusdata', [FrontendController::class, 'contactusdata'])->name('contactusdata');
+
 Route::get('/listcategory', [VehicleCategoryController::class, 'index'])->name('categories.list');
 Route::get('/addcategory', [VehicleCategoryController::class, 'addcategory'])->name('categories.add');
 Route::post('/storecategory', [VehicleCategoryController::class, 'store'])->name('categories.store');
@@ -70,6 +77,9 @@ Route::post('/store-userregister', [PublicUserController::class, 'userregister']
 
 Route::get('/bookedvehicleslist', [BookedVehiclesController::class, 'bookedvehiclesadmin'])->name('admin.bookedvehicles');
 
+Route::get('/confirmbooking/{id}', [BookedVehiclesController::class, 'confirmbooking'])->name('booking.confirm');
+
+Route::get('/notifyseller/{id}', [BookedVehiclesController::class, 'notifyseller'])->name('booking.notifyseller');
 
 Route::post('/storecompare', [CompareController::class, 'store'])->name('user.compare');
 
@@ -79,8 +89,19 @@ Route::get('/listblog', [BlogController::class, 'index'])->name('blog.list');
 Route::get('/addblog', [BlogController::class, 'addblog'])->name('blog.add');
 Route::get('/blogdescription/{id}', [BlogController::class, 'blogdescription'])->name('blog.description');
 Route::post('/storeblog', [BlogController::class, 'store'])->name('blog.store');
+Route::get('/editblog/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+Route::get('/deleteblog/{id}', [BlogController::class, 'destroy'])->name('blog.destroy');
+Route::post('/updateblog/{id}', [BlogController::class, 'update'])->name('blog.update');
+
+
+Route::get('/listfaq', [FAQController::class, 'index'])->name('faq.list');
+Route::get('/addfaq', [FAQController::class, 'addfaq'])->name('faq.add');
+Route::post('/storefaq', [FAQController::class, 'store'])->name('faq.store');
+Route::get('/editfaq/{id}', [FAQController::class, 'edit'])->name('faq.edit');
+Route::post('/updatefaq/{id}', [FAQController::class, 'update'])->name('faq.update');
 
 Route::get('/becomeaseller', [PublicUserController::class, 'becomeaseller']);
+Route::post('/vehicleinquiry', [BookedVehiclesController::class, 'store'])->name('enquiry.store');
 
 Route::middleware(['auth'])->group(function () {
 
@@ -101,13 +122,13 @@ Route::middleware(['auth'])->group(function () {
 
     Route::post('/updateuser', [PublicUserController::class, 'updatestatus'])->name('userinformation.update');
 
-    Route::post('/vehicleinquiry', [BookedVehiclesController::class, 'store'])->name('enquiry.store');
+    
     Route::get('/pendingbooked', [BookedVehiclesController::class, 'bookedpending'])->name('vehicle.bookedpending');
     Route::get('/approvalbooked', [BookedVehiclesController::class, 'bookedapproval'])->name('vehicle.bookedapproval');
 
     Route::get('/orderhistory', [BookedVehiclesController::class, 'orderhistory'])->name('vehicle.orderhistory');
 
-    Route::get('/confirmbooking/{id}', [BookedVehiclesController::class, 'confirmbooking'])->name('booking.confirm');
+   
 
     Route::post('/khalti/payment/verify',[BookedVehiclesController::class,'verifyPayment'])->name('khalti.verifyPayment');
 

@@ -18,36 +18,29 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">List Blog</h4>
+                        <h4 class="card-title">List FAQ</h4>
 
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th> Blog Title </th>
-                                    <th> Description </th>
-                                    <th> Image </th>
+                                    <th> Question </th>
+                                    <th> Answer </th>
+                                   
                                     <th> Action </th>
 
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($list as $category)
+                                @foreach ($list as $faq)
                                     <tr>
-                                        <td>{{ $category->title }}</td>
-                                        <td>{{ $category->description }}</td>
+                                        <td>{{ $faq->question }}</td>
+                                        <td>{{ $faq->answer }}</td>
+                                        
                                         <td>
-                                            @if ($category->thumbnail)
-                                                <img src="{{ asset($category->thumbnail) }}" alt="Category Image"
-                                                    style="max-width: 100px;">
-                                            @else
-                                                No Image
-                                            @endif
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('blog.edit', ['id' => $category->id]) }}"
+                                            <a href="{{ route('faq.edit', ['id' => $faq->id]) }}"
                                                 class="btn btn-primary btn-sm">Edit</a>
                                             <button type="button" class="btn btn-danger btn-sm"
-                                                onclick="confirmDelete('{{ url('/deleteblog/' . $category->id) }}')">Delete</button>
+                                                onclick="confirmDelete('{{ url('/deleteblog/' . $faq->id) }}')">Delete</button>
 
                                         </td>
 

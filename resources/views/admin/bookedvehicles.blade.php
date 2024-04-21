@@ -1,5 +1,13 @@
 @include('admin.include.header')
-<!-- partial -->
+@if(session('success'))
+    <script>
+        Swal.fire({
+            icon: 'success',
+            title: ' Successfully Done',
+            text: '{{ session('success') }}',
+        });
+    </script>
+@endif
 <div class="container-fluid page-body-wrapper">
     <!-- partial:partials/_sidebar.html -->
 

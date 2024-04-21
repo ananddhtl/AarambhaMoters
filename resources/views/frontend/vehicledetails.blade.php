@@ -1,5 +1,22 @@
 @extends('welcome')
 @section('content')
+
+@if (session('message'))
+<script>
+    Swal.fire({
+        icon: 'danger',
+        text: ' Please login first to continue',
+    });
+</script>
+@endif
+@if (session('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        text: 'Vehicle has been boooked successfully',
+    });
+</script>
+@endif
 <div class="inner-page-banner">
     <div class="banner-wrapper">
         <div class="container-fluid">
@@ -237,26 +254,26 @@
                         <form action="{{ route('enquiry.store') }}" method="POST">
                             @csrf
                             <input type="hidden" name="vehicle_id" value={{ $vehicle->id }}>
-                            <input type="hidden" name="user_id" value={{ @Auth::user()->id }}>
+                          
                             <div class="form-inner mb-20">
                                 <label>Name*</label>
-                                <input type="text" name="name" placeholder="Ex- Jhon Numan">
+                                <input type="text" name="name" placeholder="Ex- Jhon Numan" required>
                             </div>
                             <div class="form-inner mb-20">
                                 <label>Email*</label>
-                                <input type="email" name="email" placeholder="Ex- info@gmail.com">
+                                <input type="email" name="email" placeholder="Ex- info@gmail.com" required>
                             </div>
                             <div class="form-inner mb-20">
                                 <label>Phone</label>
-                                <input id="phone" name="phone" type="tel" name="phone" />
+                                <input id="phone" name="phone" type="tel" name="phone" required/>
                             </div>
                             <div class="form-inner mb-20">
                                 <label>Visiting Date</label>
-                                <input id="phone" type="date" name="date" placeholder="Date to visit the showroom" />
+                                <input id="phone" type="date" name="date" placeholder="Date to visit the showroom" required />
                             </div>
                             <div class="form-inner mb-20">
                                 <label>Message*</label>
-                                <textarea name="message" placeholder="Write your message..."></textarea>
+                                <textarea name="message" placeholder="Write your message..." required></textarea>
                             </div>
                             <div class="form-inner">
                                 <button class="primary-btn3" type="submit">

@@ -5,7 +5,10 @@
             Swal.fire({
                 icon: 'danger',
                 title: 'Invalid Credentials',
-                text: ' You have enter invalid  credentials',
+                text: 'You have entered invalid credentials',
+                onClose: () => {
+                    $('#logInModal01').modal('show');
+                }
             });
         </script>
     @endif
@@ -37,13 +40,13 @@
         </script>
     @endif
     @if (session('message'))
-    <script>
-        Swal.fire({
-            icon: 'danger',
-            text: ' Please login first to continue',
-        });
-    </script>
-@endif
+        <script>
+            Swal.fire({
+                icon: 'danger',
+                text: ' Please login first to continue',
+            });
+        </script>
+    @endif
 
 
     <div class="home6-banner-area">
@@ -399,71 +402,71 @@
                     </div>
                 </div>
                 <!-- <div class="col-lg-12">
-                                    <div class="our-activetis">
-                                        <div class="row justify-content-center g-lg-4 gy-5">
-                                            <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-lg-start justify-content-sm-center wow fadeInUp"
-                                                data-wow-delay="200ms">
-                                                <div class="single-activiti">
-                                                    <div class="icon">
-                                                        <img src="assets/img/home1/icon/av-car.svg" alt>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="number">
-                                                            <h5 class="counter">600</h5>
-                                                            <span>K+</span>
+                                            <div class="our-activetis">
+                                                <div class="row justify-content-center g-lg-4 gy-5">
+                                                    <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-lg-start justify-content-sm-center wow fadeInUp"
+                                                        data-wow-delay="200ms">
+                                                        <div class="single-activiti">
+                                                            <div class="icon">
+                                                                <img src="assets/img/home1/icon/av-car.svg" alt>
+                                                            </div>
+                                                            <div class="content">
+                                                                <div class="number">
+                                                                    <h5 class="counter">600</h5>
+                                                                    <span>K+</span>
+                                                                </div>
+                                                                <p>Car Available</p>
+                                                            </div>
                                                         </div>
-                                                        <p>Car Available</p>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
+                                                        data-wow-delay="300ms">
+                                                        <div class="single-activiti">
+                                                            <div class="icon">
+                                                                <img src="assets/img/home1/icon/sold-car.svg" alt>
+                                                            </div>
+                                                            <div class="content">
+                                                                <div class="number">
+                                                                    <h5 class="counter">400</h5>
+                                                                    <span>K+</span>
+                                                                </div>
+                                                                <p>Car Sold</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
+                                                        data-wow-delay="400ms">
+                                                        <div class="single-activiti">
+                                                            <div class="icon">
+                                                                <img src="assets/img/home1/icon/use-car.svg" alt>
+                                                            </div>
+                                                            <div class="content">
+                                                                <div class="number">
+                                                                    <h5 class="counter">200</h5>
+                                                                    <span>K+</span>
+                                                                </div>
+                                                                <p>Used Cars</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-3 col-sm-4 col-sm-6 d-flex justify-content-lg-end justify-content-sm-center wow fadeInUp"
+                                                        data-wow-delay="500ms">
+                                                        <div class="single-activiti">
+                                                            <div class="icon">
+                                                                <img src="assets/img/home1/icon/happy-customar.svg" alt>
+                                                            </div>
+                                                            <div class="content">
+                                                                <div class="number">
+                                                                    <h5 class="counter">98.50</h5>
+                                                                    <span>%</span>
+                                                                </div>
+                                                                <p>Customer Satisfaction</p>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
-                                                data-wow-delay="300ms">
-                                                <div class="single-activiti">
-                                                    <div class="icon">
-                                                        <img src="assets/img/home1/icon/sold-car.svg" alt>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="number">
-                                                            <h5 class="counter">400</h5>
-                                                            <span>K+</span>
-                                                        </div>
-                                                        <p>Car Sold</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-4 col-sm-6 divider d-flex justify-content-sm-center wow fadeInUp"
-                                                data-wow-delay="400ms">
-                                                <div class="single-activiti">
-                                                    <div class="icon">
-                                                        <img src="assets/img/home1/icon/use-car.svg" alt>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="number">
-                                                            <h5 class="counter">200</h5>
-                                                            <span>K+</span>
-                                                        </div>
-                                                        <p>Used Cars</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-3 col-sm-4 col-sm-6 d-flex justify-content-lg-end justify-content-sm-center wow fadeInUp"
-                                                data-wow-delay="500ms">
-                                                <div class="single-activiti">
-                                                    <div class="icon">
-                                                        <img src="assets/img/home1/icon/happy-customar.svg" alt>
-                                                    </div>
-                                                    <div class="content">
-                                                        <div class="number">
-                                                            <h5 class="counter">98.50</h5>
-                                                            <span>%</span>
-                                                        </div>
-                                                        <p>Customer Satisfaction</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                        </div> -->
             </div>
         </div>
     </div>
@@ -1268,6 +1271,4 @@
             </div>
         </div>
     </div>
-   
-   
 @endsection

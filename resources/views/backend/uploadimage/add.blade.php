@@ -27,7 +27,7 @@
 
                                 <div class="form-group">
                                     <label>Vehicle Images</label>
-                                    <input type="file" name="img" class="form-control" accept="image/*">
+                                    <input type="file" name="img" class="form-control" accept="image/*" required>
                                     <!-- Add 'required' attribute for client-side validation -->
                                 </div>
 

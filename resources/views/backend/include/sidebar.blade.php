@@ -1,12 +1,14 @@
-
-
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="profile-image">
-                    <img class="img-xs rounded-circle" src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
-                        alt="profile image">
+                    @if (!empty(Auth::user()->thumbnail))
+                        <img class="img-xs rounded-circle" src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
+                            alt="Profile image">
+                    @else
+                        <img class="img-xs rounded-circle" src="{{ asset('logo.jpg') }}" alt="Profile image">
+                    @endif
                     <div class="dot-indicator bg-success"></div>
                 </div>
                 <div class="text-wrapper">
@@ -78,7 +80,7 @@
                         </li>
                     </ul>
                 </div>
-                
+
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/orderhistory">

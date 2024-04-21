@@ -182,15 +182,16 @@
                         <div class="col-md-12">
                             <div class="form-inner">
                                 <label>First Name*</label>
-                                <input type="text" name="fname" placeholder="First Name" required>
+                                <input type="text" name="fname" id="fname" placeholder="First Name" required>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Last Name*</label>
-                                <input type="text" name="lname" placeholder="Last name" required>
+                                <input type="text" name="lname" id="lname" placeholder="Last name" required>
                             </div>
                         </div>
+
                         <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Enter your email address*</label>
@@ -200,15 +201,17 @@
                         <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Password*</label>
-                                <input id="password"name="password" type="password" placeholder="*** ***" required>
-                                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                <input id="password" name="password" type="password" placeholder="*** ***" required>
+
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-inner">
                                 <label>Confirm Password*</label>
-                                <input id="password2" type="password" placeholder="*** ***" required >
-                                <i class="bi bi-eye-slash" id="togglePassword2"></i>
+                                <input id="password2" type="password" placeholder="*** ***" required>
+
+                                <p id="passwordMatchError" style="color: red; display: none;">Passwords do not match.
+                                </p>
                             </div>
                         </div>
                         <div class="col-md-12">
@@ -217,7 +220,7 @@
                             </div>
                         </div>
                 </div>
-                
+
                 {{-- <ul class="social-icon">
                             <li><a href="#"><img src="assets/img/home1/icon/google.svg" alt></a></li>
                             <li><a href="#"><img src="assets/img/home1/icon/facebook.svg" alt></a></li>
@@ -254,14 +257,16 @@
                             <div class="col-md-12">
                                 <div class="form-inner">
                                     <label>Password*</label>
-                                    <input id="password3" type="password" name="password" placeholder="*** ***" required>
+                                    <input id="password3" type="password" name="password" placeholder="*** ***"
+                                        required>
                                     <i class="bi bi-eye-slash" id="togglePassword3"></i>
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="form-agreement form-inner d-flex justify-content-between flex-wrap">
-                                    
-                                    <a href="{{ route('publicuser.forgetpassword') }}" class="forgot-pass">Forget Password?</a>
+
+                                    <a href="{{ route('publicuser.forgetpassword') }}" class="forgot-pass">Forget
+                                        Password?</a>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -283,107 +288,11 @@
             </div>
         </div>
     </div>
-    <div class="modal signUp-modal sell-with-us fade" id="sellUsModal01" tabindex="-1"
-        aria-labelledby="sellUsModal01Label" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="sellUsModal01Label">Sell Your Car</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"><i
-                            class="bi bi-x"></i></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="row">
-                            <div class="col-lg-12 mb-15">
-                                <h5>Your Personal Info</h5>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Full Name*</label>
-                                    <input type="text" placeholder="Full Name*">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Phone*</label>
-                                    <input type="text" placeholder="+880- 123 234 ***">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Email (Optional)</label>
-                                    <input type="text" placeholder="Enter your email address">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Location*</label>
-                                    <input type="text" placeholder="Enter your address">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12 mb-15 mt-25">
-                                <h5>Your Car Info</h5>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Car Brand Name*</label>
-                                    <input type="text" placeholder="Toyota">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Model*</label>
-                                    <input type="text" placeholder="RS eTN 80">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Reg. Year*</label>
-                                    <input type="text" placeholder="2022">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Mileage*</label>
-                                    <input type="text" placeholder="23,456 miles">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Fuel Type*</label>
-                                    <input type="text" placeholder="Petrol">
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-20">
-                                <div class="form-inner">
-                                    <label>Selling Price*</label>
-                                    <input type="text" placeholder="Ex- $23,342.000">
-                                </div>
-                            </div>
-                            <div class="col-md-12 mb-35">
-                                <div class="form-inner">
-                                    <label>Your Car Note*</label>
-                                    <textarea placeholder="Write somethings"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-inner">
-                                    <button class="primary-btn2" type="submit">Submit Now</button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <div class="top-bar">
         <div class="company-logo">
-            <a href="index.html"><img src="assets/img/logo.png" alt height="190px" width="200px"></a>
+            <a href="/"><img src="{{ asset('assets/img/logo.png') }}" alt height="190px" width="200px"></a>
         </div>
         <div class="search-area">
             <form action="{{ route('search') }}" method="GET">
@@ -399,15 +308,7 @@
         <div class="topbar-right">
             <ul>
 
-                <li>
-                    <a href="#">
-                        <svg width="16" height="16" viewBox="0 0 14 14" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M7.00012 2.40453L6.37273 1.75966C4.90006 0.245917 2.19972 0.76829 1.22495 2.67141C0.767306 3.56653 0.664053 4.8589 1.4997 6.50827C2.30473 8.09639 3.97953 9.99864 7.00012 12.0706C10.0207 9.99864 11.6946 8.09639 12.5005 6.50827C13.3362 4.85803 13.2338 3.56653 12.7753 2.67141C11.8005 0.76829 9.10019 0.245042 7.62752 1.75879L7.00012 2.40453ZM7.00012 13.125C-6.41666 4.25953 2.86912 -2.65995 6.84612 1.00016C6.89862 1.04829 6.95024 1.09816 7.00012 1.14979C7.04949 1.09821 7.10087 1.04859 7.15413 1.00104C11.1302 -2.6617 20.4169 4.25865 7.00012 13.125Z" />
-                        </svg>
-                        Reserve
-                    </a>
-                </li>
+                
                 @if (Auth::check())
                     <div class="container py-5">
                         <div class="row">
@@ -417,9 +318,14 @@
                                         <a class="rounded-circle" href="#" role="button" id="dropdownUser"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                <img alt="avatar"
-                                                    src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
-                                                    class="rounded-circle">
+                                                @if (!empty(Auth::user()->thumbnail))
+                                                    <img class="img-xs rounded-circle"
+                                                        src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
+                                                        alt="Profile image">
+                                                @else
+                                                    <img class="img-xs rounded-circle" src="{{ asset('logo.jpg') }}"
+                                                        alt="Profile image">
+                                                @endif
                                             </div>
                                         </a>
 
@@ -427,9 +333,14 @@
                                             <div class="dropdown-item">
                                                 <div class="d-flex py-2">
                                                     <div class="avatar avatar-md avatar-indicators avatar-online">
-                                                        <img alt="avatar"
-                                                            src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
-                                                            class="rounded-circle">
+                                                        @if (!empty(Auth::user()->thumbnail))
+                                                            <img class="img-xs rounded-circle"
+                                                                src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
+                                                                alt="Profile image">
+                                                        @else
+                                                            <img class="img-xs rounded-circle"
+                                                                src="{{ asset('logo.jpg') }}" alt="Profile image">
+                                                        @endif
                                                     </div>
                                                     <div class="ml-3 lh-1">
                                                         <h5 class="mb-0">{{ Auth::user()->name }}</h5>
@@ -493,7 +404,7 @@
                                 <path fill-rule="evenodd" clip-rule="evenodd"
                                     d="M14.4311 12.759C15.417 11.4291 16 9.78265 16 8C16 3.58169 12.4182 0 8 0C3.58169 0 0 3.58169 0 8C0 12.4182 3.58169 16 8 16C10.3181 16 12.4058 15.0141 13.867 13.4387C14.0673 13.2226 14.2556 12.9957 14.4311 12.759ZM13.9875 12C14.7533 10.8559 15.1999 9.48009 15.1999 8C15.1999 4.02355 11.9764 0.799983 7.99991 0.799983C4.02355 0.799983 0.799983 4.02355 0.799983 8C0.799983 9.48017 1.24658 10.8559 2.01245 12C2.97866 10.5566 4.45301 9.48194 6.17961 9.03214C5.34594 8.45444 4.79998 7.49102 4.79998 6.39995C4.79998 4.63266 6.23271 3.19993 8 3.19993C9.76729 3.19993 11.2 4.63266 11.2 6.39995C11.2 7.49093 10.654 8.45444 9.82039 9.03206C11.5469 9.48194 13.0213 10.5565 13.9875 12ZM13.4722 12.6793C12.3495 10.8331 10.3188 9.59997 8.00008 9.59997C5.68126 9.59997 3.65049 10.8331 2.52776 12.6794C3.84829 14.2222 5.80992 15.2 8 15.2C10.1901 15.2 12.1517 14.2222 13.4722 12.6793ZM8 8.79998C9.32551 8.79998 10.4 7.72554 10.4 6.39995C10.4 5.07444 9.32559 3.99992 8 3.99992C6.6744 3.99992 5.59997 5.07452 5.59997 6.40003C5.59997 7.72554 6.67449 8.79998 8 8.79998Z" />
                             </svg>
-                            SIGN UP
+                            Login / Register
                         </button>
                     </li>
                 @endif
@@ -517,8 +428,8 @@
                 </div>
             </div>
             <ul class="menu-list">
-                <li class=" active">
-                    <a href="">HOME</a>
+                <li class="active">
+                    <a href="/">HOME</a>
 
                 </li>
                 <li>
@@ -536,14 +447,17 @@
                             </li>
                         </ul>
                 </li>
-                
+
 
             </ul>
         </div>
         </li>
-        
+
         <li>
-            <a href="contact.html" class="drop-down">CONTACT US</a>
+            <a href="/contactus" class="drop-down">CONTACT US</a>
+        </li>
+        <li>
+            <a href="/faq" class="drop-down">FAQ</a>
         </li>
         </ul>
         <div class="topbar-right d-lg-none d-block">
@@ -595,96 +509,7 @@
         </div>
         <div class="nav-right d-flex jsutify-content-end align-items-center">
 
-            <div class="dropdown">
-                <button class="modal-btn header-cart-btn" type="button">
-                    <i class="bi bi-bag-check"></i> CART (2 )
-                </button>
-                <div class="cart-menu">
-                    <div class="cart-body">
-                        <ul>
-                            <li class="single-item">
-                                <div class="item-area">
-                                    <div class="main-item">
-                                        <div class="item-img">
-                                            <img src="assets/img/home1/cart-01.png" alt>
-                                        </div>
-                                        <div class="content-and-quantity">
-                                            <div class="content">
-                                                <div
-                                                    class="price-and-btn d-flex align-items-center justify-content-between">
-                                                    <span>$234</span>
-                                                    <button class="close-btn"><i class="bi bi-x"></i></button>
-                                                </div>
-                                                <h6><a href="product-details.html">Steering Rack Advance Auto Parts is
-                                                        a
-                                                        retailer.</a></h6>
-                                            </div>
-                                            <div class="quantity-area">
-                                                <div class="quantity">
-                                                    <a class="quantity__minus"><span><i
-                                                                class="bi bi-dash"></i></span></a>
-                                                    <input name="quantity" type="text" class="quantity__input"
-                                                        value="01">
-                                                    <a class="quantity__plus"><span><i
-                                                                class="bi bi-plus"></i></span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="single-item">
-                                <div class="item-area">
-                                    <div class="main-item">
-                                        <div class="item-img">
-                                            <img src="assets/img/home1/cart-01.png" alt>
-                                        </div>
-                                        <div class="content-and-quantity">
-                                            <div class="content">
-                                                <div
-                                                    class="price-and-btn d-flex align-items-center justify-content-between">
-                                                    <span>$234</span>
-                                                    <button class="close-btn"><i class="bi bi-x"></i></button>
-                                                </div>
-                                                <h6><a href="product-details.html">Steering Rack Advance Auto Parts is
-                                                        a
-                                                        retailer.</a></h6>
-                                            </div>
-                                            <div class="quantity-area">
-                                                <div class="quantity">
-                                                    <a class="quantity__minus"><span><i
-                                                                class="bi bi-dash"></i></span></a>
-                                                    <input name="quantity" type="text" class="quantity__input"
-                                                        value="01">
-                                                    <a class="quantity__plus"><span><i
-                                                                class="bi bi-plus"></i></span></a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="cart-footer">
-                        <div class="pricing-area">
-                            <ul>
-                                <li><span>Sub Total</span><span>$468</span></li>
-                                <li><span>Offer (20%)</span><span>$56</span></li>
-                            </ul>
-                            <ul class="total">
-                                <li><span>Total</span><span>$425</span></li>
-                            </ul>
-                        </div>
-                        <div class="footer-button">
-                            <ul>
-                                <li><a class="primary-btn2" href="#">Continue Shopping</a></li>
-                                <li><a class="primary-btn2" href="#">Product Checkout</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+           
             <div class="hotline-area d-xl-flex d-none">
                 <div class="icon">
                     <img src="assets/img/home1/icon/hotline-icon.svg" alt>
@@ -699,3 +524,45 @@
             </div>
         </div>
     </header>
+
+    <script>
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('password2');
+        const passwordMatchError = document.getElementById('passwordMatchError');
+
+        function checkPasswordMatch() {
+            if (confirmPasswordInput.value !== '') { // Check only when Confirm Password field is not empty
+                if (passwordInput.value !== confirmPasswordInput.value) {
+                    passwordMatchError.style.display = 'block';
+                    confirmPasswordInput.setCustomValidity('Passwords do not match.');
+                } else {
+                    passwordMatchError.style.display = 'none';
+                    confirmPasswordInput.setCustomValidity('');
+                }
+            } else {
+                passwordMatchError.style.display = 'none'; // Hide error if Confirm Password field is empty
+                confirmPasswordInput.setCustomValidity('');
+            }
+        }
+
+        confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+    </script>
+
+    <script>
+        const fnameInput = document.getElementById('fname');
+        const lnameInput = document.getElementById('lname');
+
+        // Add event listeners to validate input on keypress event
+        fnameInput.addEventListener('keypress', restrictNumbers);
+        lnameInput.addEventListener('keypress', restrictNumbers);
+
+        function restrictNumbers(event) {
+            const charCode = event.charCode;
+
+            // Check if the entered character is a number
+            if (charCode >= 48 && charCode <= 57) {
+                // Prevent the default action (typing the character)
+                event.preventDefault();
+            }
+        }
+    </script>

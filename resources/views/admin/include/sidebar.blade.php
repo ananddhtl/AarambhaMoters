@@ -72,7 +72,23 @@
                 </ul>
             </div>
         </li>
-
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="collapse" href="#ui-basic12" aria-expanded="false" aria-controls="ui-basic12">
+                <i class="menu-icon typcn typcn-coffee"></i>
+                <span class="menu-title">FAQ</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic12">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('faq.add') }}">Add </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('faq.list') }}">List </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
 
     </ul>
 </nav>

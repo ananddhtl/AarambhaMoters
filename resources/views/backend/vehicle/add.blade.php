@@ -19,11 +19,13 @@
                                 <label for="exampleInputName1">Vehicle Name</label>
                                 <input type="text" class="form-control" id="vehicleName" name="vehiclename"
                                     placeholder="Vehicle Name">
-                                <!-- Add '' attribute for client-side validation -->
+                              
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Select Vechicle Brand</label>
                                 <select class="form-control form-control-lg" name="vehicle_brand" id="vehiclecategory">
+                                    <option>Please select the category
+                                    </option>
                                     @foreach ($vehiclecategory as $item)
                                         <option value="{{ $item->id }}">{{ $item->brand_name }}</option>
                                     @endforeach
@@ -31,9 +33,9 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputName1">Vehicle Price</label>
-                                <input type="text" class="form-control" id="vehiclePrice" name="vehicleprice"
+                                <input type="number" class="form-control" id="vehiclePrice" name="vehicleprice"
                                     placeholder="Vehicle Price">
-                                <!-- Add '' attribute for client-side validation -->
+                               
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputName1">Location</label>
@@ -48,13 +50,13 @@
                                     <div class="form-group">
                                         <label for="exampleInputInfo">Info</label>
                                         <input type="text" class="form-control" id="exampleInputInfo"
-                                            placeholder="Enter Info">
+                                            placeholder="Eg:- Mileage, Fuel Type.....">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputValue">Value</label>
                                         <input type="text" class="form-control" id="exampleInputValue"
-                                            placeholder="Enter Value">
+                                            placeholder="Eg:- 100km, Petrol">
                                     </div>
 
                                     <button type="button" class="btn btn-dark" onclick="addCarInfo()">Add</button>
@@ -77,18 +79,18 @@
 
 
                             <div class="form-group">
-                                <!-- Key Features Form -->
+                               
                                 <div class="container mt-4">
                                     <div class="form-group">
                                         <label for="exampleInputKeyFeature">Key Features</label>
                                         <input type="text" class="form-control" id="exampleInputKeyFeature"
-                                            placeholder="Enter Key Features">
+                                            placeholder="Eg:- Sunroof, Monn Roof...">
                                     </div>
 
                                     <button type="button" class="btn btn-dark"
                                         onclick="addCarKeyFeatures()">Add</button>
 
-                                    <!-- Key Features Table -->
+                                  
                                     <div class="form-group mt-4">
                                         <table class="table" id="carKeyFeaturesTable">
                                             <thead>
@@ -109,13 +111,13 @@
                                     <div class="form-group">
                                         <label for="overviewInfo">Overview</label>
                                         <input type="text" class="form-control" id="overviewInfo"
-                                            placeholder="Enter Overview">
+                                            placeholder="Eg:- Modal, Seating Capacity, Color">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="overviewInfoValue">Value</label>
                                         <input type="text" class="form-control" id="overviewInfoValue"
-                                            placeholder="Enter Value">
+                                            placeholder="Eg:- 2016, 4, Red">
                                     </div>
 
                                     <button type="button" class="btn btn-dark" onclick="addCarOverview()">Add</button>
@@ -141,13 +143,13 @@
                                     <div class="form-group">
                                         <label for="exampleInputInfo">Engine Performance</label>
                                         <input type="text" class="form-control" id="engineperformanceInfo"
-                                            placeholder="Enter Info">
+                                            placeholder="Eg:- Engine Size, Engine CC">
                                     </div>
 
                                     <div class="form-group">
                                         <label for="exampleInputValue">Value</label>
                                         <input type="text" class="form-control" id="engineperformanceValue"
-                                            placeholder="Enter Value">
+                                            placeholder="Eg:- 4ltr, 1000CC">
                                     </div>
 
                                     <button type="button" class="btn btn-dark"
@@ -300,19 +302,25 @@
             }
 
             function submitForm() {
-                // Prevent the default form submission behavior
+
                 event.preventDefault();
 
-                // Collect form data
+
                 var formData = {
                     vehiclename: document.getElementById('vehicleName').value,
                     vehiclecategory: document.getElementById('vehiclecategory').value,
                     vehicleprice: document.getElementById('vehiclePrice').value,
                     vehiclelocation: document.getElementById('vehicleLocation').value,
-                    // Add other form fields here using their respective IDs
+
                 };
 
-                // Collect data from carInfoTable
+                for (var key in formData) {
+                    if (formData.hasOwnProperty(key) && formData[key].trim() === '') {
+                        alert('Please fill in all fields.');
+                        return; 
+                    }
+                }
+
                 var carInfoTableData = [];
                 var carInfoRows = document.querySelectorAll("#carInfoTable tbody tr");
                 carInfoRows.forEach(function(row) {
@@ -325,7 +333,7 @@
                 });
                 formData.carInfo = carInfoTableData;
 
-                // Collect data from carKeyFeaturesTable
+                
                 var carKeyFeaturesTableData = [];
                 var carKeyFeaturesRows = document.querySelectorAll("#carKeyFeaturesTable tbody tr");
                 carKeyFeaturesRows.forEach(function(row) {
@@ -334,7 +342,7 @@
                 });
                 formData.carKeyFeatures = carKeyFeaturesTableData;
 
-                // Collect data from carOverviewTable
+              
                 var carOverviewTableData = [];
                 var carOverviewRows = document.querySelectorAll("#carOverviewTable tbody tr");
                 carOverviewRows.forEach(function(row) {
@@ -347,7 +355,7 @@
                 });
                 formData.carOverview = carOverviewTableData;
 
-                // Collect data from enginePerformanceTable
+              
                 var enginePerformanceTableData = [];
                 var enginePerformanceRows = document.querySelectorAll("#engineperformanceTable tbody tr");
                 enginePerformanceRows.forEach(function(row) {
@@ -360,7 +368,7 @@
                 });
                 formData.enginePerformance = enginePerformanceTableData;
 
-                // Make AJAX request
+              
                 $.ajax({
                     type: "POST",
                     url: "{{ route('vehicle.store') }}",
@@ -374,14 +382,14 @@
                             title: 'Vehicle Added',
                             text: 'Your vehicle has been added successfully!',
                         });
-                        // window.location.reload();
+                       
                     },
                     error: function(xhr, status, error) {
-                        // Handle error response
+                     
                         console.error("Error occurred:", error);
                     }
                 });
             }
         </script>
-        <!-- content-wrapper ends -->
+       
         @include('backend.include.footer')

@@ -31,6 +31,11 @@ class BookedVehiclesController extends Controller
      */
     public function store(Request $request)
     {
+       
+        $user = Auth::user();
+        if (!$user) {
+            return redirect()->back()->with('message', 'Please login first ');
+        }
         
         $request->validate([
             'name' => 'required|string|max:255', 
@@ -41,9 +46,9 @@ class BookedVehiclesController extends Controller
            
         ]);
         
-        
+     
         $data = new BookedVehicles();
-        $data->user_id = $request->user_id;
+        $data->user_id = $user->id;
         $data->vehicle_id = $request->vehicle_id;
         $data->name = $request->name;
         $data->email = $request->email;
@@ -162,6 +167,39 @@ class BookedVehiclesController extends Controller
         return redirect()->back()->with('success', 'Vehicle Approved Successfully');
     }
 
+    public function notifyseller($id)
+    {
+       
+        $bookedVehicle = BookedVehicles::select('booked_vehicles.*', 'vehicles.*', 'users.email as seller_email')
+            ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
+            ->join('users', 'vehicles.seller_id', '=', 'users.id')
+            ->where('booked_vehicles.id', $id)
+            ->first(); 
+    
+       
+        if (!$bookedVehicle) {
+            return redirect()->back()->with('error', 'Booked vehicle not found');
+        }
+    
+       
+        $bookedVehicle->status = 2;
+        $bookedVehicle->save();
+    
+        
+        $data = [
+            'email' => $bookedVehicle->seller_email,
+            'message' => "This is the text message"
+        ];
+
+        Mail::send('email.bookvehicle', $data, function ($message) use ($data) {
+            $message->to($data['email']);
+            $message->subject('Your Vehicle has been booked');
+            $message->from('amritkadel10@gmail.com');
+        });
+    
+        return redirect()->back()->with('success', 'Seller Notified Successfully');
+    }
+
     public function verifyPayment(Request $request)
 {
     // Get token and itemId from the request
@@ -202,6 +240,8 @@ class BookedVehiclesController extends Controller
 
 public function storePayment(Request $request)
 {
+
+    
     $bookedVehicle = BookedVehicles::where('id', $request->itemId)->first();
     
     if (!$bookedVehicle) {
