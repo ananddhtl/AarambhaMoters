@@ -15,52 +15,6 @@
                                     About Us
                                 </span>
                                 <h1>Our Brief History</h1>
-                                <div class="customar-review">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <div class="review-top">
-                                                    <div class="logo">
-                                                        <img src="assets/img/home1/icon/trstpilot-logo.svg" alt>
-                                                    </div>
-                                                    <div class="star">
-                                                        <img src="assets/img/home1/icon/trustpilot-star.svg" alt>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <ul>
-                                                        <li>Trust Rating <span>5.0</span></li>
-                                                        <li><span>2348</span> Reviews</li>
-                                                    </ul>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="review-top">
-                                                    <div class="logo">
-                                                        <img src="assets/img/home1/icon/google-logo.svg" alt>
-                                                    </div>
-                                                    <div class="star">
-                                                        <ul>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-half"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <ul>
-                                                        <li>Trust Rating <span>5.0</span></li>
-                                                        <li><span>2348</span> Reviews</li>
-                                                    </ul>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-5 d-lg-flex d-none align-items-center justify-content-end">
@@ -81,26 +35,29 @@
                 <div class="col-lg-12">
                     <div class="welcome-wrap text-center">
                         <div class="section-title1 text-center wow fadeInUp" data-wow-delay="200ms">
-                            <span>(Since-1994)</span>
-                            <h2>Welcome To Drivco</h2>
+                            <h2>Welcome To Aarambha Motors</h2>
                         </div>
                         <div class="welcome-content wow fadeInUp" data-wow-delay="300ms">
-                            <p>We're passionate car agency<br>
-                                we're thrilled to have you join our community of automotive enthusiasts and
-                                professionals. Whether you're a passionate driver, a car owner, or someone who loves all
-                                things automotive, you've come to the right place.At Drivco, we strive to create a space
-                                where people can connect, share knowledge, and explore the exciting world of
-                                automobiles. From discussing the latest car models and technologies to sharing driving
-                                tips and tricks, we're here to fuel your love for everything on wheels.Feel free to ask
-                                any questions you have, seek advice, or simply engage in friendly conversations with
-                                fellow members. Our community is full of experts and enthusiasts who are eager to share
-                                their insights and experiences.
-                                Buckle up and enjoy your journey with Drivco!</p>
-                        </div>
-                        <div class="author-area wow fadeInUp" data-wow-delay="400ms">
-                            <img src="assets/img/inner-page/signature.svg" alt>
-                            <h6>Natrison Mongla</h6>
-                            <span>(CEO & Founder)</span>
+                            <p style="font-size: 18px;">Welcome to Aarambha Motors, your gateway to a seamless and
+                                efficient
+                                experience in buying and
+                                selling pre-owned vehicles in Nepal. Our revolutionary software is designed to simplify the
+                                process, making it easier than ever to find your perfect ride or sell your current vehicle
+                                with confidence.
+
+                                At Aarambha Motors, we understand the challenges and complexities of the automotive market.
+                                That's why we've created a user-friendly platform that caters to both buyers and sellers,
+                                providing a convenient solution for all your vehicle needs.
+
+                                Whether you're in the market for a budget-friendly alternative to a new vehicle or you're
+                                looking to upgrade and sell your current ride, Aarambha Motors is here to help. Our platform
+                                offers a wide range of options, ensuring that you can find the perfect match for your needs
+                                and preferences.
+
+                                Join us on our mission to revolutionize the vehicle trading landscape in Nepal. With
+                                Aarambha Motors, every transaction is a step towards a smoother and more enjoyable
+                                experience in the world of automotive.
+                                Buckle up and enjoy your journey with Aarambha Motors !</p>
                         </div>
                     </div>
                 </div>
@@ -114,8 +71,7 @@
             <div class="row mb-60 wow fadeInUp" data-wow-delay="200ms">
                 <div class="col-lg-12 d-flex justify-content-center">
                     <div class="section-title1 text-center">
-                        <span>Best Car Agency</span>
-                        <h2>Why Only Choose Drivco</h2>
+                        <h2>Why Only Choose Aarambha Motors</h2>
                     </div>
                 </div>
             </div>
@@ -128,8 +84,8 @@
                             </div>
                             <h5><span>Affordable</span> Price</h5>
                         </div>
-                        <p>An affordable price for a luxury car may be significantly higher than an affordable price for
-                            a budget car...</p>
+                        <p>The cost considered affordable for a luxury vehicle might be considerably higher than what's
+                            considered affordable for a budget vehicle.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="300ms">
@@ -138,10 +94,10 @@
                             <div class="choose-icon">
                                 <img src="assets/img/home1/icon/guarantee.svg" alt>
                             </div>
-                            <h5>Money Back <span>Guarantee</span></h5>
+                            <h5>Vehicle <span>Inspection</span></h5>
                         </div>
-                        <p>Some may offer a full refund with no questions asked, others may require the customer to
-                            provide...</p>
+                        <p>Prioritize safety and reliability with our thorough vehicle inspection services. We ensure that
+                            all vehicles meet quality standards before they are made available for sale.</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="400ms">
@@ -150,10 +106,10 @@
                             <div class="choose-icon">
                                 <img src="assets/img/home1/icon/warranty.svg" alt>
                             </div>
-                            <h5>8 Month <span>Warranty</span></h5>
+                            <h5>Vehicle<span> Sales</span></h5>
                         </div>
-                        <p>During this 8-month period, if the product fails to function properly due to a defect or
-                            malfunction...</p>
+                        <p>Explore our inventory of pre-owned cars, bikes, and scooters, carefully curated to
+                            provide you with quality options at competitive prices.</p>
                     </div>
                 </div>
             </div>
@@ -167,10 +123,10 @@
                             </div>
                             <div class="content">
                                 <div class="number">
-                                    <h5 class="counter">600</h5>
-                                    <span>K+</span>
+                                    <h5 class="counter">100</h5>
+                                    <span>+</span>
                                 </div>
-                                <p>Car Available</p>
+                                <p>Vehicle Available</p>
                             </div>
                         </div>
                     </div>
@@ -182,10 +138,10 @@
                             </div>
                             <div class="content">
                                 <div class="number">
-                                    <h5 class="counter">400</h5>
-                                    <span>K+</span>
+                                    <h5 class="counter">50</h5>
+                                    <span>+</span>
                                 </div>
-                                <p>Car Sold</p>
+                                <p>Vehicle Sold</p>
                             </div>
                         </div>
                     </div>
@@ -198,9 +154,9 @@
                             <div class="content">
                                 <div class="number">
                                     <h5 class="counter">200</h5>
-                                    <span>K+</span>
+                                    <span>+</span>
                                 </div>
-                                <p>Used Cars</p>
+                                <p>Used Vehicle</p>
                             </div>
                         </div>
                     </div>
@@ -221,10 +177,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </div>
-
-
-   
 @endsection

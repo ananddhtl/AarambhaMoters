@@ -15,12 +15,10 @@
     @endif
     <div class="main-panel">
         <div class="content-wrapper">
-
             <div class="col-md-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">Update User Password</h4>
-
                         <form class="forms-sample" method="POST" action="{{ route('userinformation.updatepassword') }}"
                             enctype="multipart/form-data">
                             @csrf
@@ -30,7 +28,11 @@
                                     <input type="password"
                                         class="form-control @error('oldpassword') is-invalid @enderror" id="oldpassword"
                                         name="oldpassword" placeholder="Enter Old Password" required>
-                                    
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                                            <i class="mdi mdi-eye"></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 @error('oldpassword')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -42,7 +44,11 @@
                                     <input type="password"
                                         class="form-control @error('newpassword') is-invalid @enderror" id="newpassword"
                                         name="newpassword" placeholder="Enter New Password" required>
-                                  
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                                            <i class="mdi mdi-eye"></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 @error('newpassword')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -55,7 +61,11 @@
                                         class="form-control @error('confirmpassword') is-invalid @enderror"
                                         id="confirmpassword" name="confirmpassword" placeholder="Confirm New Password"
                                         required>
-                                   
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                                            <i class="mdi mdi-eye"></i>
+                                        </button>
+                                    </div>
                                 </div>
                                 @error('confirmpassword')
                                     <div class="invalid-feedback">{{ $message }}</div>
@@ -63,40 +73,23 @@
                             </div>
                             <button type="submit" class="btn btn-success mr-2">Update</button>
                         </form>
-
-
                     </div>
                 </div>
             </div>
         </div>
-        <script>
-        
-                document.getElementById('toggleOldPassword').addEventListener('click', function() {
-                    togglePasswordVisibility('oldpassword');
-                });
-            document.getElementById('toggleNewPassword').addEventListener('click', function() {
-                togglePasswordVisibility('newpassword');
-            });
-            document.getElementById('toggleConfirmPassword').addEventListener('click', function() {
-                togglePasswordVisibility('confirmpassword');
-            });
-
-            function togglePasswordVisibility(inputId) {
-                var input = document.getElementById(inputId);
-                var icon = document.getElementById('toggle' + inputId.charAt(0).toUpperCase() + inputId.slice(1)).querySelector(
-                    'i');
-
-                if (input.type === 'password') {
-                    input.type = 'text';
-                    icon.classList.remove('fa-eye');
-                    icon.classList.add('fa-eye-slash');
-                } else {
-                    input.type = 'password';
-                    icon.classList.remove('fa-eye-slash');
-                    icon.classList.add('fa-eye');
-                }
+    </div>
+</div>
+<script>
+    document.querySelectorAll('.toggle-password').forEach(button => {
+        button.addEventListener('click', function() {
+            const input = button.closest('.input-group').querySelector('input');
+            if (input.type === 'password') {
+                input.type = 'text';
+            } else {
+                input.type = 'password';
             }
-      
-        </script>
-        <!-- content-wrapper ends -->
-        @include('backend.include.footer')
+        });
+    });
+</script>
+
+@include('backend.include.footer')

@@ -10,64 +10,30 @@
             });
         </script>
     @endif
+
+    @if (session('message'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Delete Successfully',
+                text: '{{ session('message') }}',
+            });
+        </script>
+    @endif
     <div class="inner-page-banner">
         <div class="banner-wrapper">
             <div class="container-fluid">
                 <ul class="breadcrumb-list">
                     <li><a href="index.html">Home</a></li>
-                    <li>Compare Cars</li>
+                    <li>Compare Vehicles</li>
                 </ul>
                 <div class="banner-main-content-wrap">
                     <div class="row">
                         <div class="col-xl-6 col-lg-7 d-flex align-items-center">
                             <div class="banner-content">
-                                <span class="sub-title">Compare Cars</span>
-                                <h1>Find The Best Car</h1>
+                                <span class="sub-title">Compare Vehicles</span>
+                                <h1>Find The Best Vehicles</h1>
                                 <div class="customar-review">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <div class="review-top">
-                                                    <div class="logo">
-                                                        <img src="assets/img/home1/icon/trstpilot-logo.svg" alt="">
-                                                    </div>
-                                                    <div class="star">
-                                                        <img src="assets/img/home1/icon/trustpilot-star.svg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <ul>
-                                                        <li>Trust Rating <span>5.0</span></li>
-                                                        <li><span>2348</span> Reviews</li>
-                                                    </ul>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <div class="review-top">
-                                                    <div class="logo">
-                                                        <img src="assets/img/home1/icon/google-logo.svg" alt="">
-                                                    </div>
-                                                    <div class="star">
-                                                        <ul>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-fill"></i></li>
-                                                            <li><i class="bi bi-star-half"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="content">
-                                                    <ul>
-                                                        <li>Trust Rating <span>5.0</span></li>
-                                                        <li><span>2348</span> Reviews</li>
-                                                    </ul>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -118,45 +84,42 @@
                                 <div class="col-md-6">
                                     <div class="product-card style-2 compare">
                                         <div class="close-btn">
-                                            <a href="{{ route('compare.remove', $vehicleData['vehicle']->id) }}">
+                                            <a href="{{ route('compare.remove', $vehicleData['compareVehicleID']) }}">
                                                 <i class="bi bi-x"></i>
                                             </a>
                                         </div>
                                         <div class="product-img">
                                             @foreach ($vehicleData['images'] as $image)
                                                 <img src="{{ asset($image->vehicle_images) }}" alt="image">
-                                               
-                                            @break
-
-                                           
-                                        @endforeach
-                                    </div>
-                                    <div class="product-content">
-                                        <div class="content-top">
-                                            <div class="price-and-title">
-                                                <h5 class="price">${{ $vehicleData['vehicle']->price }}</h5>
-                                                <h5><a href="">{{ $vehicleData['vehicle']->name }}</a></h5>
+                                            @endforeach
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="content-top">
+                                                <div class="price-and-title">
+                                                    <h5 class="price">Rs.{{ $vehicleData['vehicle']->price }}</h5>
+                                                    <h5><a href="">{{ $vehicleData['vehicle']->name }}</a></h5>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        @endforeach
+                            @endforeach
+                        </div>
                     </div>
-
                 </div>
+
             </div>
         </div>
-       
+
         <div class="row">
             <div class="col-lg-12">
                 <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" class="scrollspy-example"
                     tabindex="0">
                     <div class="single-compare mb-50" id="car-info">
-                        <div class="section-title mb-20">
+                        <div class="section-title mb-20" style="margin-left: 50px;">
                             <h5>Summary</h5>
                         </div>
-                        <div class="table-wrapper">
+                        <div class="table-wrapper" style="margin-left:50px;">
                             <table class="eg-table compare-table">
                                 <thead>
                                     <tr>
@@ -181,7 +144,7 @@
                                                         ) {
                                                             echo $decodedData[0]->value;
                                                         } else {
-                                                            echo 'N/A'; 
+                                                            echo 'N/A';
                                                         }
                                                     @endphp
                                                 </td>
@@ -200,5 +163,5 @@
             </div>
         </div>
     </div>
-</div>
+    </div>
 @endsection

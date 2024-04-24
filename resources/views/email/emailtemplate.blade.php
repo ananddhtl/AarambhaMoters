@@ -15,6 +15,7 @@
         <p style="color: #666;"></p>
         <p style="color: #666;">Thank you!</p>
         <p style="color: #666;">Your Vehicle has been approved.</p>
+        <p style="color: #666;">Aarambha Motors</p>
     </div>
 </body>
 

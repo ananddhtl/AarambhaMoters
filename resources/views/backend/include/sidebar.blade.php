@@ -1,11 +1,13 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
+        <a href="#"><img src="assets/img/bluelogo.png" alt height="150px" width="200px"
+                style="margin-bottom: 10px; margin-left: 30px;"></a>
         <li class="nav-item nav-profile">
             <a href="#" class="nav-link">
                 <div class="profile-image">
                     @if (!empty(Auth::user()->thumbnail))
-                        <img class="img-xs rounded-circle" src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}"
-                            alt="Profile image">
+                        <img class="img-xs rounded-circle"
+                            src="{{ asset('userinformation/' . Auth::user()->thumbnail) }}" alt="Profile image">
                     @else
                         <img class="img-xs rounded-circle" src="{{ asset('logo.jpg') }}" alt="Profile image">
                     @endif

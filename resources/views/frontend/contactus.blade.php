@@ -66,7 +66,7 @@
                         <div class="content">
                             <span>Email Now</span>
                             <h6><a href=""><span class="__cf_email__"
-                                        data-cfemail="0a63646c654a6f726b677a666f24696567">info@aarambhamoters.com</span></a>
+                                        data-cfemail="0a63646c654a6f726b677a666f24696567">aarambhamotors@gmail.com</span></a>
                             </h6>
                         </div>
                     </div>

@@ -14,7 +14,7 @@
         <p style="color: #666;">Dear User,</p>
         <p style="color: #666;"></p>
         <p style="color: #666;">Thank you!</p>
-        <p style="color: #666;">Your booking has been confirm</p>
+        <p style="color: #666;">Your booking has been confirmed.</p>
     </div>
 </body>
 

@@ -19,37 +19,39 @@ class CompareController extends Controller
     }
 
 
-
     public function viewpage()
     {
-       
         $list = Vehicle::get();
-      
-       
+        
         $comparedVehicles = Compare::all();
-    
-       
+        
         $vehiclesData = [];
-    
-       
+        
         foreach ($comparedVehicles as $comparison) {
+            // Get the ID of the comparison
+            $compareVehicleID = $comparison->id;
+            
+            // Find the vehicle related to the comparison
             $vehicle = Vehicle::find($comparison->vehicle_id);
+            
             if ($vehicle) {
+                // Get images related to the vehicle
                 $images = DB::table('vehicle_images')
                             ->where('vehicle_id', $vehicle->id)
                             ->get();
-        
+                
+                // Add vehicle data to the vehiclesData array
                 $vehiclesData[] = [
                     'vehicle' => $vehicle,
-                    'images' => $images
+                    'images' => $images,
+                    'compareVehicleID' => $compareVehicleID
                 ];
             }
         }
         
-    
-     
         return view('frontend.compare', compact('list', 'vehiclesData'));
     }
+    
     
 
     /**
@@ -70,10 +72,28 @@ class CompareController extends Controller
        
     ]);
     $user = Auth::user();
+  
+
+
+$selected_vehicle_id = $request->input('vehicle_id'); 
+
+if (!empty($selected_vehicle_id)) {
+  
     $compare = new Compare();
-    $compare->vehicle_id = $request->vehicle_id;
-    $compare->user_id = $user->id;
+
+
+    $compare->vehicle_id = $selected_vehicle_id;
+
+
+    $compare->user_id = $user->id; // Assuming the user_id property is named 'id' in your User model
+
+    // Now save the $compare object
     $compare->save();
+} else {
+    // Handle the case where the selected vehicle ID is empty or not provided
+    // You can redirect back or show an error message to the user
+}
+
     return redirect()->route('compare.viewpage')->with('success', 'Vehicle Successfully Added for the compare');
 
 
@@ -107,8 +127,13 @@ class CompareController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(Request $request, $id)
-{
-    dd($id);
-    // Perform deletion logic here based on the $id
-}
+    {
+        $compare = Compare::find($id);
+        if (!$compare) {
+            return response()->json(['error' => 'Vehicle  not found'], 404);
+        }
+        $compare->delete();
+        return redirect()->back()->with('message', 'Your data has been deleted successfully');
+    }
+    
 }
