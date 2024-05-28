@@ -66,20 +66,14 @@ class VehicleController extends Controller
      */
     public function edit(Vehicle $vehicle)
     {
-        //
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+  
     public function update(Request $request, Vehicle $vehicle)
     {
-        //
+        
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
  
 
     public function acceptVehicle(Request $request, Vehicle $vehicle, $id)

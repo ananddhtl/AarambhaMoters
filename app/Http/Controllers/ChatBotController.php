@@ -8,9 +8,6 @@ use BotMan\BotMan\Messages\Incoming\Answer;
   
 class ChatBotController extends Controller
 {
-    /**
-     * Place your BotMan logic here.
-     */
     public function handle()
     {
         $botman = app('botman');
@@ -36,16 +33,4 @@ class ChatBotController extends Controller
         $botman->listen();
     }
   
-    /**
-     * Place your BotMan logic here.
-     */
-    // public function askName($botman)
-    // {
-    //     $botman->ask('Hello! What is your Name?', function(Answer $answer) {
-  
-    //         $name = $answer->getText();
-  
-    //         $this->say('Nice to meet you '.$name);
-    //     });
-    // }
 }

@@ -31,13 +31,13 @@ class VehicleCategoryController extends Controller
         'categorydescription' => 'required|string', 
     ]);
     
-    // Check if file is present in the request
+    
     if ($request->hasFile('img')) {
         $image = $request->file('img');
         $imageName = time().'.'.$image->extension(); 
         $image->move(public_path('category/thumbnail'), $imageName); 
         
-        // Store the full image path in a variable
+       
         $fullImagePath = 'category/thumbnail/' . $imageName;
     }
     

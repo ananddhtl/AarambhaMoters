@@ -236,19 +236,21 @@
 
     <div class="home6-brand-section mb-100 pb-90 pt-90">
         <div class="container">
-            <div class="row mb-60 wow fadeInUp" data-wow-delay="200ms">
+            <div class="row mb-60 wow fadeInUp" data-wow-delay="200ms" style="visibility: visible; animation-delay: 200ms;">
                 <div class="col-lg-12 d-flex align-items-end justify-content-between flex-wrap gap-4">
                     <div class="section-title-2">
                         <h2>Brand Category</h2>
                         <p>To get the most accurate and up-to-date information.</p>
                     </div>
                     <div class="slider-btn-group2 style-6">
-                        <div class="slider-btn prev-1">
+                        <div class="slider-btn prev-1" tabindex="0" role="button" aria-label="Previous slide"
+                            aria-controls="swiper-wrapper-6b64b73f7fbd7f6f" aria-disabled="false">
                             <svg width="9" height="15" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M0 6.50008L8 0L2.90909 6.50008L8 13L0 6.50008Z"></path>
                             </svg>
                         </div>
-                        <div class="slider-btn next-1">
+                        <div class="slider-btn next-1" tabindex="0" role="button" aria-label="Next slide"
+                            aria-controls="swiper-wrapper-6b64b73f7fbd7f6f" aria-disabled="false">
                             <svg width="9" height="15" viewBox="0 0 8 13" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M8 6.50008L0 0L5.09091 6.50008L0 13L8 6.50008Z"></path>
                             </svg>
@@ -257,28 +259,35 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-12 mb-50 wow fadeInUp" data-wow-delay="300ms">
-                    <div class="swiper home6-brand-category-slider">
-                        <div class="swiper-wrapper">
-                            @foreach ($category as $item)
-                                <div class="swiper-slide">
-                                    <a href="" class="car-category text-center">
-                                        <div class="icon">
-                                            <img src="{{ $item->brand_image }}" alt>
-                                        </div>
-                                        <div class="content">
-                                            <h6>{{ $item->brand_name }}</h6>
-                                            <span>(5463)</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            @endforeach
+                <div class="col-lg-12 mb-50 wow fadeInUp" data-wow-delay="300ms"
+                    style="visibility: visible; animation-delay: 300ms;">
+                    <div
+                        class="swiper home6-brand-category-slider swiper-initialized swiper-horizontal swiper-pointer-events">
+                        <div class="swiper-wrapper" id="swiper-wrapper-6b64b73f7fbd7f6f" aria-live="off"
+                            style="transform: translate3d(-691.5px, 0px, 0px); transition-duration: 0ms;">
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="4 / 7"
+                                style="width: 215.5px; margin-right: 15px;">
+                                <a href="single-brand-category.html" class="car-category text-center">
+                                    <div class="icon">
+                                        <img src="assets/img/home2/icon/tesla.svg" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <h6>Tesla Car</h6>
+                                        <span>(5463)</span>
+                                    </div>
+                                </a>
+                            </div>
+
+
+
                         </div>
+                        <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                     </div>
                 </div>
+
             </div>
         </div>
-    </div>
     </div>
 
 

@@ -10,15 +10,17 @@ use Illuminate\Support\Facades\DB;
 
 class CompareController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    
     public function index()
     {
-        //
+        // This method is currently empty, might contain logic to display a list of comparisons.
     }
 
-
+    /**
+     * Display the comparison page.
+     *
+     * @return \Illuminate\Contracts\View\View
+     */
     public function viewpage()
     {
         $list = Vehicle::get();
@@ -28,19 +30,16 @@ class CompareController extends Controller
         $vehiclesData = [];
         
         foreach ($comparedVehicles as $comparison) {
-            // Get the ID of the comparison
             $compareVehicleID = $comparison->id;
-            
-            // Find the vehicle related to the comparison
             $vehicle = Vehicle::find($comparison->vehicle_id);
             
+            // If the vehicle exists, fetch its images
             if ($vehicle) {
-                // Get images related to the vehicle
                 $images = DB::table('vehicle_images')
                             ->where('vehicle_id', $vehicle->id)
                             ->get();
                 
-                // Add vehicle data to the vehiclesData array
+                // Store vehicle data in the array
                 $vehiclesData[] = [
                     'vehicle' => $vehicle,
                     'images' => $images,
@@ -52,80 +51,67 @@ class CompareController extends Controller
         return view('frontend.compare', compact('list', 'vehiclesData'));
     }
     
-    
-
     /**
-     * Show the form for creating a new resource.
+     * Display the form for creating a new comparison.
+     *
+     * @return \Illuminate\Contracts\View\View
      */
     public function create()
     {
-        //
+        // This method is currently empty, might contain logic to display the create form.
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created comparison in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
-    $request->validate([
-        'vehicle_id' => 'required', 
-       
-    ]);
-    $user = Auth::user();
-  
+        
+        $request->validate([
+            'vehicle_id' => 'required', 
+        ]);
+        
+        
+        $user = Auth::user();
 
+        
+        $selected_vehicle_id = $request->input('vehicle_id'); 
 
-$selected_vehicle_id = $request->input('vehicle_id'); 
+        // If a vehicle ID is provided, create a new comparison
+        if (!empty($selected_vehicle_id)) {
+            // Create a new comparison instance
+            $compare = new Compare();
 
-if (!empty($selected_vehicle_id)) {
-  
-    $compare = new Compare();
+            // Assign vehicle ID and user ID to the comparison
+            $compare->vehicle_id = $selected_vehicle_id;
+            $compare->user_id = $user->id; 
+            $compare->save();
+        }
 
-
-    $compare->vehicle_id = $selected_vehicle_id;
-
-
-    $compare->user_id = $user->id; // Assuming the user_id property is named 'id' in your User model
-
-    // Now save the $compare object
-    $compare->save();
-} else {
-    // Handle the case where the selected vehicle ID is empty or not provided
-    // You can redirect back or show an error message to the user
-}
-
-    return redirect()->route('compare.viewpage')->with('success', 'Vehicle Successfully Added for the compare');
-
-
+        return redirect()->route('compare.viewpage')->with('success', 'Vehicle Successfully Added for comparison');
     }
 
-    /**
-     * Display the specified resource.
-     */
+   
     public function show(Compare $compare)
     {
-        //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+    
     public function edit(Compare $compare)
     {
-        //
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+    
     public function update(Request $request, Compare $compare)
     {
-        //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+   
     public function destroy(Request $request, $id)
     {
         $compare = Compare::find($id);
@@ -135,5 +121,9 @@ if (!empty($selected_vehicle_id)) {
         $compare->delete();
         return redirect()->back()->with('message', 'Your data has been deleted successfully');
     }
-    
+  
+
+
+
 }
+

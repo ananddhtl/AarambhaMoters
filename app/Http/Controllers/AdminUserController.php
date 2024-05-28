@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AdminUser;
 use Illuminate\Http\Request;
+use ValidationException;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
@@ -35,27 +36,27 @@ class AdminUserController extends Controller
     public function store(Request $request)
     {
         try {
-            // Hash the user's password before storing it in the database.
+            
             $password = Hash::make($request->password);
 
-            // Create a new AdminUser instance and set its properties from the request.
+            
             $user = new AdminUser();
             $user->name = $request->name;
             $user->email = $request->email;
             $user->password = $password;
 
-            // Save the user in the database.
+            
             $user->save();
 
-            // Set a session variable and redirect to a specified location.
+            
             $request->session()->put('sessionUserId', $password);
             return redirect('/admin-loginlogin')->with('message', 'Your account has been registered successfully');
         } catch (ValidationException $e) {
-            // Catch any validation errors and redirect back with error messages and input.
+            
             $errors = $e->validator->errors();
             return redirect()->back()->withErrors($errors)->withInput();
         } catch (\Exception $ex) {
-            // Catch any other exceptions and return the error message.
+            
             return $ex->getMessage();
         }
     }
@@ -81,7 +82,7 @@ class AdminUserController extends Controller
      */
     public function update(Request $request, AdminUser $adminUser)
     {
-        // Currently empty; this method could be used to update a specific resource.
+        
     }
 
     /**
@@ -89,7 +90,7 @@ class AdminUserController extends Controller
      */
     public function destroy(AdminUser $adminUser)
     {
-        // Currently empty; this method could be used to delete a specific resource.
+        
     }
 
     /**
@@ -136,11 +137,11 @@ class AdminUserController extends Controller
                     ->withInput(['email_address' => $email]);
             }
         } catch (ValidationException $e) {
-            // Catch any validation errors and redirect back with error messages and input.
+            
             $errors = $e->validator->errors();
             return redirect()->back()->withErrors($errors)->withInput();
         } catch (\Exception $ex) {
-            // Catch any other exceptions and return the error message.
+            
             return $ex->getMessage();
         }
     }

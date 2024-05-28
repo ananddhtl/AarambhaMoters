@@ -26,12 +26,6 @@
                                                         <img src="assets/img/home1/icon/trustpilot-star.svg" alt="">
                                                     </div>
                                                 </div>
-                                                <div class="content">
-                                                    <ul>
-                                                        <li>Trust Rating <span>5.0</span></li>
-                                                        <li><span>2348</span> Reviews</li>
-                                                    </ul>
-                                                </div>
                                             </a>
                                         </li>
                                         <li>
@@ -40,7 +34,7 @@
                                                     <div class="logo">
                                                         <img src="assets/img/home1/icon/google-logo.svg" alt="">
                                                     </div>
-                                                    <div class="star">
+                                                    {{-- <div class="star">
                                                         <ul>
                                                             <li><i class="bi bi-star-fill"></i></li>
                                                             <li><i class="bi bi-star-fill"></i></li>
@@ -48,14 +42,9 @@
                                                             <li><i class="bi bi-star-fill"></i></li>
                                                             <li><i class="bi bi-star-half"></i></li>
                                                         </ul>
-                                                    </div>
+                                                    </div> --}}
                                                 </div>
-                                                <div class="content">
-                                                    <ul>
-                                                        <li>Trust Rating <span>5.0</span></li>
-                                                        <li><span>2348</span> Reviews</li>
-                                                    </ul>
-                                                </div>
+
                                             </a>
                                         </li>
                                     </ul>
@@ -77,30 +66,30 @@
             <div class="row g-lg-4 gy-5">
                 <div class="col-lg-8">
                     <div class="post-thumb">
-                        <img src="{{$blogdesc->thumbnail}}" alt="">
-                        <div class="date">
+                        <img src="{{ $blogdesc->thumbnail }}" alt="">
+                        {{-- <div class="date">
                             <a href="blog-standard.html">Car Advice</a>
-                        </div>
+                        </div> --}}
                     </div>
-                    <h3 class="post-title">{{$blogdesc->title}}</h3>
+                    <h3 class="post-title">{{ $blogdesc->title }}</h3>
                     <div class="author-area">
-                        
+
                         <div class="author-content">
                             <h6>Admin</h6>
-                            <a href="blog-standard.html">{{$blogdesc->created_at}}</a>
+                            <a href="blog-standard.html">{{ $blogdesc->created_at }}</a>
                         </div>
                     </div>
-                    <p>{{$blogdesc->description}}</p>
-                   
-                    
-                    
-                   
-                   
+                    <p>{{ $blogdesc->description }}</p>
+
+
+
+
+
                 </div>
                 <div class="col-lg-4">
                     <div class="blog-sidebar mb-50">
-                       
-                        <div class="single-widgets widget_egns_recent_post mb-20">
+
+                        {{-- <div class="single-widgets widget_egns_recent_post mb-20">
                             <div class="widget-title blog-title mb-20">
                                 <h6>Recent Blog</h6>
                                 <div class="slider-btn-group2 d-flex align-items-center justify-content-between">
@@ -173,10 +162,10 @@
                                     <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
                                 </div>
                             </div>
-                        </div>
-                       
+                        </div> --}}
+
                     </div>
-                   
+
                 </div>
             </div>
         </div>

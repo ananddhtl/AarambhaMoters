@@ -13,7 +13,7 @@ class FrontendController extends Controller
 {
     public function index() {
         $category = VehicleCategory::get();
-    
+ 
         $vehicles = Vehicle::leftJoin('vehicle_images', 'vehicles.id', '=', 'vehicle_images.vehicle_id')
                             ->where('vehicles.status', 1)
                             ->select('vehicles.*', 'vehicle_images.vehicle_images as image_path')

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BookedVehicles;
 use Illuminate\Http\Request;
-use DB;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
@@ -32,7 +32,7 @@ class BookedVehiclesController extends Controller
     public function store(Request $request)
     {
        
-        $user = Auth::user();
+        $user = Auth::user(); 
         if (!$user) {
             return redirect()->back()->with('message', 'Please login first ');
         }
@@ -47,9 +47,9 @@ class BookedVehiclesController extends Controller
         ]);
         
      
-        $data = new BookedVehicles();
-        $data->user_id = $user->id;
-        $data->vehicle_id = $request->vehicle_id;
+        $data = new BookedVehicles(); //create new instance
+        $data->user_id = $user->id;  //asign user_id
+        $data->vehicle_id = $request->vehicle_id;  //assign vehicle_id from request
         $data->name = $request->name;
         $data->email = $request->email;
         $data->phone = $request->phone;
@@ -146,10 +146,10 @@ class BookedVehiclesController extends Controller
         return view('admin.bookedvehicles', compact('data'));
     }
 
-    public function confirmbooking(BookedVehicles $bookedVehicles, $id)
+    public function confirmbooking(BookedVehicles $bookedVehicles, $id) 
     {
-        $bookedVehicles = BookedVehicles::findOrFail($id);
-        $bookedVehicles->status = 1;
+        $bookedVehicles = BookedVehicles::findOrFail($id);  //find the booked vehicle by id
+        $bookedVehicles->status = 1;  //update status to approved
         $bookedVehicles->save();
     
      
@@ -169,7 +169,7 @@ class BookedVehiclesController extends Controller
 
     public function notifyseller($id)
     {
-       
+       // Retrieve booked vehicle along with seller information
         $bookedVehicle = BookedVehicles::select('booked_vehicles.*', 'vehicles.*', 'users.email as seller_email')
             ->join('vehicles', 'booked_vehicles.vehicle_id', '=', 'vehicles.id')
             ->join('users', 'vehicles.seller_id', '=', 'users.id')
@@ -181,7 +181,7 @@ class BookedVehiclesController extends Controller
             return redirect()->back()->with('error', 'Booked vehicle not found');
         }
     
-       
+        // Update the status of the booked vehicle to completed (2)
         $bookedVehicle->status = 2;
         $bookedVehicle->save();
     
@@ -202,11 +202,11 @@ class BookedVehiclesController extends Controller
 
     public function verifyPayment(Request $request)
 {
-    // Get token and itemId from the request
+    
     $token = $request->token;
     $itemId = $request->itemId;
 
-    // Construct the request parameters
+
     $args = http_build_query([
         'token' => $token,
         'amount' => 1000
@@ -247,10 +247,10 @@ public function storePayment(Request $request)
     if (!$bookedVehicle) {
         return response()->json(['message' => 'Booked vehicle not found'], 404);
     }
-
+    // Update the status of the booked vehicle to completed (2)
     $bookedVehicle->status = 2;
     $bookedVehicle->save();
-   
+    //return success response
     return response()->noContent();
 }
 
